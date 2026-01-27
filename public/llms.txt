@@ -1,0 +1,89 @@
+# XADO ISRAEL — Generative Engine Optimization Map
+
+> A תוספי רכב business.
+
+---
+
+## Pages
+
+### דף הבית
+https://xado-israel-52c91537.zappy5.app
+גלה את מוצרי XADO המובילים לשיפור ביצועים, חיסכון בדלק וטיפול מקצועי ברכב. פתרונות איכותיים למכונאים, חובבי רכב ומנהלי ציים.
+
+### Products
+https://xado-israel-52c91537.zappy5.app/products
+המוצרים שלנו - XADO ISRAEL
+
+### אודות
+https://xado-israel-52c91537.zappy5.app/about
+למד על XADO ISRAEL, המובילה בתחום תוספי רכב מתקדמים. גלה את הטכנולוגיה הייחודית, הערכים שלנו והמחויבות שלנו למצויינות בשירות.
+
+### צור קשר
+https://xado-israel-52c91537.zappy5.app/contact
+צור קשר עם XADO ISRAEL לייעוץ מקצועי, הזמנת מוצרים ותמיכה טכנית. אנחנו כאן כדי לעזור לך לבחור את הפתרונות הטובים ביותר לרכב שלך.
+
+### Cart
+https://xado-israel-52c91537.zappy5.app/cart
+עגלת הקניות שלך
+
+### Checkout
+https://xado-israel-52c91537.zappy5.app/checkout
+תשלום
+
+### Login
+https://xado-israel-52c91537.zappy5.app/login
+התחברות לקוחות
+
+### Account
+https://xado-israel-52c91537.zappy5.app/account
+החשבון שלי
+
+### Order Success
+https://xado-israel-52c91537.zappy5.app/order-success
+תודה על ההזמנה
+
+### Product Detail
+https://xado-israel-52c91537.zappy5.app/product/:slug
+פרטי המוצר - XADO ISRAEL
+
+### Category
+https://xado-israel-52c91537.zappy5.app/category/:slug
+מוצרים - XADO ISRAEL
+
+## Legal & Policy
+
+### Privacy Policy
+https://xado-israel-52c91537.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://xado-israel-52c91537.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://xado-israel-52c91537.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About XADO ISRAEL
+XADO ISRAEL is a business in the תוספי רכב industry.
+
+## Target Audience
+- חובבי רכב
+- מכונאים מקצועיים
+- מנהלי צי רכבים
+- נהגי שטח
+- נהגי רכב חסכוני
+
+## Industry
+תוספי רכב
+
+---
+
+# Additional Resources
+
+- **Sitemap**: https://xado-israel-52c91537.zappy5.app/sitemap.xml
+- **Robots.txt**: https://xado-israel-52c91537.zappy5.app/robots.txt
