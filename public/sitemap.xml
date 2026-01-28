@@ -182,6 +182,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/contact-us" />
   </url>
   <url>
+    <loc>https://xado-israel.zappy5.app/thank-you</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/thank-you" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/thank-you" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/thank-you" />
+  </url>
+  <url>
+    <loc>https://xado-israel.zappy5.app/ru/thank-you</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/thank-you" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/thank-you" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/thank-you" />
+  </url>
+  <url>
     <loc>https://xado-israel.zappy5.app/privacy</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
