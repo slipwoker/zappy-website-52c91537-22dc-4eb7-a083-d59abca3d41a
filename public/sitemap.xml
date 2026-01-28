@@ -2,237 +2,237 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com</loc>
+    <loc>https://xado-israel.zappy5.app</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app" />
   </url>
   <url>
-    <loc>https://example.com/ru</loc>
+    <loc>https://xado-israel.zappy5.app/ru</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app" />
   </url>
   <url>
-    <loc>https://example.com/category/:slug</loc>
+    <loc>https://xado-israel.zappy5.app/category/:slug</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/category/:slug" />
   </url>
   <url>
-    <loc>https://example.com/ru/category/:slug</loc>
+    <loc>https://xado-israel.zappy5.app/ru/category/:slug</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/category/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/category/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/category/:slug" />
   </url>
   <url>
-    <loc>https://example.com/about</loc>
+    <loc>https://xado-israel.zappy5.app/about</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/about" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/about" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/about" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/about" />
   </url>
   <url>
-    <loc>https://example.com/ru/about</loc>
+    <loc>https://xado-israel.zappy5.app/ru/about</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/about" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/about" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/about" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/about" />
   </url>
   <url>
-    <loc>https://example.com/cart</loc>
+    <loc>https://xado-israel.zappy5.app/cart</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/cart" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/cart" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/cart" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/cart" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/cart" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/cart" />
   </url>
   <url>
-    <loc>https://example.com/ru/cart</loc>
+    <loc>https://xado-israel.zappy5.app/ru/cart</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/cart" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/cart" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/cart" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/cart" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/cart" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/cart" />
   </url>
   <url>
-    <loc>https://example.com/checkout</loc>
+    <loc>https://xado-israel.zappy5.app/checkout</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/checkout" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/checkout" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/checkout" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/checkout" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/checkout" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/checkout" />
   </url>
   <url>
-    <loc>https://example.com/ru/checkout</loc>
+    <loc>https://xado-israel.zappy5.app/ru/checkout</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/checkout" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/checkout" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/checkout" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/checkout" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/checkout" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/checkout" />
   </url>
   <url>
-    <loc>https://example.com/login</loc>
+    <loc>https://xado-israel.zappy5.app/login</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/login" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/login" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/login" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/login" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/login" />
   </url>
   <url>
-    <loc>https://example.com/ru/login</loc>
+    <loc>https://xado-israel.zappy5.app/ru/login</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/login" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/login" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/login" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/login" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/login" />
   </url>
   <url>
-    <loc>https://example.com/account</loc>
+    <loc>https://xado-israel.zappy5.app/account</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/account" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/account" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/account" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/account" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/account" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/account" />
   </url>
   <url>
-    <loc>https://example.com/ru/account</loc>
+    <loc>https://xado-israel.zappy5.app/ru/account</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/account" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/account" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/account" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/account" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/account" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/account" />
   </url>
   <url>
-    <loc>https://example.com/order-success</loc>
+    <loc>https://xado-israel.zappy5.app/order-success</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/order-success" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/order-success" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/order-success" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/order-success" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/order-success" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/order-success" />
   </url>
   <url>
-    <loc>https://example.com/ru/order-success</loc>
+    <loc>https://xado-israel.zappy5.app/ru/order-success</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/order-success" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/order-success" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/order-success" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/order-success" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/order-success" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/order-success" />
   </url>
   <url>
-    <loc>https://example.com/product/:slug</loc>
+    <loc>https://xado-israel.zappy5.app/product/:slug</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/product/:slug" />
   </url>
   <url>
-    <loc>https://example.com/ru/product/:slug</loc>
+    <loc>https://xado-israel.zappy5.app/ru/product/:slug</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/product/:slug" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/product/:slug" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/product/:slug" />
   </url>
   <url>
-    <loc>https://example.com/contact-us</loc>
+    <loc>https://xado-israel.zappy5.app/contact-us</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/contact-us" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/contact-us" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/contact-us" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/contact-us" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/contact-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/contact-us" />
   </url>
   <url>
-    <loc>https://example.com/ru/contact-us</loc>
+    <loc>https://xado-israel.zappy5.app/ru/contact-us</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/contact-us" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/contact-us" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/contact-us" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/contact-us" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/contact-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/contact-us" />
   </url>
   <url>
-    <loc>https://example.com/privacy</loc>
-    <lastmod>2026-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/privacy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/privacy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/privacy" />
-  </url>
-  <url>
-    <loc>https://example.com/ru/privacy</loc>
+    <loc>https://xado-israel.zappy5.app/privacy</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/privacy" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/privacy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/privacy" />
   </url>
   <url>
-    <loc>https://example.com/terms</loc>
+    <loc>https://xado-israel.zappy5.app/ru/privacy</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/terms" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/terms" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/terms" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/privacy" />
   </url>
   <url>
-    <loc>https://example.com/ru/terms</loc>
+    <loc>https://xado-israel.zappy5.app/terms</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/terms" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/terms" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/terms" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/terms" />
   </url>
   <url>
-    <loc>https://example.com/accessibility</loc>
+    <loc>https://xado-israel.zappy5.app/ru/terms</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/accessibility" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/accessibility" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/accessibility" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/terms" />
   </url>
   <url>
-    <loc>https://example.com/ru/accessibility</loc>
+    <loc>https://xado-israel.zappy5.app/accessibility</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://example.com/accessibility" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://example.com/ru/accessibility" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/accessibility" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/accessibility" />
+  </url>
+  <url>
+    <loc>https://xado-israel.zappy5.app/ru/accessibility</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://xado-israel.zappy5.app/ru/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xado-israel.zappy5.app/accessibility" />
   </url>
 </urlset>
