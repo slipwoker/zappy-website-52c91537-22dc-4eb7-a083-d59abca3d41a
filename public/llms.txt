@@ -1,6 +1,4 @@
-# XADO ISRAEL — Generative Engine Optimization Map
-
-> A תוספי רכב business.
+# Business — Generative Engine Optimization Map
 
 ---
 
@@ -72,19 +70,7 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About XADO ISRAEL
-XADO ISRAEL is a business in the תוספי רכב industry.
-
-## Target Audience
-- חובבי רכב
-- מכונאים מקצועיים
-- מנהלי צי רכבים
-- נהגי שטח
-- נהגי רכב חסכוני
-
-## Industry
-תוספי רכב
-
+## About Business
 ---
 
 # Additional Resources
