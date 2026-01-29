@@ -1,6 +1,4 @@
-# XADO ISRAEL — Generative Engine Optimization Map
-
-> A תוספי רכב business.
+# Business — Generative Engine Optimization Map
 
 ---
 
@@ -10,7 +8,7 @@
 https://xado-israel.zappy5.app
 גלה את מוצרי XADO המובילים לשיפור ביצועים, חיסכון בדלק וטיפול מקצועי ברכב. פתרונות איכותיים למכונאים, חובבי רכב ומנהלי ציים.
 
-### מוצרים
+### Category
 https://xado-israel.zappy5.app/category/:slug
 מוצרים - XADO ISRAEL
 
@@ -18,27 +16,27 @@ https://xado-israel.zappy5.app/category/:slug
 https://xado-israel.zappy5.app/about
 למד על XADO ISRAEL, המובילה בתחום תוספי רכב מתקדמים. גלה את הטכנולוגיה הייחודית, הערכים שלנו והמחויבות שלנו למצויינות בשירות.
 
-### עגלת קניות
+### Cart
 https://xado-israel.zappy5.app/cart
 עגלת הקניות שלך
 
-### תשלום
+### Checkout
 https://xado-israel.zappy5.app/checkout
 תשלום
 
-### התחברות
+### Login
 https://xado-israel.zappy5.app/login
 התחברות לקוחות
 
-### החשבון שלי
+### Account
 https://xado-israel.zappy5.app/account
 החשבון שלי
 
-### ההזמנה התקבלה!
+### Order Success
 https://xado-israel.zappy5.app/order-success
 תודה על ההזמנה
 
-### פרטי המוצר
+### Product Detail
 https://xado-israel.zappy5.app/product/:slug
 פרטי המוצר - XADO ISRAEL
 
@@ -49,6 +47,10 @@ https://xado-israel.zappy5.app/contact-us
 ### תודה רבה - XADO ISRAEL
 https://xado-israel.zappy5.app/thank-you
 תודה שפנית ל-XADO ישראל. פנייתך התקבלה בהצלחה ונחזור אליך בהקדם.
+
+### Products
+https://xado-israel.zappy5.app/products
+המוצרים שלנו - XADO ISRAEL
 
 ## Legal & Policy
 
@@ -68,19 +70,7 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About XADO ISRAEL
-XADO ISRAEL is a business in the תוספי רכב industry.
-
-## Target Audience
-- חובבי רכב
-- מכונאים מקצועיים
-- מנהלי צי רכבים
-- נהגי שטח
-- נהגי רכב חסכוני
-
-## Industry
-תוספי רכב
-
+## About Business
 ---
 
 # Additional Resources
