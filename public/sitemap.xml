@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://xado-israel.zappy5.app</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app" />
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app" />
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/category/:slug</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/category/:slug" />
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/category/:slug</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/category/:slug" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/about</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/about" />
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/about</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/about" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/cart</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/cart" />
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/cart</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/cart" />
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/checkout</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/checkout" />
@@ -84,7 +84,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/checkout</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/checkout" />
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/login</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/login" />
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/login</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/login" />
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/account</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/account" />
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/account</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/account" />
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/order-success</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/order-success" />
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/order-success</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/order-success" />
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/product/:slug</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/product/:slug" />
@@ -156,7 +156,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/product/:slug</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/product/:slug" />
@@ -165,7 +165,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/contact-us</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/contact-us" />
@@ -174,7 +174,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/contact-us</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/contact-us" />
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/thank-you</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/thank-you" />
@@ -192,7 +192,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/thank-you</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/thank-you" />
@@ -201,7 +201,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/privacy</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/privacy" />
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/privacy</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/privacy" />
@@ -219,7 +219,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/terms</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/terms" />
@@ -228,7 +228,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/terms</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/terms" />
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/accessibility</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/accessibility" />
@@ -246,7 +246,7 @@
   </url>
   <url>
     <loc>https://xado-israel.zappy5.app/ru/accessibility</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xado-israel.zappy5.app/accessibility" />
