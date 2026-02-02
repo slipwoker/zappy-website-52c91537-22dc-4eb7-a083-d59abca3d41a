@@ -1,93 +1,79 @@
-# XADO ISRAEL — Generative Engine Optimization Map
-
-> A תוספי רכב business.
+# Business — Generative Engine Optimization Map
 
 ---
 
 ## Pages
 
 ### שדרוג ביצועי הרכב שלך עם מוצרי XADO — XADO ISRAEL
-https://xado-israel.zappy5.app
+https://xadoisrael.com
 גלה את מוצרי XADO המובילים לשיפור ביצועים, חיסכון בדלק וטיפול מקצועי ברכב. פתרונות איכותיים למכונאים, חובבי רכב ומנהלי ציים.
 
 ### Category
-https://xado-israel.zappy5.app/category/:slug
+https://xadoisrael.com/category/:slug
 מוצרים - XADO ISRAEL
 
 ### הסיפור שלנו והטכנולוגיה שמאחורי XADO — XADO ISRAEL
-https://xado-israel.zappy5.app/about
+https://xadoisrael.com/about
 למד על XADO ISRAEL, המובילה בתחום תוספי רכב מתקדמים. גלה את הטכנולוגיה הייחודית, הערכים שלנו והמחויבות שלנו למצויינות בשירות.
 
 ### Cart
-https://xado-israel.zappy5.app/cart
+https://xadoisrael.com/cart
 עגלת הקניות שלך
 
 ### Checkout
-https://xado-israel.zappy5.app/checkout
+https://xadoisrael.com/checkout
 תשלום
 
 ### Login
-https://xado-israel.zappy5.app/login
+https://xadoisrael.com/login
 התחברות לקוחות
 
 ### Account
-https://xado-israel.zappy5.app/account
+https://xadoisrael.com/account
 החשבון שלי
 
 ### Order Success
-https://xado-israel.zappy5.app/order-success
+https://xadoisrael.com/order-success
 תודה על ההזמנה
 
 ### Product Detail
-https://xado-israel.zappy5.app/product/:slug
+https://xadoisrael.com/product/:slug
 פרטי המוצר - XADO ISRAEL
 
 ### צור קשר עם המומחים של XADO — XADO ISRAEL
-https://xado-israel.zappy5.app/contact-us
+https://xadoisrael.com/contact-us
 צור קשר עם XADO ISRAEL לייעוץ מקצועי, הזמנת מוצרים ותמיכה טכנית. אנחנו כאן כדי לעזור לך לבחור את הפתרונות הטובים ביותר לרכב שלך.
 
 ### תודה רבה - XADO ISRAEL
-https://xado-israel.zappy5.app/thank-you
+https://xadoisrael.com/thank-you
 תודה שפנית ל-XADO ישראל. פנייתך התקבלה בהצלחה ונחזור אליך בהקדם.
 
 ### Products
-https://xado-israel.zappy5.app/products
+https://xadoisrael.com/products
 המוצרים שלנו - XADO ISRAEL
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://xado-israel.zappy5.app/privacy
+https://xadoisrael.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://xado-israel.zappy5.app/terms
+https://xadoisrael.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://xado-israel.zappy5.app/accessibility
+https://xadoisrael.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About XADO ISRAEL
-XADO ISRAEL is a business in the תוספי רכב industry.
-
-## Target Audience
-- חובבי רכב
-- מכונאים מקצועיים
-- מנהלי צי רכבים
-- נהגי שטח
-- נהגי רכב חסכוני
-
-## Industry
-תוספי רכב
-
+## About Business
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://xado-israel.zappy5.app/sitemap.xml
-- **Robots.txt**: https://xado-israel.zappy5.app/robots.txt
+- **Sitemap**: https://xadoisrael.com/sitemap.xml
+- **Robots.txt**: https://xadoisrael.com/robots.txt
