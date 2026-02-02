@@ -4450,6 +4450,14 @@ body[dir="rtl"] .zappy-catalog-menu .catalog-menu-categories,
 .zappy-catalog-menu.rtl .catalog-menu-categories{flex-direction: row !important;}
 
 /* ==END ZAPPY E-COMMERCE CSS== */
+/* Fix: Mobile nav menu li should be block-level for vertical stacking */
+@media (max-width: 768px) {
+  .nav-menu li {
+    display: block !important;
+    width: 100% !important;
+  }
+}
+
 
 /* ========== RTL MOBILE NAVBAR FIX (zappy-rtl-mobile-fix) ========== */
 /* High-specificity rules to ensure RTL positioning wins over any [lang="en"] conflicts */
