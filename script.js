@@ -358,6 +358,8 @@ window.onload = function() {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -485,26 +487,28 @@ window.onload = function() {
     return fallback;
   }
   
-  // Helper to strip HTML tags and convert rich text to plain text for card previews
-  function stripHtmlToText(html) {
-    if (!html) return '';
-    // Create a temporary element to parse HTML
-    var temp = document.createElement('div');
-    temp.innerHTML = html;
-    // Replace block-level elements' closing tags with space to preserve word boundaries
-    // This handles </p>, </div>, </li>, <br>, etc. from rich text editors
-    temp.innerHTML = temp.innerHTML
-      .replace(/<\/p>/gi, ' ')
-      .replace(/<\/div>/gi, ' ')
-      .replace(/<\/li>/gi, ' ')
-      .replace(/<br\s*\/?>/gi, ' ')
-      .replace(/<\/h[1-6]>/gi, ' ');
-    // Get text content (strips remaining HTML tags)
-    var text = temp.textContent || temp.innerText || '';
-    // Normalize whitespace (replace multiple spaces/newlines with single space)
-    text = text.replace(/\s+/g, ' ').trim();
-    return text;
-  }
+  
+// Helper to strip HTML tags and convert rich text to plain text for card previews
+function stripHtmlToText(html) {
+  if (!html) return '';
+  // Create a temporary element to parse HTML
+  var temp = document.createElement('div');
+  temp.innerHTML = html;
+  // Replace block-level elements' closing tags with space to preserve word boundaries
+  // This handles </p>, </div>, </li>, <br>, etc. from rich text editors
+  temp.innerHTML = temp.innerHTML
+    .replace(/<\/p>/gi, ' ')
+    .replace(/<\/div>/gi, ' ')
+    .replace(/<\/li>/gi, ' ')
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<\/h[1-6]>/gi, ' ');
+  // Get text content (strips remaining HTML tags)
+  var text = temp.textContent || temp.innerText || '';
+  // Normalize whitespace (replace multiple spaces/newlines with single space)
+  text = text.replace(/\s+/g, ' ').trim();
+  return text;
+}
+
   
   // RTL detection (based on HTML lang attribute or document direction)
   const htmlLang = document.documentElement.lang || '';
@@ -3437,6 +3441,8 @@ function getEcomText(key, fallback) {
   return fallback;
 }
 
+// Helper to strip HTML tags - defined here since ecommerceJs uses an IIFE and its scope is not accessible
+
 // Helper to strip HTML tags and convert rich text to plain text for card previews
 function stripHtmlToText(html) {
   if (!html) return '';
@@ -3457,6 +3463,7 @@ function stripHtmlToText(html) {
   text = text.replace(/\s+/g, ' ').trim();
   return text;
 }
+
 
 function renderProductGrid(grid, products, t, isFeaturedSection) {
   // Update grid class based on layout (only for product grids, not featured section which has its own styling)

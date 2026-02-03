@@ -3303,6 +3303,7 @@ html[dir="rtl"] body{overflow-x: hidden !important;max-width: 100vw !important;}
 }
 
 
+
 /* ==ZAPPY E-COMMERCE CSS== */
 /* E-commerce Enhancement Styles - Inherits site theme colors */
 .ecommerce-page {
@@ -3524,6 +3525,8 @@ html[dir="rtl"] body{overflow-x: hidden !important;max-width: 100vw !important;}
 .product-info .product-stock.out-of-stock { color: #dc2626; }
 .product-info .product-stock svg { width: 20px; height: 20px; }
 .product-info .product-description { line-height: 1.7; color: var(--text-color, #4b5563); }
+.product-info .product-description ul, .product-info .product-description ol { padding-inline-start: 1.5rem; margin-bottom: 1rem; }
+.product-info .product-description li { margin-bottom: 0.5rem; }
 /* Product Specifications */
 .product-specifications { margin: 24px 0; padding: 20px; background: var(--surface-color, var(--surface, #f9fafb)); border-radius: 12px; }
 .product-specifications h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 16px 0; color: var(--text-color, var(--text, #1f2937)); }
@@ -4607,7 +4610,8 @@ body[dir="rtl"] .zappy-catalog-menu .catalog-menu-categories,
   
   /* ========== MAIN PADDING FIX ========== */
   /* Fix double-padding from old V2 mobile CSS that applied padding to both main and sections */
-  main {
+  /* Exclude ecommerce-page which needs its own horizontal padding for proper mobile layout */
+  main:not(.ecommerce-page) {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
