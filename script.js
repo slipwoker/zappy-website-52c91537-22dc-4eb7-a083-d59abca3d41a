@@ -360,6 +360,8 @@ window.onload = function() {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -473,7 +475,7 @@ window.onload = function() {
   if (!websiteId) return;
   
   // Translations
-  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
+  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","agreeToTerms":"אני מסכים/ה ל","termsAndConditions":"תנאי השימוש","pleaseAcceptTerms":"נא לאשר את תנאי השימוש","nameRequired":"נא להזין שם מלא","emailRequired":"נא להזין כתובת אימייל","emailInvalid":"כתובת אימייל לא תקינה","phoneRequired":"נא להזין מספר טלפון","shippingRequired":"נא לבחור שיטת משלוח","streetRequired":"נא להזין רחוב ומספר","cityRequired":"נא להזין עיר","cartEmpty":"העגלה ריקה","paymentNotConfigured":"תשלום מקוון לא מוגדר","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
   
   // Helper to get localized e-commerce UI text
   // Tries zappyI18n first for multilingual support, falls back to static t object
@@ -1086,41 +1088,129 @@ function stripHtmlToText(html) {
     });
   };
   
+  // Inline validation helper functions
+  function showFieldError(inputId, errorId, message) {
+    var input = document.getElementById(inputId);
+    var errorEl = document.getElementById(errorId);
+    if (input) {
+      input.classList.add('input-error');
+    }
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.classList.add('visible');
+    }
+  }
+  
+  function clearFieldError(inputId, errorId) {
+    var input = document.getElementById(inputId);
+    var errorEl = document.getElementById(errorId);
+    if (input) {
+      input.classList.remove('input-error');
+    }
+    if (errorEl) {
+      errorEl.textContent = '';
+      errorEl.classList.remove('visible');
+    }
+  }
+  
+  function clearAllFieldErrors() {
+    document.querySelectorAll('.field-error').forEach(function(el) {
+      el.textContent = '';
+      el.classList.remove('visible');
+    });
+    document.querySelectorAll('.input-error').forEach(function(el) {
+      el.classList.remove('input-error');
+    });
+    document.querySelectorAll('.has-error').forEach(function(el) {
+      el.classList.remove('has-error');
+    });
+  }
+  
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  
   // Initialize checkout / place order button
   function initCheckout() {
     const placeOrderBtn = document.getElementById('place-order-btn');
     if (!placeOrderBtn) return;
     
+    // Add real-time validation - clear errors when user types
+    var fieldsToWatch = ['customer-name', 'customer-email', 'customer-phone', 'shipping-street', 'shipping-city'];
+    fieldsToWatch.forEach(function(fieldId) {
+      var field = document.getElementById(fieldId);
+      if (field) {
+        field.addEventListener('input', function() {
+          clearFieldError(fieldId, fieldId + '-error');
+        });
+      }
+    });
+    
+    // Clear terms error when checkbox changes
+    var termsCheckbox = document.getElementById('terms-checkbox');
+    if (termsCheckbox) {
+      termsCheckbox.addEventListener('change', function() {
+        var wrapper = document.querySelector('.terms-checkbox-wrapper');
+        if (wrapper) wrapper.classList.remove('has-error');
+        clearFieldError('', 'terms-checkbox-error');
+      });
+    }
+    
     placeOrderBtn.addEventListener('click', async function(e) {
       e.preventDefault();
       
+      // Clear all previous errors first
+      clearAllFieldErrors();
+      
+      var hasErrors = false;
+      var firstErrorField = null;
+      
       // Validate cart
       if (!cart || cart.length === 0) {
-        alert(isRTL ? 'העגלה ריקה' : 'Cart is empty');
-        return;
-      }
-      
-      // Validate shipping
-      if (!selectedShipping) {
-        alert(isRTL ? 'נא לבחור שיטת משלוח' : 'Please select a shipping method');
-        return;
-      }
-      
-      // Validate payment is configured
-      if (!isPaymentConfigured || !selectedPaymentMethod) {
-        alert(isRTL ? 'תשלום מקוון לא מוגדר. צרו קשר עם בעל האתר.' : 'Online payment not configured. Please contact the store owner.');
+        alert(t.cartEmpty || (isRTL ? 'העגלה ריקה' : 'Your cart is empty'));
         return;
       }
       
       // Get customer info
       const customerName = document.getElementById('customer-name')?.value?.trim() || '';
-      const customerEmail = sanitizeEmail(document.getElementById('customer-email')?.value || '');
+      const customerEmailRaw = document.getElementById('customer-email')?.value || '';
+      const customerEmail = sanitizeEmail(customerEmailRaw);
       const customerPhone = document.getElementById('customer-phone')?.value?.trim() || '';
       
-      // Validate required fields
-      if (!customerName || !customerEmail) {
-        alert(isRTL ? 'נא למלא שם ואימייל' : 'Please fill in name and email');
-        return;
+      // Validate customer name
+      if (!customerName) {
+        showFieldError('customer-name', 'customer-name-error', getEcomText('nameRequired', t.nameRequired || (isRTL ? 'נא להזין שם מלא' : 'Please enter your full name')));
+        hasErrors = true;
+        if (!firstErrorField) firstErrorField = 'customer-name';
+      }
+      
+      // Validate customer email
+      if (!customerEmailRaw.trim()) {
+        showFieldError('customer-email', 'customer-email-error', getEcomText('emailRequired', t.emailRequired || (isRTL ? 'נא להזין כתובת אימייל' : 'Please enter your email address')));
+        hasErrors = true;
+        if (!firstErrorField) firstErrorField = 'customer-email';
+      } else if (!isValidEmail(customerEmailRaw.trim())) {
+        showFieldError('customer-email', 'customer-email-error', getEcomText('emailInvalid', t.emailInvalid || (isRTL ? 'כתובת אימייל לא תקינה' : 'Please enter a valid email address')));
+        hasErrors = true;
+        if (!firstErrorField) firstErrorField = 'customer-email';
+      }
+      
+      // Validate customer phone
+      if (!customerPhone) {
+        showFieldError('customer-phone', 'customer-phone-error', getEcomText('phoneRequired', t.phoneRequired || (isRTL ? 'נא להזין מספר טלפון' : 'Please enter your phone number')));
+        hasErrors = true;
+        if (!firstErrorField) firstErrorField = 'customer-phone';
+      }
+      
+      // Validate shipping method
+      if (!selectedShipping) {
+        var shippingError = document.getElementById('shipping-method-error');
+        if (shippingError) {
+          shippingError.textContent = getEcomText('shippingRequired', t.shippingRequired || (isRTL ? 'נא לבחור שיטת משלוח' : 'Please select a shipping method'));
+          shippingError.classList.add('visible');
+        }
+        hasErrors = true;
+        if (!firstErrorField) firstErrorField = 'shipping-methods';
       }
       
       // Get shipping address
@@ -1130,8 +1220,49 @@ function stripHtmlToText(html) {
       const shippingZip = document.getElementById('shipping-zip')?.value?.trim() || '';
       
       // Validate shipping address (unless it's pickup)
-      if (!selectedShipping.is_pickup && (!shippingStreet || !shippingCity)) {
-        alert(isRTL ? 'נא למלא כתובת למשלוח' : 'Please fill in shipping address');
+      if (selectedShipping && !selectedShipping.is_pickup) {
+        if (!shippingStreet) {
+          showFieldError('shipping-street', 'shipping-street-error', getEcomText('streetRequired', t.streetRequired || (isRTL ? 'נא להזין רחוב ומספר' : 'Please enter your street address')));
+          hasErrors = true;
+          if (!firstErrorField) firstErrorField = 'shipping-street';
+        }
+        if (!shippingCity) {
+          showFieldError('shipping-city', 'shipping-city-error', getEcomText('cityRequired', t.cityRequired || (isRTL ? 'נא להזין עיר' : 'Please enter your city')));
+          hasErrors = true;
+          if (!firstErrorField) firstErrorField = 'shipping-city';
+        }
+      }
+      
+      // Validate payment is configured
+      if (!isPaymentConfigured || !selectedPaymentMethod) {
+        alert(t.paymentNotConfigured || (isRTL ? 'תשלום מקוון לא מוגדר. צרו קשר עם בעל האתר.' : 'Online payment not configured. Please contact the store owner.'));
+        return;
+      }
+      
+      // Validate terms and conditions checkbox - MUST be checked to proceed
+      var termsBox = document.getElementById('terms-checkbox');
+      if (!termsBox || !termsBox.checked) {
+        var termsWrapper = document.querySelector('.terms-checkbox-wrapper');
+        if (termsWrapper) termsWrapper.classList.add('has-error');
+        var termsErrorEl = document.getElementById('terms-checkbox-error');
+        if (termsErrorEl) {
+          termsErrorEl.textContent = getEcomText('pleaseAcceptTerms', t.pleaseAcceptTerms || (isRTL ? 'נא לאשר את תנאי השימוש' : 'Please accept the terms and conditions'));
+          termsErrorEl.classList.add('visible');
+        }
+        hasErrors = true;
+        if (!firstErrorField) firstErrorField = 'terms-checkbox';
+      }
+      
+      // If there are errors, scroll to first error and stop
+      if (hasErrors) {
+        if (firstErrorField) {
+          var errorElement = document.getElementById(firstErrorField);
+          if (errorElement) {
+            errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (errorElement.focus) errorElement.focus();
+          }
+        }
+        console.log('[E-COMMERCE] Validation failed, stopping checkout');
         return;
       }
       
@@ -1539,6 +1670,12 @@ function stripHtmlToText(html) {
     document.querySelectorAll('.shipping-option').forEach(el => {
       el.classList.toggle('selected', el.dataset.methodId === methodId);
     });
+    // Clear shipping method error when selected
+    var shippingError = document.getElementById('shipping-method-error');
+    if (shippingError) {
+      shippingError.textContent = '';
+      shippingError.classList.remove('visible');
+    }
     // Show/hide shipping address based on pickup status
     const addressSection = document.getElementById('shipping-address-section');
     if (addressSection) {
@@ -3371,7 +3508,7 @@ async function loadFeaturedProducts() {
   // Ensure store settings are loaded first (for productLayout)
   await fetchAdditionalJsSettings();
   
-  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
+  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","agreeToTerms":"אני מסכים/ה ל","termsAndConditions":"תנאי השימוש","pleaseAcceptTerms":"נא לאשר את תנאי השימוש","nameRequired":"נא להזין שם מלא","emailRequired":"נא להזין כתובת אימייל","emailInvalid":"כתובת אימייל לא תקינה","phoneRequired":"נא להזין מספר טלפון","shippingRequired":"נא לבחור שיטת משלוח","streetRequired":"נא להזין רחוב ומספר","cityRequired":"נא להזין עיר","cartEmpty":"העגלה ריקה","paymentNotConfigured":"תשלום מקוון לא מוגדר","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
   
   try {
     // Only fetch featured products - no fallback, with language support
@@ -3766,7 +3903,7 @@ async function loadProductDetailPage() {
   const websiteId = window.ZAPPY_WEBSITE_ID;
   if (!websiteId) return;
   
-  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
+  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","agreeToTerms":"אני מסכים/ה ל","termsAndConditions":"תנאי השימוש","pleaseAcceptTerms":"נא לאשר את תנאי השימוש","nameRequired":"נא להזין שם מלא","emailRequired":"נא להזין כתובת אימייל","emailInvalid":"כתובת אימייל לא תקינה","phoneRequired":"נא להזין מספר טלפון","shippingRequired":"נא לבחור שיטת משלוח","streetRequired":"נא להזין רחוב ומספר","cityRequired":"נא להזין עיר","cartEmpty":"העגלה ריקה","paymentNotConfigured":"תשלום מקוון לא מוגדר","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
   
   // Get slug from URL - check both pathname and query parameter (preview mode)
   let pagePath = window.location.pathname;
@@ -3819,7 +3956,7 @@ async function loadCategoryPage() {
   const websiteId = window.ZAPPY_WEBSITE_ID;
   if (!websiteId) return;
   
-  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
+  const t = {"products":"מוצרים","ourProducts":"המוצרים שלנו","featuredProducts":"מוצרים מומלצים","noFeaturedProducts":"עוד לא נבחרו מוצרים מומלצים. צפו בכל המוצרים שלנו!","featuredCategories":"קנו לפי קטגוריה","all":"הכל","featured":"מומלצים","new":"חדשים","sale":"מבצעים","loadingProducts":"טוען מוצרים...","cart":"עגלת קניות","yourCart":"עגלת הקניות שלך","emptyCart":"העגלה ריקה","total":"סה\"כ","proceedToCheckout":"המשך לתשלום","checkout":"תשלום","customerInfo":"פרטי לקוח","fullName":"שם מלא","email":"אימייל","phone":"טלפון","shippingAddress":"כתובת למשלוח","street":"רחוב ומספר","apartment":"דירה, קומה, כניסה","city":"עיר","zip":"מיקוד","shippingMethod":"שיטת משלוח","loadingShipping":"טוען שיטות משלוח...","payment":"תשלום","loadingPayment":"טוען אפשרויות תשלום...","orderSummary":"סיכום הזמנה","subtotal":"סכום ביניים","vat":"מע\"מ","vatIncluded":"כולל מע\"מ","shipping":"משלוח","discount":"הנחה","totalToPay":"סה\"כ לתשלום","placeOrder":"בצע הזמנה","login":"התחברות","customerLogin":"התחברות לקוחות","enterEmail":"הזן את כתובת האימייל שלך ונשלח לך קוד התחברות","emailAddress":"כתובת אימייל","sendCode":"שלח קוד","enterCode":"הזן את הקוד שנשלח לאימייל שלך","verificationCode":"קוד אימות","verify":"אמת","returnPolicy":"מדיניות החזרות","addToCart":"הוסף לעגלה","addedToCart":"המוצר נוסף לעגלה!","remove":"הסר","noProducts":"אין מוצרים להצגה כרגע","errorLoading":"שגיאה בטעינה","days":"ימים","currency":"₪","free":"חינם","freeAbove":"משלוח חינם מעל","noShippingMethods":"אין אפשרויות משלוח זמינות","viewAllResults":"הצג את כל התוצאות","searchProducts":"חיפוש מוצרים","productDetails":"פרטי המוצר","viewDetails":"לפרטים נוספים","inStock":"במלאי","outOfStock":"אזל מהמלאי","sku":"מק\"ט","category":"קטגוריה","relatedProducts":"מוצרים דומים","productNotFound":"המוצר לא נמצא","backToProducts":"חזרה למוצרים","home":"בית","quantity":"כמות","couponCode":"קוד קופון","enterCouponCode":"הזן קוד קופון","applyCoupon":"החל","removeCoupon":"הסר","couponApplied":"הקופון הוחל בהצלחה!","invalidCoupon":"קוד קופון לא תקין","couponExpired":"הקופון פג תוקף","couponMinOrder":"סכום הזמנה מינימלי","alreadyHaveAccount":"כבר יש לך חשבון?","loginHere":"התחבר כאן","loggedInAs":"מחובר כ:","logout":"התנתק","haveCouponCode":"יש לי קוד קופון","agreeToTerms":"אני מסכים/ה ל","termsAndConditions":"תנאי השימוש","pleaseAcceptTerms":"נא לאשר את תנאי השימוש","nameRequired":"נא להזין שם מלא","emailRequired":"נא להזין כתובת אימייל","emailInvalid":"כתובת אימייל לא תקינה","phoneRequired":"נא להזין מספר טלפון","shippingRequired":"נא לבחור שיטת משלוח","streetRequired":"נא להזין רחוב ומספר","cityRequired":"נא להזין עיר","cartEmpty":"העגלה ריקה","paymentNotConfigured":"תשלום מקוון לא מוגדר","orderSuccess":"ההזמנה התקבלה!","thankYouOrder":"תודה על ההזמנה","orderNumber":"מספר הזמנה","orderConfirmation":"אישור הזמנה נשלח לאימייל שלך","orderProcessing":"ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.","continueShopping":"להמשך קניות","orderDetails":"פרטי ההזמנה","loadingOrder":"טוען פרטי הזמנה...","orderNotFound":"לא נמצאה הזמנה","orderItems":"פריטים בהזמנה","paidAmount":"סכום ששולם","myAccount":"החשבון שלי","accountWelcome":"ברוך הבא","yourOrders":"ההזמנות שלך","noOrders":"אין עדיין הזמנות","orderDate":"תאריך","orderStatus":"סטטוס","orderTotal":"סה\"כ","viewOrder":"צפה בהזמנה","statusPending":"ממתין לתשלום","statusPaid":"שולם","statusProcessing":"בטיפול","statusShipped":"נשלח","statusDelivered":"נמסר","statusCancelled":"בוטל","notLoggedIn":"לא מחובר","pleaseLogin":"יש להתחבר כדי לצפות בחשבון","personalDetails":"פרטים אישיים","editProfile":"עריכת פרופיל","name":"שם","saveChanges":"שמור שינויים","cancel":"ביטול","addresses":"כתובות","addAddress":"הוסף כתובת","editAddress":"ערוך כתובת","deleteAddress":"מחק כתובת","setAsDefault":"הגדר כברירת מחדל","defaultAddress":"כתובת ברירת מחדל","addressLabel":"שם הכתובת","work":"עבודה","other":"אחר","noAddresses":"אין כתובות שמורות","confirmDelete":"האם אתה בטוח שברצונך למחוק?","profileUpdated":"הפרופיל עודכן בהצלחה","addressSaved":"הכתובת נשמרה בהצלחה","addressDeleted":"הכתובת נמחקה","saving":"שומר...","selectVariant":"בחר אפשרות","variantUnavailable":"לא זמין","color":"צבע","size":"מידה","material":"חומר","style":"סגנון","weight":"משקל","capacity":"קיבולת","length":"אורך","inquiryAbout":"פנייה בנושא","sendInquiry":"שלח פנייה","callNow":"התקשר עכשיו","specifications":"מפרט טכני","businessPhone":"[business_phone]","businessEmail":"[business_email]"};
   
   // Get slug from URL - check both pathname and query parameter (preview mode)
   let pagePath = window.location.pathname;
