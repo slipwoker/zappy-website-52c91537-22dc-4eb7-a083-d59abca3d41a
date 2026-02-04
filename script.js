@@ -364,6 +364,8 @@ window.onload = function() {
 ;
 
 ;
+
+;
 /* ==ZAPPY E-COMMERCE JS START== */
 // E-commerce functionality
 (function() {
@@ -662,16 +664,24 @@ function stripHtmlToText(html) {
       // Get category filter from URL if present
       const urlParams = new URLSearchParams(window.location.search);
       const pageParam = urlParams.get('page');
+      // Search query can exist either on the real URL (?search=) or inside the preview page param (page=/products?search=)
+      let searchQuery = (urlParams.get('search') || '').trim();
       let categoryId = urlParams.get('category');
       if (pageParam) {
         const pageUrl = new URL(pageParam, window.location.origin);
         categoryId = pageUrl.searchParams.get('category') || categoryId;
+        if (!searchQuery) {
+          searchQuery = (pageUrl.searchParams.get('search') || '').trim();
+        }
       }
       
       // Build API URL with language support for translations
       let apiUrl = buildApiUrlWithLang('/api/ecommerce/storefront/products?websiteId=' + websiteId);
       if (categoryId) {
         apiUrl += '&categoryId=' + categoryId;
+      }
+      if (searchQuery && searchQuery.length >= 2) {
+        apiUrl += '&search=' + encodeURIComponent(searchQuery);
       }
       
       const res = await fetch(apiUrl);
@@ -1385,8 +1395,11 @@ function stripHtmlToText(html) {
     const phoneInput = document.getElementById('customer-phone');
     if (!nameInput || !emailInput) return;
     
-    const token = localStorage.getItem('zappy_customer_token');
-    const savedEmail = localStorage.getItem('zappy_customer_email');
+    // Use site-specific localStorage keys for session isolation
+    const tokenKey = 'zappy_customer_token_' + websiteId;
+    const emailKey = 'zappy_customer_email_' + websiteId;
+    const token = localStorage.getItem(tokenKey);
+    const savedEmail = localStorage.getItem(emailKey);
     const loginPrompt = document.getElementById('checkout-login-prompt');
     const loginLink = document.getElementById('checkout-login-link');
     const loggedInEl = document.getElementById('checkout-logged-in');
@@ -1423,7 +1436,8 @@ function stripHtmlToText(html) {
       return;
     }
     
-    fetch(buildApiUrl('/api/ecommerce/customers/me'), {
+    // Include websiteId for session isolation validation
+    fetch(buildApiUrl('/api/ecommerce/customers/me?websiteId=' + encodeURIComponent(websiteId)), {
       headers: { 'Authorization': 'Bearer ' + token }
     })
       .then(function(res) {
@@ -1441,15 +1455,15 @@ function stripHtmlToText(html) {
         if (customer.phone && phoneInput && !phoneInput.value) phoneInput.value = customer.phone;
       })
       .catch(function() {
-        localStorage.removeItem('zappy_customer_token');
-        localStorage.removeItem('zappy_customer_email');
+        localStorage.removeItem(tokenKey);
+        localStorage.removeItem(emailKey);
         showLoggedOut();
       });
     
     if (logoutBtn) {
       logoutBtn.addEventListener('click', function() {
-        localStorage.removeItem('zappy_customer_token');
-        localStorage.removeItem('zappy_customer_email');
+        localStorage.removeItem(tokenKey);
+        localStorage.removeItem(emailKey);
         showLoggedOut();
       });
     }
@@ -2093,6 +2107,36 @@ function stripHtmlToText(html) {
     // Make close function globally available
     window.zappyCloseMobileMenu = closeMobileMenu;
   }
+
+  // Some templates toggle the menu but don't toggle the button icon state.
+  // Keep #mobileToggle in sync with #navMenu so hamburger ↔ X works.
+  function syncMobileToggleWithMenu() {
+    try {
+      const toggle = document.getElementById('mobileToggle') || document.querySelector('.mobile-toggle');
+      const menu = document.getElementById('navMenu') || document.querySelector('.nav-menu');
+      if (!toggle || !menu) return;
+
+      const apply = function() {
+        const menuOpen = menu.classList.contains('active') || menu.classList.contains('open') || menu.classList.contains('show');
+        if (menuOpen) toggle.classList.add('active');
+        else toggle.classList.remove('active');
+      };
+
+      apply();
+
+      const obs = new MutationObserver(function(mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          if (mutations[i].attributeName === 'class') {
+            apply();
+            break;
+          }
+        }
+      });
+      obs.observe(menu, { attributes: true });
+    } catch (e) {
+      // no-op
+    }
+  }
   
   // Initialize cart drawer events
   function initCartDrawer() {
@@ -2136,13 +2180,32 @@ function stripHtmlToText(html) {
   // Initialize everything
   // Mobile search panel handling
   function initMobileSearch() {
-    const toggleBtn = document.getElementById('mobile-search-toggle');
+    const toggleBtn = document.getElementById('mobile-search-toggle') || document.querySelector('.nav-search-toggle');
     const panel = document.getElementById('mobile-search-panel');
     const closeBtn = document.getElementById('close-mobile-search');
     const input = document.getElementById('mobile-search-input');
     const results = document.getElementById('mobile-search-results');
     
     if (!toggleBtn || !panel) return;
+
+    function computeTotalHeaderHeightPx() {
+      try {
+        // Prefer CSS var set by setupFixedHeaders()
+        const totalVar = getComputedStyle(document.documentElement).getPropertyValue('--total-header-height').trim();
+        if (totalVar) {
+          const n = parseFloat(totalVar);
+          if (Number.isFinite(n) && n > 0) return Math.ceil(n);
+        }
+      } catch (e) {}
+
+      // Fallback: compute from DOM
+      const announcementBar = document.querySelector('.zappy-announcement-bar');
+      const navbar = document.querySelector('nav.navbar, .navbar');
+      const barH = announcementBar ? Math.ceil(announcementBar.getBoundingClientRect().height) : 0;
+      const navH = navbar ? Math.ceil(navbar.getBoundingClientRect().height) : 0;
+      const total = barH + navH;
+      return total > 0 ? total : 112;
+    }
 
     // Ensure the mobile search panel has a submit button (older pages may only have input + close)
     (function ensureSearchSubmitButton() {
@@ -2170,6 +2233,11 @@ function stripHtmlToText(html) {
     toggleBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
+      // Ensure panel is positioned below announcement+navbar even if CSS forces --header-height
+      try {
+        const topPx = computeTotalHeaderHeightPx();
+        panel.style.setProperty('top', topPx + 'px', 'important');
+      } catch (e2) {}
       panel.classList.add('active');
       setTimeout(function() {
         if (input) input.focus();
@@ -2231,9 +2299,33 @@ function stripHtmlToText(html) {
           return;
         }
         
-        searchTimeout = setTimeout(function() {
-          const matches = searchProducts(query);
-          renderMobileSearchResults(matches, query);
+        searchTimeout = setTimeout(async function() {
+          try {
+            // Prefer server-side search for mobile suggestions (more reliable than relying on cached allProducts)
+            const websiteId = window.ZAPPY_WEBSITE_ID;
+            if (!websiteId) throw new Error('Missing websiteId');
+
+            let apiUrl = buildApiUrlWithLang(
+              '/api/ecommerce/storefront/products?websiteId=' +
+                websiteId +
+                '&search=' +
+                encodeURIComponent(query) +
+                '&limit=8'
+            );
+
+            const res = await fetch(apiUrl);
+            const data = await res.json();
+            const matches = (data && data.success && Array.isArray(data.data)) ? data.data : [];
+            renderMobileSearchResults(matches, query);
+          } catch (e) {
+            // Fallback to local cached search if available
+            try {
+              const matches = typeof searchProducts === 'function' ? searchProducts(query) : [];
+              renderMobileSearchResults(matches, query);
+            } catch (e2) {
+              renderMobileSearchResults([], query);
+            }
+          }
         }, 200);
       });
       
@@ -2296,32 +2388,41 @@ function stripHtmlToText(html) {
       results.innerHTML = '<div class="search-no-results">' + (t.noProducts || 'No products found') + '</div>';
       return;
     }
+
+    // Local safe formatter (do NOT rely on formatPrice being in scope)
+    function formatSearchPrice(value) {
+      const currency = (t && t.currency) ? t.currency : '₪';
+      const n = parseFloat(value);
+      if (!Number.isFinite(n)) return '';
+      return currency + n.toFixed(2);
+    }
     
     // Check if we're in preview mode for generating product URLs
     var isPreviewMode = window.location.pathname.includes('preview-fullscreen');
     
     let html = matches.slice(0, 8).map(function(p) {
-      const price = formatPrice(p.price);
+      const price = formatSearchPrice(p && p.price);
       const img = p.images && p.images[0] ? resolveProductImageUrl(p.images[0]) : '';
       var productUrl;
       if (isPreviewMode) {
         var urlObj = new URL(window.location.href);
-        urlObj.searchParams.set('page', '/product/' + p.slug);
+        urlObj.searchParams.set('page', '/product/' + (p.slug || p.id));
         urlObj.searchParams.delete('search');
         productUrl = urlObj.toString();
       } else {
-        productUrl = '/product/' + p.slug;
+        productUrl = '/product/' + (p.slug || p.id);
       }
       return '<a href="' + productUrl + '" class="search-result-item">' +
         (img ? '<img src="' + img + '" alt="' + p.name + '" class="search-result-img">' : '') +
         '<div class="search-result-info">' +
           '<div class="search-result-name">' + p.name + '</div>' +
-          '<div class="search-result-price">' + price + '</div>' +
+          (price ? '<div class="search-result-price">' + price + '</div>' : '') +
         '</div>' +
       '</a>';
     }).join('');
     
-    if (matches.length > 8) {
+    // Always offer a "view all" link for mobile search
+    if (query && query.length >= 2) {
       // Check if we're in preview mode
       var isPreview = window.location.pathname.includes('preview-fullscreen');
       var viewAllUrl;
@@ -2334,7 +2435,7 @@ function stripHtmlToText(html) {
         viewAllUrl = '/products?search=' + encodeURIComponent(query);
       }
       html += '<a href="' + viewAllUrl + '" class="search-view-all">' + 
-        (t.viewAllResults || 'View all results') + ' (' + matches.length + ')</a>';
+        (t.viewAllResults || 'View all results') + '</a>';
     }
     
     results.innerHTML = html;
@@ -2588,9 +2689,9 @@ function stripHtmlToText(html) {
             throw new Error(data.error || 'Invalid code');
           }
           
-          // Store the auth token
-          localStorage.setItem('zappy_customer_token', data.token);
-          localStorage.setItem('zappy_customer_email', currentEmail);
+          // Store the auth token with site-specific key for session isolation
+          localStorage.setItem('zappy_customer_token_' + websiteId, data.token);
+          localStorage.setItem('zappy_customer_email_' + websiteId, currentEmail);
           
           // Show success message
           alert(isRTL ? 'התחברת בהצלחה!' : 'Successfully logged in!');
@@ -2666,8 +2767,11 @@ function stripHtmlToText(html) {
     
     if (!notLoggedInEl || !loggedInEl) return;
     
-    const token = localStorage.getItem('zappy_customer_token');
-    const email = localStorage.getItem('zappy_customer_email');
+    // Use site-specific localStorage keys for session isolation
+    const tokenKey = 'zappy_customer_token_' + websiteId;
+    const emailKey = 'zappy_customer_email_' + websiteId;
+    const token = localStorage.getItem(tokenKey);
+    const email = localStorage.getItem(emailKey);
     
     // Customer data storage
     let customerData = { name: '', phone: '', addresses: [] };
@@ -2707,8 +2811,8 @@ function stripHtmlToText(html) {
     // Logout handler
     if (logoutBtn) {
       logoutBtn.addEventListener('click', function() {
-        localStorage.removeItem('zappy_customer_token');
-        localStorage.removeItem('zappy_customer_email');
+        localStorage.removeItem(tokenKey);
+        localStorage.removeItem(emailKey);
         
         // Navigate to home page
         const currentUrl = window.location.href;
@@ -2727,7 +2831,8 @@ function stripHtmlToText(html) {
     
     async function loadCustomerProfile() {
       try {
-        const res = await fetch(buildApiUrl('/api/ecommerce/customers/me'), {
+        // Include websiteId for session isolation validation
+        const res = await fetch(buildApiUrl('/api/ecommerce/customers/me?websiteId=' + encodeURIComponent(websiteId)), {
           headers: { 'Authorization': 'Bearer ' + token }
         });
         
@@ -2785,6 +2890,7 @@ function stripHtmlToText(html) {
         saveProfileBtn.textContent = t.saving || 'Saving...';
         
         try {
+          // Include websiteId for session isolation validation
           const res = await fetch(buildApiUrl('/api/ecommerce/customers/me'), {
             method: 'PUT',
             headers: {
@@ -2792,6 +2898,7 @@ function stripHtmlToText(html) {
               'Authorization': 'Bearer ' + token
             },
             body: JSON.stringify({
+              websiteId: websiteId,
               name: newName,
               phone: newPhone
             })
@@ -2999,13 +3106,14 @@ function stripHtmlToText(html) {
         saveAddressBtn.textContent = t.saving || 'Saving...';
         
         try {
+          // Include websiteId for session isolation validation
           const res = await fetch(buildApiUrl('/api/ecommerce/customers/me'), {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + token
             },
-            body: JSON.stringify({ addresses: newAddresses })
+            body: JSON.stringify({ websiteId: websiteId, addresses: newAddresses })
           });
           
           const data = await res.json();
@@ -3034,13 +3142,14 @@ function stripHtmlToText(html) {
       });
       
       try {
+        // Include websiteId for session isolation validation
         const res = await fetch(buildApiUrl('/api/ecommerce/customers/me'), {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
           },
-          body: JSON.stringify({ addresses: newAddresses })
+          body: JSON.stringify({ websiteId: websiteId, addresses: newAddresses })
         });
         
         const data = await res.json();
@@ -3066,13 +3175,14 @@ function stripHtmlToText(html) {
       });
       
       try {
+        // Include websiteId for session isolation validation
         const res = await fetch(buildApiUrl('/api/ecommerce/customers/me'), {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
           },
-          body: JSON.stringify({ addresses: newAddresses })
+          body: JSON.stringify({ websiteId: websiteId, addresses: newAddresses })
         });
         
         const data = await res.json();
@@ -3095,7 +3205,8 @@ function stripHtmlToText(html) {
       if (!ordersLoading || !ordersList) return;
       
       try {
-        const res = await fetch(buildApiUrl('/api/ecommerce/customers/me/orders'), {
+        // Include websiteId for session isolation validation
+        const res = await fetch(buildApiUrl('/api/ecommerce/customers/me/orders?websiteId=' + encodeURIComponent(websiteId)), {
           headers: {
             'Authorization': 'Bearer ' + token
           }
@@ -3164,7 +3275,8 @@ function stripHtmlToText(html) {
   
   // Update header auth state
   function updateHeaderAuthState() {
-    const token = localStorage.getItem('zappy_customer_token');
+    // Use site-specific localStorage key for session isolation
+    const token = localStorage.getItem('zappy_customer_token_' + websiteId);
     
     // Find login links and account links
     const loginLinks = document.querySelectorAll('a[href="/login"]');
@@ -3194,6 +3306,7 @@ function stripHtmlToText(html) {
     initSearch();
     initMobileSearch();
     initMobileMenuHandling();
+    syncMobileToggleWithMenu();
     initMobileCategoriesSubmenu();
     initCartDrawer();
     initCheckout();
@@ -3732,80 +3845,9 @@ async function loadCatalogCategories() {
   }
 }
 
-// Initialize mobile menu toggle for e-commerce pages
-// This ensures hamburger menu works on products/cart/checkout pages
-function initEcommerceMobileMenu() {
-  const mobileToggle = document.querySelector('.mobile-toggle, #mobileToggle');
-  const navMenu = document.querySelector('#navMenu, .nav-menu');
-  
-  if (!mobileToggle || !navMenu) {
-    console.log('[E-COMMERCE] Mobile toggle or menu not found');
-    return;
-  }
-
-  // Another e-commerce mobile-menu handler is injected on some pages (data-ecom-init).
-  // Avoid double-binding click handlers which can cause immediate open/close no-ops.
-  if (mobileToggle.hasAttribute('data-ecom-init')) {
-    return;
-  }
-  
-  // Check if already initialized (has our custom attribute)
-  if (mobileToggle.hasAttribute('data-ecommerce-init')) {
-    return;
-  }
-  mobileToggle.setAttribute('data-ecommerce-init', 'true');
-  
-  console.log('[E-COMMERCE] Initializing mobile menu for e-commerce page');
-  
-  mobileToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const hamburgerIcon = this.querySelector('.hamburger-icon');
-    const closeIcon = this.querySelector('.close-icon');
-    const isActive = navMenu.classList.contains('active');
-    
-    if (isActive) {
-      // Close menu
-      navMenu.classList.remove('active');
-      navMenu.style.display = '';
-      if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
-      if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
-      document.body.style.overflow = '';
-      console.log('[E-COMMERCE] Menu closed');
-    } else {
-      // Open menu
-      navMenu.classList.add('active');
-      navMenu.style.display = 'block';
-      if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
-      if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
-      document.body.style.overflow = 'hidden';
-      console.log('[E-COMMERCE] Menu opened');
-    }
-  });
-  
-  // Close menu when clicking nav links
-  const navLinks = navMenu.querySelectorAll('a');
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function() {
-      const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
-      const closeIcon = mobileToggle.querySelector('.close-icon');
-      
-      navMenu.classList.remove('active');
-      navMenu.style.display = '';
-      if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
-      if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
-      document.body.style.overflow = '';
-    });
-  });
-  
-  console.log('[E-COMMERCE] Mobile menu initialized successfully');
-}
-
 // Initialize featured products, categories, and product/category page details on load
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize mobile menu for e-commerce pages
-  initEcommerceMobileMenu();
+  // Mobile menu is handled by the main navbar script - no separate e-commerce handler needed
   
   // Fetch store settings first (handles announcement bar, product layout, etc.)
   fetchAdditionalJsSettings();
@@ -3980,15 +4022,54 @@ async function loadCategoryPage() {
   console.log('Loading category with slug:', slug);
   
   try {
-    const res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/categories/' + encodeURIComponent(slug) + '?websiteId=' + websiteId));
-    const data = await res.json();
-    
-    if (!data.success || !data.data) {
-      showCategoryNotFound(categorySection, t);
-      return;
+    // Prefer the dedicated category endpoint (includes products), but fall back to:
+    // 1) GET /storefront/categories and match by slug/id
+    // 2) GET /storefront/products?categoryId=...
+    // This makes deployed sites work even if the API server is older and lacks /categories/:slug.
+    let category = null;
+
+    try {
+      const res = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/categories/' + encodeURIComponent(slug) + '?websiteId=' + websiteId));
+      if (res && res.ok) {
+        const data = await res.json();
+        if (data && data.success && data.data) {
+          category = data.data;
+        }
+      }
+    } catch (e1) {
+      // ignore - will fall back
     }
-    
-    const category = data.data;
+
+    if (!category) {
+      const listRes = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/categories?websiteId=' + websiteId));
+      if (!listRes || !listRes.ok) {
+        showCategoryNotFound(categorySection, t);
+        return;
+      }
+      const listData = await listRes.json();
+      const categories = (listData && listData.success && Array.isArray(listData.data)) ? listData.data : [];
+      category = categories.find(function(c) {
+        return c && (c.slug === slug || c.id === slug);
+      }) || null;
+
+      if (!category) {
+        showCategoryNotFound(categorySection, t);
+        return;
+      }
+
+      // Fetch products for this category
+      try {
+        const prodRes = await fetch(buildApiUrlWithLang('/api/ecommerce/storefront/products?websiteId=' + websiteId + '&categoryId=' + encodeURIComponent(category.id)));
+        if (prodRes && prodRes.ok) {
+          const prodData = await prodRes.json();
+          const products = (prodData && prodData.success && Array.isArray(prodData.data)) ? prodData.data : [];
+          category = { ...category, products };
+        }
+      } catch (e2) {
+        category = { ...category, products: [] };
+      }
+    }
+
     renderCategoryPage(categorySection, category, t);
     
     // Update page title and meta

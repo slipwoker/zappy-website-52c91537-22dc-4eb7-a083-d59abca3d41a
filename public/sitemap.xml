@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://xadoisrael.com</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com" />
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com" />
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/category/:slug</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/category/:slug" />
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/category/:slug</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/category/:slug" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/about</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/about" />
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/about</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/about" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/cart</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/cart" />
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/cart</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/cart" />
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/checkout</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/checkout" />
@@ -84,7 +84,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/checkout</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/checkout" />
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/login</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/login" />
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/login</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/login" />
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/account</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/account" />
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/account</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/account" />
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/order-success</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/order-success" />
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/order-success</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/order-success" />
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/product/:slug</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/product/:slug" />
@@ -156,7 +156,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/product/:slug</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/product/:slug" />
@@ -165,7 +165,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/contact-us</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/contact-us" />
@@ -174,7 +174,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/contact-us</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/contact-us" />
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/thank-you</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/thank-you" />
@@ -192,7 +192,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/thank-you</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/thank-you" />
@@ -201,7 +201,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/products</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/products" />
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/products</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/products" />
@@ -219,7 +219,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/privacy</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/privacy" />
@@ -228,7 +228,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/privacy</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/privacy" />
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/terms</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/terms" />
@@ -246,7 +246,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/terms</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/terms" />
@@ -255,7 +255,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/accessibility</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/accessibility" />
@@ -264,7 +264,7 @@
   </url>
   <url>
     <loc>https://xadoisrael.com/ru/accessibility</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="he" href="https://xadoisrael.com/accessibility" />
