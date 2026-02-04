@@ -3980,6 +3980,593 @@ html[dir="rtl"] body {
 }
 
 </style>
+<style id="zappy-multilang-css">
+/* ============================================
+   DIRECTION OVERRIDE STYLES
+   Only set direction property, NOT text-align
+   This preserves centered elements
+   ============================================ */
+
+/* Base direction for LTR */
+html[dir="ltr"], html[dir="ltr"] body {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] main,
+html[dir="ltr"] article,
+html[dir="ltr"] section,
+html[dir="ltr"] .content,
+html[dir="ltr"] .container,
+html[dir="ltr"] .wrapper {
+  direction: ltr !important;
+}
+
+/* ONLY apply text-align to legal page content that needs LTR alignment */
+html[dir="ltr"] .legal-content,
+html[dir="ltr"] .terms-content,
+html[dir="ltr"] .privacy-content,
+html[dir="ltr"] .legal-content p,
+html[dir="ltr"] .terms-content p,
+html[dir="ltr"] .privacy-content p,
+html[dir="ltr"] .legal-content li,
+html[dir="ltr"] .terms-content li,
+html[dir="ltr"] .privacy-content li {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Base direction for RTL */
+html[dir="rtl"], html[dir="rtl"] body {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] main,
+html[dir="rtl"] article,
+html[dir="rtl"] section,
+html[dir="rtl"] .content,
+html[dir="rtl"] .container,
+html[dir="rtl"] .wrapper {
+  direction: rtl !important;
+}
+
+/* ONLY apply text-align to legal page content that needs RTL alignment */
+html[dir="rtl"] .legal-content,
+html[dir="rtl"] .terms-content,
+html[dir="rtl"] .privacy-content,
+html[dir="rtl"] .legal-content p,
+html[dir="rtl"] .terms-content p,
+html[dir="rtl"] .privacy-content p,
+html[dir="rtl"] .legal-content li,
+html[dir="rtl"] .terms-content li,
+html[dir="rtl"] .privacy-content li {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+
+/* ============================================
+   V2 NAVIGATION FIX
+   CRITICAL: For V2 sites created in RTL (Hebrew), the nav elements
+   inherit direction:rtl from the body. This reverses how flex order
+   is interpreted. For LTR pages, we MUST set direction:ltr on nav
+   containers to make the flex order work correctly.
+   
+   This section is ONLY included for V2 sites (detected by nav-right-group
+   or nav-cta-container classes) to avoid affecting V1 site layouts.
+   ============================================ */
+
+/* Fix V2 navbar layout for LTR pages */
+/* Direction must apply to all screen sizes, but flex-direction: row is desktop-only */
+html[dir="ltr"] header,
+html[dir="ltr"] nav,
+html[dir="ltr"] .navbar,
+html[dir="ltr"] .nav-container {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .nav-right-group {
+  direction: ltr !important;
+  order: -1 !important;
+}
+
+html[dir="ltr"] .nav-cta-container {
+  direction: ltr !important;
+  order: 1 !important;
+  margin-left: auto !important;
+}
+
+html[dir="ltr"] .nav-menu,
+html[dir="ltr"] #navMenu {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .nav-brand {
+  direction: ltr !important;
+  order: -1 !important;
+}
+
+/* DESKTOP ONLY: Horizontal flex layout for navbar elements */
+@media (min-width: 769px) {
+  html[dir="ltr"] header,
+  html[dir="ltr"] nav,
+  html[dir="ltr"] .navbar,
+  html[dir="ltr"] .nav-container {
+    flex-direction: row !important;
+  }
+  
+  html[dir="ltr"] .nav-right-group,
+  html[dir="ltr"] .nav-cta-container {
+    flex-direction: row !important;
+  }
+  
+  html[dir="ltr"] .nav-menu,
+  html[dir="ltr"] #navMenu {
+    flex-direction: row !important;
+  }
+}
+
+
+/* Language Switcher Container - Fixed Position */
+.zappy-lang-switcher-container {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* RTL: Move to left side */
+html[dir="rtl"] .zappy-lang-switcher-container {
+  right: auto;
+  left: 12px;
+}
+
+/* Language Switcher Styles */
+.lang-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Language switcher positioning - minimal, only gap spacing */
+/* NOTE: Removed margin-left:auto rules that broke V2 layouts */
+/* V2 layouts handle positioning via flexbox, we just add small gap */
+header .lang-switcher,
+nav .lang-switcher,
+.navbar .lang-switcher {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.lang-switcher-current {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.lang-switcher-current:hover {
+  opacity: 0.7;
+}
+
+/* ===========================================
+   LANGUAGE DROPDOWN POSITIONING
+   CRITICAL: position: absolute !important overrides any
+   mobile responsive CSS that resets absolute positioning
+   to relative. The dropdown MUST be absolutely positioned
+   relative to its parent .lang-switcher.
+   
+   HIGH SPECIFICITY SELECTORS needed to override:
+   [style*="position: absolute"]:not(...) { position: relative !important }
+   That selector has specificity ~0,4,0 so we need 0,5,0+ to win
+   =========================================== */
+.lang-switcher-dropdown,
+.lang-switcher .lang-switcher-dropdown,
+div.lang-switcher-dropdown,
+.nav-cta-container .lang-switcher .lang-switcher-dropdown,
+.navbar .nav-cta-container .lang-switcher-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  /* Default LTR: align dropdown's left edge to switcher's left edge */
+  left: 0;
+  right: auto;
+  margin-top: 6px;
+  min-width: 150px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  overflow: hidden;
+  z-index: 1002 !important;
+}
+
+/* Ultra-high specificity override for problematic mobile responsive CSS */
+/* The problematic rule [style*="position: absolute"]:not():not():not() has specificity 0,4,0 */
+/* We need 0,5,0+ to win, so we add extra class/attribute selectors */
+.lang-switcher .lang-switcher-dropdown[style*="position: absolute"],
+.lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
+.nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
+.navbar .nav-cta-container .lang-switcher-dropdown[style],
+div.lang-switcher > div.lang-switcher-dropdown[style] {
+  position: absolute !important;
+  top: 100% !important;
+  /* Default LTR: align to left */
+  left: 0;
+  right: auto;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.15s ease;
+}
+
+html[dir="rtl"] .lang-option {
+  text-align: right;
+}
+
+/* RTL: align dropdown's right edge to switcher's right edge */
+html[dir="rtl"] .lang-switcher-dropdown,
+html[lang="he"] .lang-switcher-dropdown,
+html[lang="ar"] .lang-switcher-dropdown {
+  right: 0;
+  left: auto;
+}
+
+.lang-option:hover {
+  background: #f5f5f5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .zappy-lang-switcher-container {
+    top: 8px;
+    right: 8px;
+  }
+  
+  html[dir="rtl"] .zappy-lang-switcher-container {
+    right: auto;
+    left: 8px;
+  }
+  
+  .lang-switcher-current {
+    padding: 6px;
+  }
+  
+  .lang-option {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  /* FIX: Prevent lang-switcher-dropdown from extending past viewport in RTL mobile */
+  /* The dropdown was causing horizontal overflow with left: 0 in RTL */
+  html[dir="rtl"] .lang-switcher-dropdown {
+    left: auto !important;
+    right: 0 !important;
+  }
+}
+
+/* ===========================================
+   RTL MOBILE HORIZONTAL OVERFLOW FIX
+   Prevents left whitespace gap in RTL mobile
+   caused by elements extending past viewport
+   =========================================== */
+
+/* Prevent horizontal scroll on RTL pages */
+/* Using 'clip' instead of 'hidden' to avoid breaking position:sticky */
+/* 'hidden' causes overflow-y to compute as 'auto', creating a scroll container */
+html[dir="rtl"],
+html[dir="rtl"] body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+
+/* Ensure carousel containers clip overflow to prevent horizontal scroll */
+.zappy-carousel-container,
+.zappy-carousel-wrapper,
+.benefits-section,
+.testimonials-section,
+[class*="carousel"] {
+  overflow-x: hidden !important;
+}
+
+/* Ensure lang-switcher parent clips its positioned children */
+.lang-switcher {
+  overflow: visible; /* Keep visible for dropdown to show */
+}
+
+/* ===========================================
+   MOBILE NAV BUTTON POSITIONING
+   CSS handles positioning based on html[dir] attribute.
+   This allows dynamic RTL/LTR switching without inline styles.
+   
+   LTR (default): hamburger LEFT (20px), phone RIGHT (20px)
+   RTL: hamburger RIGHT (20px), phone LEFT (20px) - mirrored
+   =========================================== */
+@media (max-width: 768px) {
+  /* Base positioning and visibility for mobile nav buttons */
+  /* CRITICAL: display: flex overrides any desktop display: none rules */
+  .mobile-toggle,
+  html:not([data-zappy-site-type="ecommerce"]) .phone-header-btn {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1001 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  
+  /* Phone button color - use accent color for visibility */
+  html:not([data-zappy-site-type="ecommerce"]) .phone-header-btn {
+    color: var(--accent, #f59e0b) !important;
+  }
+  
+  html:not([data-zappy-site-type="ecommerce"]) .phone-header-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: currentColor !important;
+  }
+  
+  /* LTR positioning (default) - hamburger LEFT, phone RIGHT */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+  html[dir="ltr"] .mobile-toggle {
+    left: 20px !important;
+    right: auto !important;
+  }
+  
+  html:not([data-zappy-site-type="ecommerce"]):not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+  html:not([data-zappy-site-type="ecommerce"])[dir="ltr"] .phone-header-btn {
+    right: 20px !important;
+    left: auto !important;
+  }
+  
+  /* LTR mobile menu slides from LEFT */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu,
+  html[dir="ltr"] .nav-menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+  
+  /* ===========================================
+     MOBILE NAV MENU - VERTICAL LAYOUT FIX
+     CRITICAL: Override any desktop flex-direction: row rules
+     The mobile menu MUST stack vertically (column), not horizontally (row)
+     =========================================== */
+  html[dir="ltr"] .nav-menu,
+  html[dir="ltr"] .nav-menu.active,
+  html[dir="ltr"] #navMenu,
+  html[dir="ltr"] #navMenu.active,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu.active {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  /* RTL mobile menu - also vertical layout */
+  html[dir="rtl"] .nav-menu,
+  html[dir="rtl"] .nav-menu.active,
+  html[dir="rtl"] #navMenu,
+  html[dir="rtl"] #navMenu.active,
+  html[lang="he"] .nav-menu,
+  html[lang="he"] .nav-menu.active,
+  html[lang="ar"] .nav-menu,
+  html[lang="ar"] .nav-menu.active {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  /* LTR mobile menu text alignment - left aligned */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu li,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu a,
+  html[dir="ltr"] .nav-menu li,
+  html[dir="ltr"] .nav-menu a {
+    text-align: left !important;
+  }
+  
+  /* ===========================================
+     LTR MOBILE NAV-CONTAINER LAYOUT FIX
+     V2 sites have nav-container with flex-direction: row-reverse
+     for RTL. For LTR, we need flex-direction: row and centered logo.
+     =========================================== */
+  html[dir="ltr"] .nav-container,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-container {
+    flex-direction: row !important;
+    justify-content: center !important;
+  }
+  
+  /* LTR: Center the logo/nav-brand in mobile navbar */
+  html[dir="ltr"] .nav-brand,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-brand {
+    order: 0 !important;
+    margin: 0 auto !important;
+  }
+  
+  /* RTL: Center the logo/nav-brand in mobile navbar */
+  html[dir="rtl"] .nav-brand,
+  html[lang="he"] .nav-brand,
+  html[lang="ar"] .nav-brand {
+    order: 0 !important;
+    margin: 0 auto !important;
+  }
+  
+  /* RTL lang-switcher dropdown constraint */
+  html[dir="rtl"] .lang-switcher {
+    position: relative;
+  }
+  
+  html[dir="rtl"] .lang-switcher-dropdown {
+    left: auto !important;
+    right: 0 !important;
+    max-width: calc(100vw - 20px);
+  }
+  
+  /* ===========================================
+     RTL MOBILE NAV BUTTON POSITIONING
+     In RTL: hamburger RIGHT, phone LEFT (mirror of LTR)
+     =========================================== */
+  html[dir="rtl"] .mobile-toggle,
+  html[lang="he"] .mobile-toggle,
+  html[lang="ar"] .mobile-toggle {
+    left: auto !important;
+    right: 20px !important;
+  }
+  
+  html[dir="rtl"]:not([data-zappy-site-type="ecommerce"]) .phone-header-btn,
+  html[lang="he"]:not([data-zappy-site-type="ecommerce"]) .phone-header-btn,
+  html[lang="ar"]:not([data-zappy-site-type="ecommerce"]) .phone-header-btn {
+    left: 20px !important;
+    right: auto !important;
+  }
+
+  /* Explicitly hide phone button on e-commerce sites (cleaner than fighting with e-commerce CSS). */
+  html[data-zappy-site-type="ecommerce"] .phone-header-btn {
+    display: none !important;
+  }
+  
+  /* RTL mobile menu slides from RIGHT */
+  html[dir="rtl"] .nav-menu,
+  html[lang="he"] .nav-menu,
+  html[lang="ar"] .nav-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  /* ===========================================
+     V2 MOBILE LANGUAGE SWITCHER FIX
+     V2 sites hide .nav-cta-container on mobile but we need
+     the language switcher to remain visible. Position it
+     between the phone button and the hamburger menu.
+     =========================================== */
+  .nav-cta-container {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    z-index: 1001 !important;
+  }
+  
+  /* Hide CTA button inside container on mobile */
+  .nav-cta-container .nav-cta-btn,
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
+    display: none !important;
+  }
+  
+  /* Keep language switcher visible and compact */
+  .nav-cta-container .lang-switcher {
+    display: flex !important;
+    margin: 0 !important;
+    width: auto !important;
+    position: relative !important;
+  }
+  
+  /* ===========================================
+     MOBILE LANGUAGE DROPDOWN POSITIONING FIX
+     CRITICAL: Override the mobile responsive CSS that sets
+     [style*="position: absolute"]:not():not():not() { position: relative !important }
+     That rule has specificity 0,4,0 - we need 0,5,0+ to win.
+     The dropdown MUST use position: absolute to appear below the button.
+     =========================================== */
+  .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
+  .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
+  .lang-switcher .lang-switcher-dropdown[style*="position"],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
+  [class*="lang-switcher"] .lang-switcher-dropdown[style] {
+    position: absolute !important;
+    top: 100% !important;
+    margin-top: 8px !important;
+    min-width: 140px !important;
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    z-index: 1002 !important;
+    /* Override any transform that might affect positioning */
+    transform: none !important;
+  }
+  
+  /* When dropdown is visible, ensure positioning is correct - high specificity */
+  .navbar .nav-cta-container .lang-switcher-dropdown[style*="visibility: visible"],
+  .navbar .nav-cta-container .lang-switcher-dropdown[style*="opacity: 1"],
+  .lang-switcher .lang-switcher-dropdown[style*="visibility: visible"],
+  .lang-switcher .lang-switcher-dropdown[style*="opacity: 1"] {
+    position: absolute !important;
+    top: 100% !important;
+  }
+  
+  /* LTR: dropdown aligns to left - high specificity to override [style*] rules */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .navbar .lang-switcher-dropdown,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .lang-switcher .lang-switcher-dropdown,
+  html[dir="ltr"] .navbar .lang-switcher-dropdown,
+  html[dir="ltr"] .lang-switcher .lang-switcher-dropdown {
+    left: 0 !important;
+    right: auto !important;
+  }
+  
+  /* RTL: dropdown aligns to right - high specificity to override [style*] rules */
+  html[dir="rtl"] .navbar .lang-switcher-dropdown,
+  html[dir="rtl"] .lang-switcher .lang-switcher-dropdown,
+  html[lang="he"] .navbar .lang-switcher-dropdown,
+  html[lang="he"] .lang-switcher .lang-switcher-dropdown,
+  html[lang="ar"] .navbar .lang-switcher-dropdown,
+  html[lang="ar"] .lang-switcher .lang-switcher-dropdown {
+    right: 0 !important;
+    left: auto !important;
+  }
+  
+  /* LTR: position near hamburger (which is at left: 20px), to its right */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-cta-container,
+  html[dir="ltr"] .nav-cta-container {
+    left: 30px !important;
+    right: auto !important;
+  }
+  
+  /* RTL: position near hamburger (which is at right: 20px) */
+  /* nav-cta-container is inside nav-container, so we position it at the right edge */
+  /* of nav-container to get it closer to the hamburger */
+  html[dir="rtl"] .nav-cta-container,
+  html[lang="he"] .nav-cta-container,
+  html[lang="ar"] .nav-cta-container {
+    right: 30px !important;
+    left: auto !important;
+  }
+  
+  /* Language switcher preserves its inline color/fill set during generation */
+}
+
+</style>
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -4197,7 +4784,7 @@ html[dir="rtl"] body {
     <div class="mobile-search-panel" id="mobile-search-panel">
       <div class="search-wrapper">
         <input type="text" id="mobile-search-input" placeholder="חיפוש מוצרים..." autocomplete="off" data-i18n-placeholder="accessibility_placeholder_63">
-        <button class="search-submit" id="mobile-search-submit" title="חיפוש" data-i18n-title="accessibility_title_66" data-i18n="new_p_78">
+        <button class="search-submit" id="mobile-search-submit" title="חיפוש" data-i18n-title="accessibility_title_66">
           <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
         </button>
         <button class="close-search" id="close-mobile-search">
@@ -4242,15 +4829,7 @@ html[dir="rtl"] body {
         <!-- Categories will be loaded dynamically -->
       </ul>
     </li>
-  <li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/category/:slug" data-i18n="accessibility_nav_53">מוצרים</a></li><li><a href="/about" data-i18n="accessibility_nav_54">אודות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/cart" data-i18n="accessibility_nav_55">עגלת קניות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/checkout" data-i18n="accessibility_nav_56">המשך לתשלום</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/login" data-i18n="accessibility_nav_57">התחברות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/account" data-i18n="accessibility_nav_58">החשבון שלי</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/order-success" data-i18n="accessibility_nav_59">ההזמנה התקבלה!</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/product/:slug" data-i18n="accessibility_nav_60">פרטי המוצר</a></li><li><a href="/contact-us" data-i18n="accessibility_nav_61">צור קשר</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box">
-    <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
-    <button class="nav-search-btn" id="nav-search-btn" title="חיפוש">
-      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-    </button>
-    <div class="nav-search-results" id="nav-search-results"></div>
-  </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div>
-
-
+  <li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/category/:slug" data-i18n="accessibility_nav_53">מוצרים</a></li><li><a href="/about" data-i18n="accessibility_nav_54">אודות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/cart" data-i18n="accessibility_nav_55">עגלת קניות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/checkout" data-i18n="accessibility_nav_56">המשך לתשלום</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/login" data-i18n="accessibility_nav_57">התחברות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/account" data-i18n="accessibility_nav_58">החשבון שלי</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/order-success" data-i18n="accessibility_nav_59">ההזמנה התקבלה!</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/product/:slug" data-i18n="accessibility_nav_60">פרטי המוצר</a></li><li><a href="/contact-us" data-i18n="accessibility_nav_61">צור קשר</a></li></ul>
 <div class="lang-switcher" data-no-icon-edit="true" data-icon-color="currentColor" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
   <button class="lang-switcher-current" aria-haspopup="true" aria-expanded="false" data-no-icon-edit="true" style="display:flex;align-items:center;padding:8px;background:transparent;border:none;border-radius:6px;cursor:pointer;color:var(--color-text-dark, #1a1a1a);">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="currentColor" style="flex-shrink:0;" data-no-icon-edit="true"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg>
@@ -4258,7 +4837,16 @@ html[dir="rtl"] body {
   <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;">
     <button class="lang-option" data-lang="ru" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/ru.svg" width="20" height="20" alt="" style="display:inline-block;vertical-align:middle;border-radius:50%;"> Русский</button>
   </div>
-</div>
+</div><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="התחברות" data-i18n-title="accessibility_title_67"><svg class="login-icon" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות" data-i18n-title="accessibility_title_68"><svg class="cart-icon" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="cart-count">0</span></a><div class="nav-search-box">
+    <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off" data-i18n-placeholder="accessibility_placeholder_64">
+    <button class="nav-search-btn" id="nav-search-btn" title="חיפוש" data-i18n-title="accessibility_title_69">
+      <svg class="search-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+    </button>
+    <div class="nav-search-results" id="nav-search-results"></div>
+  </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש" data-i18n-title="accessibility_title_70"><svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg></button></div>
+
+
+
 
 </div>
 
@@ -4470,6 +5058,20 @@ html[dir="rtl"] body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- i18next Multi-Language Support -->
 <script>
 (function() {
@@ -4478,37 +5080,37 @@ html[dir="rtl"] body {
   "he": {
     "translation": {
       "cart_p_3": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "cart_p_4": "נוצר באמצעות&nbsp;Zappy",
-      "new_p_78": "\n",
+      "cart_p_4": "נוצר באמצעות Zappy",
+      "new_p_78": "אנו עשויים לאסוף את סוגי המידע הבאים: מאור&nbsp;",
       "cart_h1_1": "עגלת הקניות שלך",
       "cart_h2_2": "עגלת הקניות שלך",
       "home_h1_1": "שדרגו את ביצועי הרכב עם XADO",
-      "home_h2_2": "מוצרים מומלצים",
-      "home_h2_3": "קנו לפי קטגוריה",
-      "home_h2_4": "למה לבחור ב-XADO ?",
-      "home_h2_5": "הפתרונות שלנו מיועדים עבורך",
-      "home_h2_6": "טכנולוגיית רווקונדישיונרים ייחודית",
-      "home_h2_7": "מוכנים לשדרג את הרכב שלכם?",
-      "home_h3_8": "מוצרי טיפול ושיפור ביצועי רכב מובילים לחיסכון בדלק, הגנה על המנוע ושיפור ביצועים",
-      "home_h3_9": "טכנולוגיה מוכחת",
-      "home_p_17": "Happily created by&nbsp;Zappy",
-      "home_p_18": "מוצרי XADO מבוססים על מחקר ופיתוח של למעלה מ-30 שנה ומשמשים מיליוני נהגים ומכונאים ברחבי העולם.",
-      "home_p_19": "תוספי דלק לחיסכון בצריכה מפחיתים פליטות מזהמים ותורמים לשמירה על איכות הסביבה תוך חיסכון כלכלי משמעותי.",
-      "home_p_20": "מוצרי טיפול ושיפור ביצועי רכב של XADO מתאימים לרכבים פרטיים, מסחריים, רכבי שטח וציי רכבים גדולים.",
-      "home_p_21": "תוספי שמן מנוע לרכב ישראל משפרים את ביצועי המנוע, מפחיתים רעשים ורעידות ומשיבים לרכב את הכוח המקורי שלו.",
-      "home_p_22": "אתם מחפשים לשפר את ביצועי הרכב ולשמור עליו במצב מיטבי? מוצרי XADO מספקים שדרוג משמעותי בביצועי הרכב (כגון הגנה על המנוע, גיר, מערכת דלק ושאר המערכות הרכב) וחוויית נהיגה משופרת?",
-      "home_p_23": "תוספים מקצועיים לכל מערכות הרכבב של XADO  ישראל הם הבחירה המועדפת של מכונאים מקצועיים. איכות גבוהה, תוצאות מוכחות ושביעות רצון לקוחות מובטחת.",
-      "home_p_24": "הפחיתו עלויות תחזוקה ותאריכו את חיי הרכבים בצי שלכם. מוצרי טיפול ושיפור ביצועי רכב של XADO חוסכים כסף, זמן ומבטיחים זמינות מקסימלית.",
-      "home_p_25": "נהיגת שטח דורשת הגנה מקסימלית על המנוע, גיר ומערכת הידראולית. מוצרי XADO מבטיחים ביצועים מיטביים וחוסן גם בתנאי השטח הקשים ביותר.",
-      "home_p_26": "XADO ISRAEL  משתמשת בטכנולוגיה פורצת דרך של רווקונדישיונרים - חלקיקים מיקרוסקופיים היוצרים שכבת הגנה מטאלו-קרמית על משטחי החיכוך במנוע. תהליך זה משקם את הנזק הקיים, מפחית חיכוך ובלאי ומאריך את חיי המנוע באופן דרמטי.&nbsp;",
-      "home_p_27": "בניגוד לתוספים רגילים שנשטפים עם החלפת השמן, השכבה המטאלו-קרמית נשארת על המשטחים ומספקת הגנה מתמשכת. זו הסיבה שמוצרי XADO הפכו לבחירה המועדפת של מכונאים מקצועיים ומנהלי צי רכבים ברחבי העולם.",
-      "home_p_28": "הצטרפו לאלפי לקוחות מרוצים בישראל שכבר חווים את היתרונות של מוצרי XADO. קבלו ייעוץ מקצועי ומותאם אישית לצרכי הרכב שלכם.",
-      "home_p_29": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "home_p_30": "נוצר באמצעות&nbsp;Zappy",
+      "home_h2_2": "למה לבחור ב-XADO ?",
+      "home_h2_3": "הפתרונות שלנו מיועדים עבורך",
+      "home_h2_4": "טכנולוגיית רווקונדישיונרים ייחודית",
+      "home_h2_5": "מוכנים לשדרג את הרכב שלכם?",
+      "home_h3_6": "מוצרי טיפול ושיפור ביצועי רכב מובילים לחיסכון בדלק, הגנה על המנוע ושיפור ביצועים",
+      "home_h3_7": "טכנולוגיה מוכחת",
+      "home_h3_8": "ידידותי לסביבה",
+      "home_h3_9": "מתאים לכל סוגי הרכבים",
+      "home_p_15": "Happily created by Zappy",
+      "home_p_16": "מוצרי XADO מבוססים על מחקר ופיתוח של למעלה מ-30 שנה ומשמשים מיליוני נהגים ומכונאים ברחבי העולם.",
+      "home_p_17": "תוספי דלק לחיסכון בצריכה מפחיתים פליטות מזהמים ותורמים לשמירה על איכות הסביבה תוך חיסכון כלכלי משמעותי.",
+      "home_p_18": "מוצרי טיפול ושיפור ביצועי רכב של XADO מתאימים לרכבים פרטיים, מסחריים, רכבי שטח וציי רכבים גדולים.",
+      "home_p_19": "תוספי שמן מנוע לרכב ישראל משפרים את ביצועי המנוע, מפחיתים רעשים ורעידות ומשיבים לרכב את הכוח המקורי שלו.",
+      "home_p_20": "אתם מחפשים לשפר את ביצועי הרכב ולשמור עליו במצב מיטבי? מוצרי XADO מספקים שדרוג משמעותי בביצועי הרכב (כגון הגנה על המנוע, גיר, מערכת דלק ושאר המערכות הרכב) וחוויית נהיגה משופרת?",
+      "home_p_21": "תוספים מקצועיים לכל מערכות הרכבב של XADO  ישראל הם הבחירה המועדפת של מכונאים מקצועיים. איכות גבוהה, תוצאות מוכחות ושביעות רצון לקוחות מובטחת.",
+      "home_p_22": "הפחיתו עלויות תחזוקה ותאריכו את חיי הרכבים בצי שלכם. מוצרי טיפול ושיפור ביצועי רכב של XADO חוסכים כסף, זמן ומבטיחים זמינות מקסימלית.",
+      "home_p_23": "נהיגת שטח דורשת הגנה מקסימלית על המנוע, גיר ומערכת הידראולית. מוצרי XADO מבטיחים ביצועים מיטביים וחוסן גם בתנאי השטח הקשים ביותר.",
+      "home_p_24": "XADO ISRAEL  משתמשת בטכנולוגיה פורצת דרך של רווקונדישיונרים - חלקיקים מיקרוסקופיים היוצרים שכבת הגנה מטאלו-קרמית על משטחי החיכוך במנוע. תהליך זה משקם את הנזק הקיים, מפחית חיכוך ובלאי ומאריך את חיי המנוע באופן דרמטי.",
+      "home_p_25": "בניגוד לתוספים רגילים שנשטפים עם החלפת השמן, השכבה המטאלו-קרמית נשארת על המשטחים ומספקת הגנה מתמשכת. זו הסיבה שמוצרי XADO הפכו לבחירה המועדפת של מכונאים מקצועיים ומנהלי צי רכבים ברחבי העולם.",
+      "home_p_26": "הצטרפו לאלפי לקוחות מרוצים בישראל שכבר חווים את היתרונות של מוצרי XADO. קבלו ייעוץ מקצועי ומותאם אישית לצרכי הרכב שלכם.",
+      "home_p_27": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
+      "home_p_28": "נוצר באמצעות Zappy",
       "login_p_3": "הזן את כתובת האימייל שלך ונשלח לך קוד התחברות",
       "login_p_4": "הזן את הקוד שנשלח לאימייל שלך",
       "login_p_5": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "login_p_6": "נוצר באמצעות&nbsp;Zappy",
+      "login_p_6": "נוצר באמצעות Zappy",
       "about_h1_1": "אודות XADO ISRAEL",
       "about_h2_2": "הסיפור שלנו",
       "about_h2_3": "המשימה שלנו",
@@ -4518,7 +5120,7 @@ html[dir="rtl"] body {
       "about_h2_7": "למי אנחנו משרתים",
       "about_h2_8": "המחויבות שלנו אליכם",
       "about_h2_9": "רוצים לדעת יותר?",
-      "about_p_21": "Happily created by&nbsp;Zappy",
+      "about_p_21": "Happily created by Zappy",
       "about_p_22": "XADO ISRAEL היא הנציגה הרשמית והבלעדית של מוצרי XADO בישראל. אנחנו מביאים לשוק הישראלי את הטכנולוגיה המתקדמת ביותר בתחום תוספי שמן מנוע לרכב ישראל ומוצרי טיפול ושיפור ביצועי רכב. המסע שלנו התחיל מתוך אמונה עמוקה שכל בעל רכב ומכונאי מקצועי ראוי לגישה למוצרים האיכותיים ביותר בשוק.",
       "about_p_23": "במשך השנים, XADO הפכה למותג המוביל בעולם בתחום הרווקונדישיונרים - טכנולוגיה ייחודית שמשקמת משטחי חיכוך במנוע ויוצרת הגנה מתמשכת. אנחנו גאים להביא את הטכנולוגיה הזו לישראל ולשרת אלפי לקוחות מרוצים - מחובבי רכב פרטיים ועד מנהלי צי רכבים גדולים.",
       "about_p_24": "המחויבות שלנו היא לא רק למכור מוצרים, אלא לספק פתרונות מקצועיים, ייעוץ אישי ותמיכה מלאה. כל לקוח שלנו מקבל יחס אישי, הסברים מפורטים והדרכה לשימוש נכון במוצרים. אנחנו מאמינים שהצלחת הלקוחות שלנו היא ההצלחה שלנו.",
@@ -4541,14 +5143,12 @@ html[dir="rtl"] body {
       "about_p_41": "תוספי דלק לחיסכון בצריכה, תוספי שמן מנוע ומוצרי טיפול נוספים של XADO הם השקעה בעתיד הרכב שלכם. אנחנו מזמינים אתכם להצטרף לאלפי הלקוחות המרוצים שלנו ולחוות את ההבדל של XADO ISRAEL.",
       "about_p_42": "הצוות שלנו ישמח לענות על כל שאלה, לספק ייעוץ מקצועי ולעזור לכם לבחור את המוצרים המתאימים ביותר לצרכים שלכם. צרו קשר עוד היום.",
       "about_p_43": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "about_p_44": "נוצר באמצעות&nbsp;Zappy",
-      "home_h3_10": "ידידותי לסביבה",
-      "home_h3_11": "מתאים לכל סוגי הרכבים",
-      "home_h3_12": "שיפור ביצועים מיידי",
-      "home_h3_13": "חובבי רכב",
-      "home_h3_14": "מכונאים מקצועיים",
-      "home_h3_15": "מנהלי צי רכבים",
-      "home_h3_16": "נהגי שטח",
+      "about_p_44": "נוצר באמצעות Zappy",
+      "home_h3_10": "שיפור ביצועים מיידי",
+      "home_h3_11": "חובבי רכב",
+      "home_h3_12": "מכונאים מקצועיים",
+      "home_h3_13": "מנהלי צי רכבים",
+      "home_h3_14": "נהגי שטח",
       "login_h1_1": "התחברות לקוחות",
       "login_h2_2": "עגלת הקניות שלך",
       "terms_h1_1": "תנאי שימוש",
@@ -4571,7 +5171,7 @@ html[dir="rtl"] body {
       "terms_p_23": "תנאי שימוש אלה כפופים לחוקי מדינת ישראל. כל סכסוך יידון בבתי המשפט המוסמכים בישראל, \n            תוך מתן עדיפות לבוררות או גישור במידת האפשר.",
       "terms_p_24": "לשאלות או הבהרות בנוגע לתנאי השימוש:",
       "terms_p_25": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "terms_p_26": "נוצר באמצעות&nbsp;Zappy",
+      "terms_p_26": "נוצר באמצעות Zappy",
       "about_h3_10": "המובילים בתחום מוצרי טיפול ושיפור ביצועי רכב בישראל",
       "about_h3_11": "מהם רווקונדישיונרים?",
       "about_h3_12": "היתרונות המדעיים המוכחים",
@@ -4608,25 +5208,25 @@ html[dir="rtl"] body {
       "cart_span_5": "₪0",
       "cart_span_6": "סה\"כ:",
       "cart_span_7": "₪0",
-      "home_alt_54": "XADO ISRAEL",
-      "home_alt_55": "XADO ISRAEL - מוצרי טיפול ושיפור ביצועי רכב מקצועיים",
-      "home_alt_56": "חובבי רכב - XADO ISRAEL",
-      "home_alt_57": "מכונאים מקצועיים - XADO",
-      "home_alt_58": "מנהלי צי רכבים - XADO ISRAEL",
-      "home_alt_59": "נהגי שטח - XADO",
-      "home_alt_60": "טכנולוגיית רווקונדישיונרים - XADO ISRAEL",
-      "home_nav_40": "מוצרים",
-      "home_nav_41": "כל המוצרים",
-      "home_nav_42": "מוצרים",
-      "home_nav_43": "אודות",
-      "home_nav_44": "עגלת קניות",
-      "home_nav_45": "המשך לתשלום",
-      "home_nav_46": "התחברות",
-      "home_nav_47": "החשבון שלי",
-      "home_nav_48": "ההזמנה התקבלה!",
-      "home_nav_49": "פרטי המוצר",
-      "home_nav_50": "צור קשר",
-      "home_nav_51": "כל המוצרים",
+      "home_alt_50": "XADO ISRAEL",
+      "home_alt_51": "XADO ISRAEL - מוצרי טיפול ושיפור ביצועי רכב מקצועיים",
+      "home_alt_52": "חובבי רכב - XADO ISRAEL",
+      "home_alt_53": "מכונאים מקצועיים - XADO",
+      "home_alt_54": "מנהלי צי רכבים - XADO ISRAEL",
+      "home_alt_55": "נהגי שטח - XADO",
+      "home_alt_56": "טכנולוגיית רווקונדישיונרים - XADO ISRAEL",
+      "home_nav_36": "מוצרים",
+      "home_nav_37": "כל המוצרים",
+      "home_nav_38": "מוצרים",
+      "home_nav_39": "אודות",
+      "home_nav_40": "עגלת קניות",
+      "home_nav_41": "המשך לתשלום",
+      "home_nav_42": "התחברות",
+      "home_nav_43": "החשבון שלי",
+      "home_nav_44": "ההזמנה התקבלה!",
+      "home_nav_45": "פרטי המוצר",
+      "home_nav_46": "צור קשר",
+      "home_nav_47": "כל המוצרים",
       "terms_h2_10": "9. שינוי תנאי השימוש",
       "terms_h2_11": "10. סיום השירות",
       "terms_h2_12": "11. דין חל ויישוב סכסוכים",
@@ -4652,8 +5252,8 @@ html[dir="rtl"] body {
       "terms_li_50": "אי-אכיפה של זכות לא תחשב כוויתור עליה",
       "terms_li_51": "תנאי השימוש מהווים את מלוא ההסכם בין הצדדים",
       "terms_li_52": "חברה: XADO ISRAEL",
-      "terms_li_53": "אימייל: info@company.com",
-      "terms_li_54": "טלפון: 03-1234567",
+      "terms_li_53": "אימייל: done2000@gmail.com",
+      "terms_li_54": "טלפון: 0544415969",
       "terms_li_55": "כתובת: כתובת החברה, ישראל",
       "about_alt_71": "XADO ISRAEL",
       "about_alt_72": "טכנולוגיית רווקונדישיונרים של XADO",
@@ -4681,23 +5281,21 @@ html[dir="rtl"] body {
       "account_p_11": "טוען פרטי הזמנה...",
       "account_p_12": "אין עדיין הזמנות",
       "account_p_13": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "account_p_14": "נוצר באמצעות&nbsp;Zappy",
+      "account_p_14": "נוצר באמצעות Zappy",
       "cart_link_10": "נגישות",
       "cart_link_11": "תנאי שימוש",
       "cart_link_12": "מדיניות החזרות",
       "cart_link_13": "Zappy",
       "cart_link_14": "המשך לתשלום",
       "checkout_p_8": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "checkout_p_9": "נוצר באמצעות&nbsp;Zappy",
-      "home_link_32": "Zappy",
-      "home_link_33": "צפה בכל המוצרים →",
-      "home_link_34": "צור קשר",
-      "home_link_35": "מדיניות פרטיות",
-      "home_link_36": "נגישות",
-      "home_link_37": "תנאי שימוש",
-      "home_link_38": "מדיניות החזרות",
-      "home_link_39": "Zappy",
-      "home_span_31": "שדרגו את ביצועי הרכב עם XADO",
+      "checkout_p_9": "נוצר באמצעות Zappy",
+      "home_link_29": "Zappy",
+      "home_link_30": "צור קשר",
+      "home_link_31": "מדיניות פרטיות",
+      "home_link_32": "נגישות",
+      "home_link_33": "תנאי שימוש",
+      "home_link_34": "מדיניות החזרות",
+      "home_link_35": "Zappy",
       "login_alt_33": "XADO ISRAEL",
       "login_btn_15": "שלח קוד",
       "login_btn_16": "אמת",
@@ -4725,7 +5323,7 @@ html[dir="rtl"] body {
       "privacy_h2_7": "6. אבטחת מידע",
       "privacy_h2_8": "7. שינויים במדיניות",
       "privacy_h2_9": "8. יצירת קשר",
-      "privacy_p_10": "XADO ISRAEL&nbsp; על ידי לולג בע׳׳מ ח.פ.\n515167609 (להלן ״החברה\",\n\"אנו\", \"שלנו\")  מחויבת להגן על פרטיותכם. \n\n\n\nירה כיצד אנו אוספים, \n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").",
+      "privacy_p_10": "XADO ISRAEL  על ידי לולג בע׳׳מ ח.פ.\n515167609 (להלן ״החברה\",\n\"אנו\", \"שלנו\")  מחויבת להגן על פרטיותכם. \n\n\n\nירה כיצד אנו אוספים, \n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").\n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").",
       "privacy_p_11": "אנו עשויים לאסוף את סוגי המידע הבאים:",
       "privacy_p_12": "אנו משתמשים במידע שנאסף למטרות הבאות:",
       "privacy_p_13": "אנו לא נמכור, נחכיר או נשתף את המידע האישי שלכם עם צדדים שלישיים, למעט במקרים הבאים:",
@@ -4736,9 +5334,9 @@ html[dir="rtl"] body {
       "privacy_p_18": "לשאלות או בקשות בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו:",
       "privacy_p_19": "רשם מאגרי המידע: לתלונות ניתן לפנות לרשם מאגרי המידע במשרד המשפטים",
       "privacy_p_20": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "privacy_p_21": "נוצר באמצעות&nbsp;Zappy",
+      "privacy_p_21": "נוצר באמצעות Zappy",
       "products_p_3": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "products_p_4": "נוצר באמצעות&nbsp;Zappy",
+      "products_p_4": "נוצר באמצעות Zappy",
       "terms_alt_70": "XADO ISRAEL",
       "terms_nav_56": "מוצרים",
       "terms_nav_57": "כל המוצרים",
@@ -4771,10 +5369,10 @@ html[dir="rtl"] body {
       "checkout_h2_5": "סיכום הזמנה",
       "checkout_h2_6": "תשלום",
       "checkout_h2_7": "עגלת הקניות שלך",
-      "home_title_61": "התחברות",
-      "home_title_62": "עגלת קניות",
-      "home_title_63": "חיפוש",
-      "home_title_64": "חיפוש",
+      "home_title_57": "התחברות",
+      "home_title_58": "עגלת קניות",
+      "home_title_59": "חיפוש",
+      "home_title_60": "חיפוש",
       "login_link_10": "נגישות",
       "login_link_11": "תנאי שימוש",
       "login_link_12": "מדיניות החזרות",
@@ -4797,23 +5395,23 @@ html[dir="rtl"] body {
       "privacy_li_42": "זכות להתנגד לעיבוד מידע למטרות שיווק",
       "privacy_li_43": "זכות להגשת תלונה לרשם מאגרי המידע",
       "privacy_li_44": "חברה: XADO ISRAEL",
-      "privacy_li_45": "אימייל: info@company.com",
-      "privacy_li_46": "טלפון: 03-1234567",
+      "privacy_li_45": "אימייל: done2000@gmail.com",
+      "privacy_li_46": "טלפון: 0544415969",
       "privacy_li_47": "כתובת: כתובת החברה, ישראל",
       "products_h1_1": "המוצרים שלנו",
       "products_h2_2": "עגלת הקניות שלך",
-      "terms_link_27": "info@company.com",
+      "terms_link_27": "done2000@gmail.com",
       "terms_link_28": "מדיניות פרטיות",
       "terms_link_29": "נגישות",
       "terms_link_30": "תנאי שימוש",
       "terms_link_31": "מדיניות החזרות",
       "terms_link_32": "Zappy",
-      "thank_you_p_2": "Happily created by&nbsp;Zappy",
+      "thank_you_p_2": "Happily created by Zappy",
       "thank_you_p_3": "ההודעה שלך התקבלה בהצלחה במערכת",
       "thank_you_p_4": "מספר פנייה למעקב",
       "thank_you_p_5": "צוות XADO ישראל קיבל את פנייתך. אנו בודקים את הנושא ונחזור אליך בהקדם האפשרי עם תשובה מלאה.",
       "thank_you_p_6": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "thank_you_p_7": "נוצר באמצעות&nbsp;Zappy",
+      "thank_you_p_7": "נוצר באמצעות Zappy",
       "about_title_74": "התחברות",
       "about_title_75": "עגלת קניות",
       "about_title_76": "חיפוש",
@@ -4824,7 +5422,7 @@ html[dir="rtl"] body {
       "account_btn_30": "שמור שינויים",
       "account_btn_31": "ביטול",
       "account_btn_32": "הוסף כתובת",
-      "account_btn_33": "&amp;times;",
+      "account_btn_33": "&times;",
       "account_btn_34": "שמור שינויים",
       "account_btn_35": "ביטול",
       "account_nav_44": "מוצרים",
@@ -4877,24 +5475,24 @@ html[dir="rtl"] body {
       "account_span_18": "סה\"כ:",
       "account_span_19": "₪0",
       "cart_page_title": "עגלת קניות - XADO ISRAEL",
-      "checkout_alt_53": "XADO ISRAEL",
-      "checkout_btn_26": "התנתק",
-      "checkout_btn_27": "יש לי קוד קופון",
-      "checkout_btn_28": "החל",
-      "checkout_btn_29": "הסר",
-      "checkout_btn_30": "בצע הזמנה",
-      "checkout_nav_31": "מוצרים",
-      "checkout_nav_32": "כל המוצרים",
-      "checkout_nav_33": "מוצרים",
-      "checkout_nav_34": "אודות",
-      "checkout_nav_35": "עגלת קניות",
-      "checkout_nav_36": "המשך לתשלום",
-      "checkout_nav_37": "התחברות",
-      "checkout_nav_38": "החשבון שלי",
-      "checkout_nav_39": "ההזמנה התקבלה!",
-      "checkout_nav_40": "פרטי המוצר",
-      "checkout_nav_41": "צור קשר",
-      "checkout_nav_42": "כל המוצרים",
+      "checkout_alt_59": "XADO ISRAEL",
+      "checkout_btn_30": "התנתק",
+      "checkout_btn_31": "יש לי קוד קופון",
+      "checkout_btn_32": "החל",
+      "checkout_btn_33": "הסר",
+      "checkout_btn_34": "בצע הזמנה",
+      "checkout_nav_37": "מוצרים",
+      "checkout_nav_38": "כל המוצרים",
+      "checkout_nav_39": "מוצרים",
+      "checkout_nav_40": "אודות",
+      "checkout_nav_41": "עגלת קניות",
+      "checkout_nav_42": "המשך לתשלום",
+      "checkout_nav_43": "התחברות",
+      "checkout_nav_44": "החשבון שלי",
+      "checkout_nav_45": "ההזמנה התקבלה!",
+      "checkout_nav_46": "פרטי המוצר",
+      "checkout_nav_47": "צור קשר",
+      "checkout_nav_48": "כל המוצרים",
       "contact_us_h1_1": "עם XADO ISRAEL",
       "contact_us_h2_2": "שלח לנו הודעה",
       "contact_us_h2_3": "למה לפנות אלינו?",
@@ -4904,7 +5502,7 @@ html[dir="rtl"] body {
       "contact_us_h3_7": "ייעוץ מקצועי",
       "contact_us_h3_8": "מענה מהיר",
       "contact_us_h3_9": "תמיכה מתמשכת",
-      "contact_us_p_15": "Happily created by&nbsp;Zappy",
+      "contact_us_p_15": "Happily created by Zappy",
       "contact_us_p_16": "מלא את הפרטים ונחזור אליך בהקדם האפשרי עם ייעוץ מקצועי ומותאם אישית.",
       "contact_us_p_17": "הצוות שלנו מורכב ממומחים בתחום תוספי שמן מנוע לרכב ישראל ומוצרי טיפול ושיפור ביצועי רכב. נספק לך ייעוץ מקצועי ומדויק לצרכים שלך.",
       "contact_us_p_18": "אנחנו מחויבים למענה מהיר ויעיל. פניות טלפוניות מטופלות מיידית, ואימיילים מקבלים מענה תוך 24 שעות.",
@@ -4916,15 +5514,15 @@ html[dir="rtl"] body {
       "contact_us_p_24": "ניתן להזמין מוצרים בטלפון, דרך WhatsApp או באמצעות טופס יצירת הקשר באתר. נספק לך מידע על מחירים, זמינות ואפשרויות משלוח.",
       "contact_us_p_25": "הצוות של XADO ISRAEL כאן כדי לעזור לך לבחור את המוצרים המתאימים ביותר ולענות על כל שאלה. אל תהסס לפנות אלינו!",
       "contact_us_p_26": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "contact_us_p_27": "נוצר באמצעות&nbsp;Zappy",
+      "contact_us_p_27": "נוצר באמצעות Zappy",
       "home_page_title": "שדרוג ביצועי הרכב שלך עם מוצרי XADO — XADO ISRAEL",
-      "privacy_link_22": "info@company.com",
+      "privacy_link_22": "done2000@gmail.com",
       "privacy_link_23": "מדיניות פרטיות",
       "privacy_link_24": "נגישות",
       "privacy_link_25": "תנאי שימוש",
       "privacy_link_26": "מדיניות החזרות",
       "privacy_link_27": "Zappy",
-      "products_alt_30": "XADO ISRAEL",
+      "products_alt_31": "XADO ISRAEL",
       "products_btn_13": "הכל",
       "products_btn_14": "מומלצים",
       "products_btn_15": "חדשים",
@@ -4943,6 +5541,7 @@ html[dir="rtl"] body {
       "products_nav_25": "ההזמנה התקבלה!",
       "products_nav_26": "פרטי המוצר",
       "products_nav_27": "צור קשר",
+      "products_nav_28": "כל המוצרים",
       "products_span_5": "סה\"כ:",
       "products_span_6": "₪0",
       "about_page_title": "הסיפור שלנו והטכנולוגיה שמאחורי XADO — XADO ISRAEL",
@@ -4959,22 +5558,26 @@ html[dir="rtl"] body {
       "account_title_67": "עגלת קניות",
       "account_title_68": "חיפוש",
       "account_title_69": "חיפוש",
-      "checkout_link_19": "התחבר כאן",
-      "checkout_link_20": "מדיניות פרטיות",
-      "checkout_link_21": "נגישות",
-      "checkout_link_22": "תנאי שימוש",
-      "checkout_link_23": "מדיניות החזרות",
-      "checkout_link_24": "Zappy",
-      "checkout_link_25": "המשך לתשלום",
+      "checkout_link_22": "התחבר כאן",
+      "checkout_link_23": "תנאי השימוש",
+      "checkout_link_24": "מדיניות פרטיות",
+      "checkout_link_25": "נגישות",
+      "checkout_link_26": "תנאי שימוש",
+      "checkout_link_27": "מדיניות החזרות",
+      "checkout_link_28": "Zappy",
+      "checkout_link_29": "המשך לתשלום",
       "checkout_span_10": "כבר יש לך חשבון?",
       "checkout_span_11": "מחובר כ:",
-      "checkout_span_12": "₪0",
+      "checkout_span_12": "שמור את הכתובת לפעם הבאה",
       "checkout_span_13": "₪0",
       "checkout_span_14": "₪0",
-      "checkout_span_15": "-₪0",
-      "checkout_span_16": "₪0",
-      "checkout_span_17": "סה\"כ:",
-      "checkout_span_18": "₪0",
+      "checkout_span_15": "₪0",
+      "checkout_span_16": "-₪0",
+      "checkout_span_17": "₪0",
+      "checkout_span_18": "אני מסכים/ה ל תנאי השימוש",
+      "checkout_span_19": "אני מסכים/ה ל",
+      "checkout_span_20": "סה\"כ:",
+      "checkout_span_21": "₪0",
       "contact_us_h3_10": "אמינות ושקיפות",
       "contact_us_h3_11": "איך אני יודע איזה מוצר מתאים לרכב שלי?",
       "contact_us_h3_12": "כמה זמן לוקח לראות תוצאות?",
@@ -4989,11 +5592,11 @@ html[dir="rtl"] body {
       "legal_terms_h2_7": "6. הגבלת אחריות",
       "legal_terms_h2_8": "7. זכויות יוצרים וקניין רוחני",
       "legal_terms_h2_9": "8. פרטיות",
-      "legal_terms_p_15": "[business_name] מספקת שירותים כלליים דרך האתר. השירותים כפופים לתנאים המפורטים במסמך זה \n            ועשויים להשתנות מעת לעת.",
+      "legal_terms_p_15": "XADO ISRAEL מספקת שירותים כלליים דרך האתר. השירותים כפופים לתנאים המפורטים במסמך זה \n            ועשויים להשתנות מעת לעת.",
       "legal_terms_p_16": "השימוש באתר מותנה בעמידה בתנאים הבאים:",
       "legal_terms_p_17": "במידה והשירותים כוללים תשלום:",
       "legal_terms_p_18": "השירותים ניתנים \"כפי שהם\" ללא אחריות מכל סוג. החברה לא תהיה אחראית לנזקים עקיפים, \n            תוצאתיים או מיוחדים הנובעים משימוש באתר, למעט במקרים בהם החוק קובע אחרת.",
-      "legal_terms_p_19": "כל התכנים באתר, כולל טקסטים, תמונות, עיצוב וקוד, מוגנים בזכויות יוצרים השייכות ל[business_name]. \n            אסור לשכפל, להפיץ או לעשות שימוש מסחרי בתכנים ללא אישור בכתב.",
+      "legal_terms_p_19": "כל התכנים באתר, כולל טקסטים, תמונות, עיצוב וקוד, מוגנים בזכויות יוצרים השייכות לXADO ISRAEL. \n            אסור לשכפל, להפיץ או לעשות שימוש מסחרי בתכנים ללא אישור בכתב.",
       "legal_terms_p_20": "איסוף ושימוש במידע אישי כפופים למדיניות הפרטיות שלנו. השימוש באתר מהווה הסכמה \n            למדיניות הפרטיות כפי שמפורט בנפרד.",
       "legal_terms_p_21": "החברה רשאית לשנות תנאי שימוש אלה בכל עת. שינויים מהותיים יפורסמו באתר עם הודעה מוקדמת \n            של 30 יום. המשך השימוש לאחר השינוי מהווה הסכמה לתנאים החדשים.",
       "legal_terms_p_22": "החברה רשאית להפסיק או להגביל את השירות בכל עת, לרבות במקרה של הפרת תנאי השימוש. \n            במקרה של סיום השירות, יישמרו הוראות הסעיפים הרלוונטיים.",
@@ -5025,12 +5628,14 @@ html[dir="rtl"] body {
       "thank_you_nav_26": "צור קשר",
       "thank_you_nav_27": "כל המוצרים",
       "accessibility_p_9": "XADO ISRAEL מחויבת להנגיש את השירותים לכלל הציבור. אנו פועלים ליישם את הנחיות התקן הישראלי \n            (ת\"י 5568) המבוסס על הנחיות WCAG 2.1 ברמת AA.",
-      "checkout_title_54": "חיפוש",
-      "checkout_title_55": "התחברות",
-      "checkout_title_56": "עגלת קניות",
-      "checkout_title_57": "חיפוש",
-      "checkout_title_58": "חיפוש",
-      "checkout_title_59": "Close",
+      "checkout_label_35": "שמור את הכתובת לפעם הבאה",
+      "checkout_label_36": "אני מסכים/ה ל תנאי השימוש",
+      "checkout_title_60": "חיפוש",
+      "checkout_title_61": "התחברות",
+      "checkout_title_62": "עגלת קניות",
+      "checkout_title_63": "חיפוש",
+      "checkout_title_64": "חיפוש",
+      "checkout_title_65": "Close",
       "contact_us_alt_60": "XADO ISRAEL",
       "contact_us_btn_35": "שלח הודעה",
       "contact_us_nav_42": "מוצרים",
@@ -5050,44 +5655,44 @@ html[dir="rtl"] body {
       "legal_terms_h2_12": "11. דין חל ויישוב סכסוכים",
       "legal_terms_h2_13": "12. הוראות כלליות",
       "legal_terms_h2_14": "13. פרטי יצירת קשר",
-      "legal_terms_li_28": "\"החברה\" - [business_name]",
-      "legal_terms_li_29": "\"המשתמש\" - כל מי שגולש או משתמש באתר",
-      "legal_terms_li_30": "\"השירותים\" - שירותים כלליים הניתנים דרך האתר",
-      "legal_terms_li_31": "השימוש באתר למטרות חוקיות בלבד",
-      "legal_terms_li_32": "אי-הפרעה לפעילות האתר או משתמשים אחרים",
-      "legal_terms_li_33": "אי-העלאת תוכן פוגעני, לא חוקי או מזיק",
-      "legal_terms_li_34": "כיבוד זכויות יוצרים וקניין רוחני",
-      "legal_terms_li_35": "אי-ביצוע פעולות שעלולות לפגוע באבטחת האתר",
-      "legal_terms_li_36": "מתן מידע נכון ומדויק בעת הרשמה או הזמנה",
-      "legal_terms_li_37": "שמירה על סודיות פרטי הגישה לחשבון",
-      "legal_terms_li_38": "הודעה מיידית על כל שימוש לא מורשה בחשבון",
-      "legal_terms_li_39": "עדכון מידע אישי במידת הצורך",
-      "legal_terms_li_40": "התשלומים מבוצעים דרך מערכות בטוחות ומוצפנות",
-      "legal_terms_li_41": "המחירים כוללים מע\"ם כנדרש בחוק",
-      "legal_terms_li_42": "זכות ביטול עסקה תעמוד בהתאם לחוק הגנת הצרכן",
-      "legal_terms_li_43": "החזרים יבוצעו תוך 14 ימי עסקים מאישור הביטול",
-      "legal_terms_li_44": "אם חלק מהתנאים יוכרז כבלתי תקף, יישארו שאר התנאים בתוקף",
-      "legal_terms_li_45": "אי-אכיפה של זכות לא תחשב כוויתור עליה",
-      "legal_terms_li_46": "תנאי השימוש מהווים את מלוא ההסכם בין הצדדים",
-      "legal_terms_li_47": "חברה: [business_name]",
-      "legal_terms_li_48": "אימייל: [business_email]",
-      "legal_terms_li_49": "טלפון: [business_phone]",
-      "legal_terms_li_50": "כתובת: [business_address]",
+      "legal_terms_li_27": "\"החברה\" - XADO ISRAEL",
+      "legal_terms_li_28": "\"המשתמש\" - כל מי שגולש או משתמש באתר",
+      "legal_terms_li_29": "\"השירותים\" - שירותים כלליים הניתנים דרך האתר",
+      "legal_terms_li_30": "השימוש באתר למטרות חוקיות בלבד",
+      "legal_terms_li_31": "אי-הפרעה לפעילות האתר או משתמשים אחרים",
+      "legal_terms_li_32": "אי-העלאת תוכן פוגעני, לא חוקי או מזיק",
+      "legal_terms_li_33": "כיבוד זכויות יוצרים וקניין רוחני",
+      "legal_terms_li_34": "אי-ביצוע פעולות שעלולות לפגוע באבטחת האתר",
+      "legal_terms_li_35": "מתן מידע נכון ומדויק בעת הרשמה או הזמנה",
+      "legal_terms_li_36": "שמירה על סודיות פרטי הגישה לחשבון",
+      "legal_terms_li_37": "הודעה מיידית על כל שימוש לא מורשה בחשבון",
+      "legal_terms_li_38": "עדכון מידע אישי במידת הצורך",
+      "legal_terms_li_39": "התשלומים מבוצעים דרך מערכות בטוחות ומוצפנות",
+      "legal_terms_li_40": "המחירים כוללים מע\"ם כנדרש בחוק",
+      "legal_terms_li_41": "זכות ביטול עסקה תעמוד בהתאם לחוק הגנת הצרכן",
+      "legal_terms_li_42": "החזרים יבוצעו תוך 14 ימי עסקים מאישור הביטול",
+      "legal_terms_li_43": "אם חלק מהתנאים יוכרז כבלתי תקף, יישארו שאר התנאים בתוקף",
+      "legal_terms_li_44": "אי-אכיפה של זכות לא תחשב כוויתור עליה",
+      "legal_terms_li_45": "תנאי השימוש מהווים את מלוא ההסכם בין הצדדים",
+      "legal_terms_li_46": "חברה: XADO ISRAEL",
+      "legal_terms_li_47": "אימייל: done2000@gmail.com",
+      "legal_terms_li_48": "טלפון: 03-1234567",
+      "legal_terms_li_49": "כתובת: כתובת החברה, Israel",
       "order_success_p_4": "תודה על ההזמנה",
       "order_success_p_5": "מספר הזמנה",
       "order_success_p_6": "טוען פרטי הזמנה...",
       "order_success_p_7": "אישור הזמנה נשלח לאימייל שלך",
       "order_success_p_8": "ההזמנה שלך בטיפול. נעדכן אותך כשהמשלוח יצא לדרך.",
       "order_success_p_9": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "product__slug_p_3": "\n",
+      "product__slug_p_3": "טוען מוצרים...",
       "product__slug_p_4": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "product__slug_p_5": "נוצר באמצעות&nbsp;Zappy",
-      "products_title_31": "חיפוש",
-      "products_title_32": "התחברות",
-      "products_title_33": "עגלת קניות",
-      "products_title_34": "חיפוש",
+      "product__slug_p_5": "נוצר באמצעות Zappy",
+      "products_title_32": "חיפוש",
+      "products_title_33": "התחברות",
+      "products_title_34": "עגלת קניות",
       "products_title_35": "חיפוש",
-      "return_policy_p_7": "עדכון אחרון: 29.1.2026",
+      "products_title_36": "חיפוש",
+      "return_policy_p_7": "עדכון אחרון: 4.2.2026",
       "return_policy_p_8": "XADO ISRAEL מחויבת לשביעות רצון לקוחותיה. מדיניות זו מפרטת את זכויותיכם להחזרת מוצרים בהתאם לחוק הגנת הצרכן.",
       "return_policy_p_9": "בהתאם לחוק הגנת הצרכן, עומדת לכם הזכות לבטל עסקה בתוך 14 ימים מיום קבלת המוצר.",
       "thank_you_link_10": "פנייה נוספת",
@@ -5112,10 +5717,10 @@ html[dir="rtl"] body {
       "accessibility_p_15": "זמני מענה: נענה לפניות בנושא נגישות תוך 3 ימי עסקים ונפעל לפתרון תוך 10 ימי עסקים.",
       "accessibility_p_16": "תלונות: ניתן להגיש תלונה למשרד המשפטים - הנציבות לשוויון זכויות לאנשים עם מוגבלות",
       "accessibility_p_17": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "accessibility_p_18": "נוצר באמצעות&nbsp;Zappy",
+      "accessibility_p_18": "נוצר באמצעות Zappy",
       "account_page_title": "החשבון שלי - XADO ISRAEL",
       "category__slug_p_2": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "category__slug_p_3": "נוצר באמצעות&nbsp;Zappy",
+      "category__slug_p_3": "נוצר באמצעות Zappy",
       "contact_us_link_28": "Zappy",
       "contact_us_link_29": "שלח שאלה",
       "contact_us_link_30": "מדיניות פרטיות",
@@ -5132,7 +5737,7 @@ html[dir="rtl"] body {
       "legal_privacy_h2_7": "6. אבטחת מידע",
       "legal_privacy_h2_8": "7. שינויים במדיניות",
       "legal_privacy_h2_9": "8. יצירת קשר",
-      "legal_privacy_p_10": "[business_name] (\"החברה\", \"אנו\", \"שלנו\") מחויבת להגן על פרטיותכם. מדיניות פרטיות זו מסבירה כיצד אנו אוספים, \n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").",
+      "legal_privacy_p_10": "XADO ISRAEL (\"החברה\", \"אנו\", \"שלנו\") מחויבת להגן על פרטיותכם. מדיניות פרטיות זו מסבירה כיצד אנו אוספים, \n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").",
       "legal_privacy_p_11": "אנו עשויים לאסוף את סוגי המידע הבאים:",
       "legal_privacy_p_12": "אנו משתמשים במידע שנאסף למטרות הבאות:",
       "legal_privacy_p_13": "אנו לא נמכור, נחכיר או נשתף את המידע האישי שלכם עם צדדים שלישיים, למעט במקרים הבאים:",
@@ -5145,7 +5750,7 @@ html[dir="rtl"] body {
       "order_success_h1_1": "ההזמנה התקבלה!",
       "order_success_h2_2": "פרטי ההזמנה",
       "order_success_h2_3": "עגלת הקניות שלך",
-      "order_success_p_10": "נוצר באמצעות&nbsp;Zappy",
+      "order_success_p_10": "נוצר באמצעות Zappy",
       "privacy_page_title": "מדיניות פרטיות",
       "product__slug_h2_1": "מוצרים דומים",
       "product__slug_h2_2": "עגלת הקניות שלך",
@@ -5157,11 +5762,11 @@ html[dir="rtl"] body {
       "return_policy_h2_6": "עגלת הקניות שלך",
       "return_policy_p_10": "במקרה של מוצר פגום או שונה מהמתואר, זכאים אתם להחזר מלא ללא דמי ביטול, כולל החזר דמי משלוח.",
       "return_policy_p_11": "לביצוע החזרה או לשאלות:",
-      "return_policy_p_12": "אימייל: info@company.com",
-      "return_policy_p_13": "טלפון: 03-1234567",
-      "return_policy_p_14": "כתובת: כתובת החברה, ישראל",
+      "return_policy_p_12": "אימייל: done2000@gmail.com",
+      "return_policy_p_13": "טלפון: 0544415969",
+      "return_policy_p_14": "כתובת: דוכיפת 5, נשר",
       "return_policy_p_15": "© 2026 XADO ISRAEL. כל הזכויות שמורות.",
-      "return_policy_p_16": "נוצר באמצעות&nbsp;Zappy",
+      "return_policy_p_16": "נוצר באמצעות Zappy",
       "thank_you_title_31": "התחברות",
       "thank_you_title_32": "עגלת קניות",
       "thank_you_title_33": "חיפוש",
@@ -5190,8 +5795,8 @@ html[dir="rtl"] body {
       "accessibility_li_46": "בדיקת ניגודיות צבעים",
       "accessibility_li_47": "בדיקה עם משתמשים עם מוגבלויות",
       "accessibility_li_48": "חברה: XADO ISRAEL",
-      "accessibility_li_49": "אימייל: info@company.com",
-      "accessibility_li_50": "טלפון: 03-1234567",
+      "accessibility_li_49": "אימייל: done2000@gmail.com",
+      "accessibility_li_50": "טלפון: 0544415969",
       "cart_placeholder_27": "חיפוש מוצרים...",
       "cart_placeholder_28": "חיפוש מוצרים...",
       "category__slug_h2_1": "עגלת הקניות שלך",
@@ -5206,31 +5811,30 @@ html[dir="rtl"] body {
       "contact_us_title_62": "עגלת קניות",
       "contact_us_title_63": "חיפוש",
       "contact_us_title_64": "חיפוש",
-      "home_placeholder_52": "חיפוש מוצרים...",
-      "home_placeholder_53": "חיפוש מוצרים...",
-      "legal_privacy_li_23": "מידע אישי: שם, כתובת אימייל, מספר טלפון וכתובת",
-      "legal_privacy_li_24": "מידע טכני: כתובת IP, סוג דפדפן, מערכת הפעלה ונתוני שימוש באתר",
-      "legal_privacy_li_25": "עוגיות: מידע הנשמר במחשבכם לשיפור חוויית השימוש",
-      "legal_privacy_li_26": "מתן השירותים המבוקשים",
-      "legal_privacy_li_27": "שיפור השירות וחוויית המשתמש",
-      "legal_privacy_li_28": "יצירת קשר עמכם בנוגע לשירותינו",
-      "legal_privacy_li_29": "עמידה בדרישות חוקיות",
-      "legal_privacy_li_30": "בהסכמתכם המפורשת",
-      "legal_privacy_li_31": "כאשר נדרש על פי חוק",
-      "legal_privacy_li_32": "להגנה על זכויותינו או בטחון משתמשינו",
-      "legal_privacy_li_33": "עם ספקי שירות המסייעים בהפעלת השירות (תחת הסכמי סודיות)",
-      "legal_privacy_li_34": "זכות עיון במידע האישי השמור עליכם",
-      "legal_privacy_li_35": "זכות לתיקון מידע שגוי או לא מדויק",
-      "legal_privacy_li_36": "זכות למחיקת מידע אישי בנסיבות מסוימות",
-      "legal_privacy_li_37": "זכות להתנגד לעיבוד מידע למטרות שיווק",
-      "legal_privacy_li_38": "זכות להגשת תלונה לרשם מאגרי המידע",
-      "legal_privacy_li_39": "חברה: [business_name]",
-      "legal_privacy_li_40": "אימייל: [business_email]",
-      "legal_privacy_li_41": "טלפון: [business_phone]",
-      "legal_privacy_li_42": "כתובת: [business_address]",
-      "legal_terms_link_25": "[business_email]",
-      "legal_terms_link_26": "[business_phone]",
-      "legal_terms_link_27": "← חזרה לאתר",
+      "home_placeholder_48": "חיפוש מוצרים...",
+      "home_placeholder_49": "חיפוש מוצרים...",
+      "legal_privacy_li_22": "מידע אישי: שם, כתובת אימייל, מספר טלפון וכתובת",
+      "legal_privacy_li_23": "מידע טכני: כתובת IP, סוג דפדפן, מערכת הפעלה ונתוני שימוש באתר",
+      "legal_privacy_li_24": "עוגיות: מידע הנשמר במחשבכם לשיפור חוויית השימוש",
+      "legal_privacy_li_25": "מתן השירותים המבוקשים",
+      "legal_privacy_li_26": "שיפור השירות וחוויית המשתמש",
+      "legal_privacy_li_27": "יצירת קשר עמכם בנוגע לשירותינו",
+      "legal_privacy_li_28": "עמידה בדרישות חוקיות",
+      "legal_privacy_li_29": "בהסכמתכם המפורשת",
+      "legal_privacy_li_30": "כאשר נדרש על פי חוק",
+      "legal_privacy_li_31": "להגנה על זכויותינו או בטחון משתמשינו",
+      "legal_privacy_li_32": "עם ספקי שירות המסייעים בהפעלת השירות (תחת הסכמי סודיות)",
+      "legal_privacy_li_33": "זכות עיון במידע האישי השמור עליכם",
+      "legal_privacy_li_34": "זכות לתיקון מידע שגוי או לא מדויק",
+      "legal_privacy_li_35": "זכות למחיקת מידע אישי בנסיבות מסוימות",
+      "legal_privacy_li_36": "זכות להתנגד לעיבוד מידע למטרות שיווק",
+      "legal_privacy_li_37": "זכות להגשת תלונה לרשם מאגרי המידע",
+      "legal_privacy_li_38": "חברה: XADO ISRAEL",
+      "legal_privacy_li_39": "אימייל: done2000@gmail.com",
+      "legal_privacy_li_40": "טלפון: 03-1234567",
+      "legal_privacy_li_41": "כתובת: כתובת החברה, Israel",
+      "legal_terms_link_25": "done2000@gmail.com",
+      "legal_terms_link_26": "← חזרה לאתר",
       "products_page_title": "מוצרים - XADO ISRAEL",
       "return_policy_li_26": "לאזרחים ותיקים, עולים חדשים ואנשים עם מוגבלות - תקופת הביטול היא 4 חודשים",
       "return_policy_li_27": "יש להחזיר את המוצר באריזתו המקורית",
@@ -5304,7 +5908,7 @@ html[dir="rtl"] body {
       "terms_placeholder_68": "חיפוש מוצרים...",
       "terms_placeholder_69": "חיפוש מוצרים...",
       "thank_you_page_title": "תודה רבה - XADO ISRAEL",
-      "accessibility_link_19": "info@company.com",
+      "accessibility_link_19": "done2000@gmail.com",
       "accessibility_link_20": "מדיניות פרטיות",
       "accessibility_link_21": "נגישות",
       "accessibility_link_22": "תנאי שימוש",
@@ -5335,9 +5939,8 @@ html[dir="rtl"] body {
       "category__slug_span_5": "₪0",
       "contact_us_page_title": "צור קשר",
       "home_meta_description": "גלה את מוצרי XADO המובילים לשיפור ביצועים, חיסכון בדלק וטיפול מקצועי ברכב. פתרונות איכותיים למכונאים, חובבי רכב ומנהלי ציים.",
-      "legal_privacy_link_20": "[business_email]",
-      "legal_privacy_link_21": "[business_phone]",
-      "legal_privacy_link_22": "← חזרה לאתר",
+      "legal_privacy_link_20": "done2000@gmail.com",
+      "legal_privacy_link_21": "← חזרה לאתר",
       "order_success_link_13": "להמשך קניות",
       "order_success_link_14": "מדיניות פרטיות",
       "order_success_link_15": "נגישות",
@@ -5351,7 +5954,7 @@ html[dir="rtl"] body {
       "product__slug_link_11": "מדיניות החזרות",
       "product__slug_link_12": "Zappy",
       "product__slug_link_13": "המשך לתשלום",
-      "return_policy_link_19": "info@company.com",
+      "return_policy_link_19": "done2000@gmail.com",
       "return_policy_link_20": "מדיניות פרטיות",
       "return_policy_link_21": "נגישות",
       "return_policy_link_22": "תנאי שימוש",
@@ -5376,7 +5979,7 @@ html[dir="rtl"] body {
       "account_placeholder_63": "מיקוד",
       "category__slug_link_10": "Zappy",
       "category__slug_link_11": "המשך לתשלום",
-      "legal_terms_page_title": "תנאי שימוש - [business_name]",
+      "legal_terms_page_title": "תנאי שימוש - XADO ISRAEL",
       "order_success_title_35": "חיפוש",
       "order_success_title_36": "התחברות",
       "order_success_title_37": "עגלת קניות",
@@ -5400,19 +6003,19 @@ html[dir="rtl"] body {
       "category__slug_title_33": "עגלת קניות",
       "category__slug_title_34": "חיפוש",
       "category__slug_title_35": "חיפוש",
-      "checkout_placeholder_43": "חיפוש מוצרים...",
-      "checkout_placeholder_44": "חיפוש מוצרים...",
-      "checkout_placeholder_45": "שם מלא",
-      "checkout_placeholder_46": "אימייל",
-      "checkout_placeholder_47": "טלפון",
-      "checkout_placeholder_48": "רחוב ומספר",
-      "checkout_placeholder_49": "דירה, קומה, כניסה",
-      "checkout_placeholder_50": "עיר",
-      "checkout_placeholder_51": "מיקוד",
-      "checkout_placeholder_52": "הזן קוד קופון",
-      "legal_accessibility_p_9": "[business_name] מחויבת להנגיש את השירותים לכלל הציבור. אנו פועלים ליישם את הנחיות התקן הישראלי \n            (ת\"י 5568) המבוסס על הנחיות WCAG 2.1 ברמת AA.",
-      "products_placeholder_28": "חיפוש מוצרים...",
+      "checkout_placeholder_49": "חיפוש מוצרים...",
+      "checkout_placeholder_50": "חיפוש מוצרים...",
+      "checkout_placeholder_51": "שם מלא",
+      "checkout_placeholder_52": "אימייל",
+      "checkout_placeholder_53": "טלפון",
+      "checkout_placeholder_54": "רחוב ומספר",
+      "checkout_placeholder_55": "דירה, קומה, כניסה",
+      "checkout_placeholder_56": "עיר",
+      "checkout_placeholder_57": "מיקוד",
+      "checkout_placeholder_58": "הזן קוד קופון",
+      "legal_accessibility_p_9": "XADO ISRAEL מחויבת להנגיש את השירותים לכלל הציבור. אנו פועלים ליישם את הנחיות התקן הישראלי \n            (ת\"י 5568) המבוסס על הנחיות WCAG 2.1 ברמת AA.",
       "products_placeholder_29": "חיפוש מוצרים...",
+      "products_placeholder_30": "חיפוש מוצרים...",
       "accessibility_page_title": "הצהרת נגישות",
       "legal_accessibility_h1_1": "הצהרת נגישות",
       "legal_accessibility_h2_2": "1. מדיניות הנגישות",
@@ -5429,7 +6032,7 @@ html[dir="rtl"] body {
       "legal_accessibility_p_14": "אם נתקלתם בבעיית נגישות באתר או זקוקים לסיוע, אנא פנו אלינו:",
       "legal_accessibility_p_15": "זמני מענה: נענה לפניות בנושא נגישות תוך 3 ימי עסקים ונפעל לפתרון תוך 10 ימי עסקים.",
       "legal_accessibility_p_16": "תלונות: ניתן להגיש תלונה למשרד המשפטים - הנציבות לשוויון זכויות לאנשים עם מוגבלות",
-      "legal_privacy_page_title": "מדיניות פרטיות - [business_name]",
+      "legal_privacy_page_title": "מדיניות פרטיות - XADO ISRAEL",
       "order_success_page_title": "ההזמנה התקבלה! - XADO ISRAEL",
       "privacy_meta_description": "מדיניות הפרטיות שלנו - כיצד אנו אוספים, משתמשים ומגנים על המידע שלכם",
       "product__slug_page_title": "פרטי המוצר - XADO ISRAEL",
@@ -5443,37 +6046,36 @@ html[dir="rtl"] body {
       "contact_us_placeholder_57": "example@email.com",
       "contact_us_placeholder_58": "05X-XXXXXXX",
       "contact_us_placeholder_59": "ספר לנו איך נוכל לעזור לך...",
-      "legal_accessibility_li_20": "תמיכה בניווט באמצעות מקלדת",
-      "legal_accessibility_li_21": "תמיכה בקוראי מסך",
-      "legal_accessibility_li_22": "ניגודיות צבעים מתאימה",
-      "legal_accessibility_li_23": "גדלי פונט גמישים וניתנים להגדלה",
-      "legal_accessibility_li_24": "תיאורי תמונות (Alt text) מפורטים",
-      "legal_accessibility_li_25": "כותרות מובנות היררכית",
-      "legal_accessibility_li_26": "קישורים תיאוריים וברורים",
-      "legal_accessibility_li_27": "תמיכה בזום עד 200% ללא אובדן תוכן",
-      "legal_accessibility_li_28": "נתפס (Perceivable): המידע מוצג בדרכים שמשתמשים יכולים לתפוס",
-      "legal_accessibility_li_29": "פעיל (Operable): רכיבי הממשק ניתנים להפעלה",
-      "legal_accessibility_li_30": "מובן (Understandable): המידע וממשק המשתמש מובנים",
-      "legal_accessibility_li_31": "חזק (Robust): התוכן יכול להיות מפוענח על ידי מגוון טכנולוגיות",
-      "legal_accessibility_li_32": "NVDA (Windows)",
-      "legal_accessibility_li_33": "JAWS (Windows)",
-      "legal_accessibility_li_34": "VoiceOver (Mac/iOS)",
-      "legal_accessibility_li_35": "TalkBack (Android)",
-      "legal_accessibility_li_36": "Dragon NaturallySpeaking",
-      "legal_accessibility_li_37": "Switch navigation",
-      "legal_accessibility_li_38": "כלים אוטומטיים לבדיקת נגישות",
-      "legal_accessibility_li_39": "בדיקות ידניות עם קוראי מסך",
-      "legal_accessibility_li_40": "ניווט באמצעות מקלדת בלבד",
-      "legal_accessibility_li_41": "בדיקת ניגודיות צבעים",
-      "legal_accessibility_li_42": "בדיקה עם משתמשים עם מוגבלויות",
-      "legal_accessibility_li_43": "חברה: [business_name]",
-      "legal_accessibility_li_44": "אימייל: [business_email]",
-      "legal_accessibility_li_45": "טלפון: [business_phone]",
+      "legal_accessibility_li_19": "תמיכה בניווט באמצעות מקלדת",
+      "legal_accessibility_li_20": "תמיכה בקוראי מסך",
+      "legal_accessibility_li_21": "ניגודיות צבעים מתאימה",
+      "legal_accessibility_li_22": "גדלי פונט גמישים וניתנים להגדלה",
+      "legal_accessibility_li_23": "תיאורי תמונות (Alt text) מפורטים",
+      "legal_accessibility_li_24": "כותרות מובנות היררכית",
+      "legal_accessibility_li_25": "קישורים תיאוריים וברורים",
+      "legal_accessibility_li_26": "תמיכה בזום עד 200% ללא אובדן תוכן",
+      "legal_accessibility_li_27": "נתפס (Perceivable): המידע מוצג בדרכים שמשתמשים יכולים לתפוס",
+      "legal_accessibility_li_28": "פעיל (Operable): רכיבי הממשק ניתנים להפעלה",
+      "legal_accessibility_li_29": "מובן (Understandable): המידע וממשק המשתמש מובנים",
+      "legal_accessibility_li_30": "חזק (Robust): התוכן יכול להיות מפוענח על ידי מגוון טכנולוגיות",
+      "legal_accessibility_li_31": "NVDA (Windows)",
+      "legal_accessibility_li_32": "JAWS (Windows)",
+      "legal_accessibility_li_33": "VoiceOver (Mac/iOS)",
+      "legal_accessibility_li_34": "TalkBack (Android)",
+      "legal_accessibility_li_35": "Dragon NaturallySpeaking",
+      "legal_accessibility_li_36": "Switch navigation",
+      "legal_accessibility_li_37": "כלים אוטומטיים לבדיקת נגישות",
+      "legal_accessibility_li_38": "בדיקות ידניות עם קוראי מסך",
+      "legal_accessibility_li_39": "ניווט באמצעות מקלדת בלבד",
+      "legal_accessibility_li_40": "בדיקת ניגודיות צבעים",
+      "legal_accessibility_li_41": "בדיקה עם משתמשים עם מוגבלויות",
+      "legal_accessibility_li_42": "חברה: XADO ISRAEL",
+      "legal_accessibility_li_43": "אימייל: done2000@gmail.com",
+      "legal_accessibility_li_44": "טלפון: 03-1234567",
       "thank_you_meta_description": "תודה שפנית ל-XADO ישראל. פנייתך התקבלה בהצלחה ונחזור אליך בהקדם.",
       "contact_us_meta_description": "צור קשר עם XADO ISRAEL לייעוץ מקצועי, הזמנת מוצרים ותמיכה טכנית. אנחנו כאן כדי לעזור לך לבחור את הפתרונות הטובים ביותר לרכב שלך.",
-      "legal_accessibility_link_17": "[business_email]",
-      "legal_accessibility_link_18": "[business_phone]",
-      "legal_accessibility_link_19": "← חזרה לאתר",
+      "legal_accessibility_link_17": "done2000@gmail.com",
+      "legal_accessibility_link_18": "← חזרה לאתר",
       "accessibility_placeholder_63": "חיפוש מוצרים...",
       "accessibility_placeholder_64": "חיפוש מוצרים...",
       "order_success_placeholder_32": "חיפוש מוצרים...",
@@ -5485,42 +6087,43 @@ html[dir="rtl"] body {
       "category__slug_placeholder_28": "חיפוש מוצרים...",
       "category__slug_placeholder_29": "חיפוש מוצרים...",
       "accessibility_meta_description": "הצהרת הנגישות שלנו - מחויבותנו לנגישות דיגיטלית",
-      "legal_accessibility_page_title": "הצהרת נגישות - [business_name]"
+      "legal_accessibility_page_title": "הצהרת נגישות - XADO ISRAEL"
     }
   },
   "ru": {
     "translation": {
       "cart_p_3": "© 2026 XADO ISRAEL. Все права защищены.",
-      "cart_p_4": "Создано с помощью&nbsp;Zappy",
+      "cart_p_4": "Создано с помощью Zappy",
+      "new_p_78": "Мы можем собирать следующие типы информации: от Маор&nbsp;",
       "cart_h1_1": "Ваша корзина",
       "cart_h2_2": "Ваша корзина",
       "home_h1_1": "Улучшите производительность автомобиля с XADO",
-      "home_h2_2": "Рекомендуемые продукты",
-      "home_h2_3": "Покупайте по категориям",
-      "home_h2_4": "Почему выбрать XADO?",
-      "home_h2_5": "Наши решения созданы для вас",
-      "home_h2_6": "Уникальная технология ревитализантов",
-      "home_h2_7": "Готовы улучшить свой автомобиль?",
-      "home_h3_8": "Ведущие продукты для ухода и улучшения производительности автомобиля для экономии топлива, защиты двигателя и повышения производительности",
-      "home_h3_9": "Проверенная технология",
-      "home_p_17": "Happily created by&nbsp;Zappy",
-      "home_p_18": "Продукты XADO основаны на исследованиях и разработках более 30 лет и используются миллионами водителей и механиков по всему миру.",
-      "home_p_19": "Присадки к топливу для экономии расхода снижают вредные выбросы и способствуют сохранению качества окружающей среды при значительной экономической экономии.",
-      "home_p_20": "Продукты XADO для ухода и улучшения производительности автомобиля подходят для легковых, коммерческих автомобилей, внедорожников и больших автопарков.",
-      "home_p_21": "Присадки к моторному маслу для автомобилей в Израиле улучшают производительность двигателя, снижают шум и вибрации и возвращают автомобилю его первоначальную мощность.",
-      "home_p_22": "Вы ищете способы улучшить производительность автомобиля и поддерживать его в оптимальном состоянии? Продукты XADO обеспечивают значительное улучшение характеристик автомобиля (такие как защита двигателя, трансмиссии, топливной системы и других систем автомобиля) и улучшенный опыт вождения?",
-      "home_p_23": "Профессиональные присадки для всех автомобильных систем от XADO Израиль - это предпочтительный выбор профессиональных механиков. Высокое качество, проверенные результаты и гарантированное удовлетворение клиентов.",
-      "home_p_24": "Снизьте расходы на обслуживание и продлите срок службы автомобилей в вашем автопарке. Продукты XADO для ухода и улучшения характеристик автомобилей экономят деньги, время и обеспечивают максимальную готовность к эксплуатации.",
-      "home_p_25": "Внедорожное вождение требует максимальной защиты двигателя, трансмиссии и гидравлической системы. Продукты XADO обеспечивают оптимальную производительность и долговечность даже в самых сложных условиях бездорожья.",
-      "home_p_26": "XADO ISRAEL использует прорывную технологию ревитализантов - микроскопических частиц, создающих металло-керамический защитный слой на поверхностях трения в двигателе. Этот процесс восстанавливает существующие повреждения, снижает трение и износ и значительно продлевает срок службы двигателя.&nbsp;",
-      "home_p_27": "В отличие от обычных присадок, которые смываются при замене масла, металло-керамический слой остается на поверхностях и обеспечивает постоянную защиту. Вот почему продукты XADO стали предпочтительным выбором профессиональных механиков и менеджеров автопарков по всему миру.",
-      "home_p_28": "Присоединяйтесь к тысячам довольных клиентов в Израиле, которые уже испытывают преимущества продуктов XADO. Получите профессиональную консультацию, адаптированную к потребностям вашего автомобиля.",
-      "home_p_29": "© 2026 XADO ISRAEL. Все права защищены.",
-      "home_p_30": "Создано с помощью&nbsp;Zappy",
+      "home_h2_2": "Почему выбрать XADO?",
+      "home_h2_3": "Наши решения созданы для вас",
+      "home_h2_4": "Уникальная технология ревитализантов",
+      "home_h2_5": "Готовы улучшить свой автомобиль?",
+      "home_h3_6": "Ведущие продукты для ухода и улучшения производительности автомобиля для экономии топлива, защиты двигателя и повышения производительности",
+      "home_h3_7": "Проверенная технология",
+      "home_h3_8": "Экологически чистый",
+      "home_h3_9": "Подходит для всех типов автомобилей",
+      "home_p_15": "Happily created by Zappy",
+      "home_p_16": "Продукты XADO основаны на исследованиях и разработках более чем 30 лет и используются миллионами водителей и механиков по всему миру.",
+      "home_p_17": "Топливные присадки для экономии расхода снижают вредные выбросы и способствуют сохранению качества окружающей среды при значительной экономической выгоде.",
+      "home_p_18": "Продукты XADO для ухода и улучшения производительности автомобиля подходят для легковых, коммерческих автомобилей, внедорожников и больших автопарков.",
+      "home_p_19": "Присадки к моторному маслу для автомобилей в Израиле улучшают производительность двигателя, снижают шум и вибрации и возвращают автомобилю его первоначальную мощность.",
+      "home_p_20": "Вы хотите улучшить производительность автомобиля и поддерживать его в оптимальном состоянии? Продукты XADO обеспечивают значительное улучшение производительности автомобиля (такое как защита двигателя, коробки передач, топливной системы и других автомобильных систем) и улучшенный опыт вождения?",
+      "home_p_21": "Профессиональные присадки для всех автомобильных систем XADO Израиль - это предпочтительный выбор профессиональных механиков. Высокое качество, проверенные результаты и гарантированное удовлетворение клиентов.",
+      "home_p_22": "Снизьте расходы на обслуживание и продлите срок службы автомобилей в вашем парке. Продукты XADO для ухода и улучшения производительности автомобиля экономят деньги, время и обеспечивают максимальную доступность.",
+      "home_p_23": "Внедорожное вождение требует максимальной защиты двигателя, коробки передач и гидравлической системы. Продукты XADO обеспечивают оптимальную производительность и прочность даже в самых сложных внедорожных условиях.",
+      "home_p_24": "XADO ISRAEL использует прорывную технологию ревитализантов - микроскопических частиц, создающих металло-керамический защитный слой на поверхностях трения в двигателе. Этот процесс восстанавливает существующие повреждения, снижает трение и износ и драматически продлевает срок службы двигателя.",
+      "home_p_25": "В отличие от обычных присадок, которые смываются при замене масла, металло-керамический слой остается на поверхностях и обеспечивает постоянную защиту. Вот почему продукты XADO стали предпочтительным выбором профессиональных механиков и менеджеров автопарков по всему миру.",
+      "home_p_26": "Присоединяйтесь к тысячам довольных клиентов в Израиле, которые уже испытывают преимущества продуктов XADO. Получите профессиональную консультацию, адаптированную к потребностям вашего автомобиля.",
+      "home_p_27": "© 2026 XADO ISRAEL. Все права защищены.",
+      "home_p_28": "Создано с помощью Zappy",
       "login_p_3": "Введите ваш email адрес и мы отправим вам код для входа",
       "login_p_4": "Введите код, отправленный на ваш email",
       "login_p_5": "© 2026 XADO ISRAEL. Все права защищены.",
-      "login_p_6": "Создано с помощью&nbsp;Zappy",
+      "login_p_6": "Создано с помощью Zappy",
       "about_h1_1": "О XADO ISRAEL",
       "about_h2_2": "Наша история",
       "about_h2_3": "Наша миссия",
@@ -5530,37 +6133,35 @@ html[dir="rtl"] body {
       "about_h2_7": "Кому мы служим",
       "about_h2_8": "Наши обязательства перед вами",
       "about_h2_9": "Хотите узнать больше?",
-      "about_p_21": "Happily created by&nbsp;Zappy",
-      "about_p_22": "XADO ISRAEL является официальным и эксклюзивным представителем продукции XADO в Израиле. Мы привозим на израильский рынок самые передовые технологии в области присадок к моторному маслу для автомобилей в Израиле и продуктов по уходу и улучшению характеристик автомобилей. Наш путь начался с глубокой веры в то, что каждый владелец автомобиля и профессиональный механик заслуживает доступа к самым качественным продуктам на рынке.",
-      "about_p_23": "За годы работы XADO стала ведущим мировым брендом в области ревитализантов - уникальной технологии, которая восстанавливает поверхности трения в двигателе и создает долговременную защиту. Мы гордимся тем, что привозим эту технологию в Израиль и обслуживаем тысячи довольных клиентов - от частных автолюбителей до менеджеров крупных автопарков.",
-      "about_p_24": "Наша приверженность заключается не только в продаже продуктов, но и в предоставлении профессиональных решений, персональных консультаций и полной поддержки. Каждый наш клиент получает индивидуальное отношение, подробные объяснения и инструктаж по правильному использованию продуктов. Мы верим, что успех наших клиентов - это наш успех.",
-      "about_p_25": "Миссия XADO ISRAEL - сделать самые передовые технологии в области автомобильных присадок доступными и доступными для каждого владельца автомобиля в Израиле. Мы стремимся улучшить характеристики автомобилей, продлить срок службы двигателей и сэкономить деньги наших клиентов с помощью качественных продуктов и профессионального обслуживания без компромиссов.",
-      "about_p_26": "Наше видение - быть лидерами и самыми надежными в области продуктов по уходу и улучшению характеристик автомобилей в Израиле. Мы хотим, чтобы каждый профессиональный механик, автолюбитель и менеджер автопарка знал, что с XADO ISRAEL он получает не только отличные продукты, но и настоящего партнера для успеха и постоянного улучшения.",
-      "about_p_27": "Ревитализанты - это микроскопические частицы на основе металлов и керамики, которые содержатся в продуктах XADO. Когда они попадают на поверхности трения в двигателе (между поршнями и цилиндрами, в подшипниках и т.д.), они начинают уникальный процесс восстановления и укрепления.",
-      "about_p_28": "Процесс работает в три этапа: во-первых, ревитализанты очищают поверхности трения от ржавчины и отложений. Во-вторых, они заполняют микротрещины и углубления, образовавшиеся в результате износа. В-третьих, они создают новый металло-керамический защитный слой, который улучшает свойства трения и защищает поверхности.",
-      "about_p_29": "Уникальность технологии заключается в том, что металло-керамический слой остается на поверхностях даже после замены масла - в отличие от обычных присадок, которые смываются. Это означает постоянную и долговременную защиту двигателя.",
-      "about_p_30": "Каждый продукт XADO ISRAEL проходит строгие проверки качества и соответствует самым высоким международным стандартам. Мы не идем на компромиссы в отношении качества - только лучшие продукты попадают к нам.",
-      "about_p_31": "Каждый клиент получает индивидуальное отношение, профессиональные консультации и полный инструктаж. Мы здесь, чтобы помочь, а не только продать. Ваше удовлетворение - наш главный приоритет.",
-      "about_p_32": "Мы всегда находимся в авангарде технологий и привозим в Израиль последние новинки в области присадок к моторному маслу для автомобилей в Израиле и продуктов по уходу за автомобилями. Исследования и разработки XADO не останавливаются.",
-      "about_p_33": "Продукты XADO снижают вредные выбросы, повышают эффективность и способствуют защите окружающей среды. Мы верим в ответственность перед будущим поколением.",
+      "about_p_21": "Happily created by Zappy",
+      "about_p_22": "XADO ISRAEL является официальным и эксклюзивным представителем продукции XADO в Израиле. Мы привносим на израильский рынок самые передовые технологии в области присадок к моторному маслу для автомобилей в Израиле и продуктов для ухода и улучшения характеристик автомобилей. Наш путь начался с глубокой веры в то, что каждый владелец автомобиля и профессиональный механик заслуживает доступа к самым качественным продуктам на рынке.",
+      "about_p_23": "За годы работы XADO стал ведущим мировым брендом в области ревитализантов - уникальной технологии, которая восстанавливает поверхности трения в двигателе и создает долговременную защиту. Мы гордимся тем, что привозим эту технологию в Израиль и обслуживаем тысячи довольных клиентов - от частных автолюбителей до менеджеров крупных автопарков.",
+      "about_p_24": "Наша приверженность заключается не только в продаже продуктов, но и в предоставлении профессиональных решений, персональных консультаций и полной поддержки. Каждый наш клиент получает индивидуальное обслуживание, подробные объяснения и инструкции по правильному использованию продуктов. Мы верим, что успех наших клиентов - это наш успех.",
+      "about_p_25": "Миссия XADO ISRAEL - сделать самые передовые технологии в области автомобильных присадок доступными и доступными для каждого владельца автомобиля в Израиле. Мы стремимся улучшить характеристики автомобилей, продлить срок службы двигателей и сэкономить деньги наших клиентов с помощью качественных продуктов и профессионального сервиса без компромиссов.",
+      "about_p_26": "Наше видение - быть лидерами и самыми надежными в области продуктов для ухода и улучшения характеристик автомобилей в Израиле. Мы хотим, чтобы каждый профессиональный механик, автолюбитель и менеджер автопарка знал, что с XADO ISRAEL он получает не только отличные продукты, но и настоящего партнера для успеха и постоянного совершенствования.",
+      "about_p_27": "Ревитализанты - это микроскопические частицы на основе металлов и керамики, которые содержатся в продукции XADO. Когда они попадают на поверхности трения в двигателе (между поршнями и цилиндрами, в подшипниках и т.д.), они начинают уникальный процесс восстановления и укрепления.",
+      "about_p_28": "Процесс работает в три этапа: во-первых, ревитализанты очищают поверхности трения от ржавчины и отложений. Во-вторых, они заполняют микротрещины и углубления, образовавшиеся в результате износа. В-третьих, они создают новый металло-керамический защитный слой, который улучшает характеристики трения и защищает поверхности.",
+      "about_p_29": "Уникальность технологии заключается в том, что металло-керамический слой остается на поверхностях даже после замены масла - в отличие от обычных присадок, которые смываются. Это означает постоянную и долгосрочную защиту двигателя.",
+      "about_p_30": "Каждый продукт XADO ISRAEL проходит строгий контроль качества и соответствует самым высоким международным стандартам. Мы не идем на компромиссы в отношении качества - только лучшие продукты попадают к нам.",
+      "about_p_31": "Каждый клиент получает индивидуальное обслуживание, профессиональные консультации и полное руководство. Мы здесь, чтобы помочь, а не только продать. Ваше удовлетворение - наш главный приоритет.",
+      "about_p_32": "Мы всегда находимся на переднем крае технологий и привозим в Израиль последние инновации в области присадок к моторному маслу для автомобилей в Израиле и продуктов для ухода за автомобилями. Исследования и разработки XADO не останавливаются.",
+      "about_p_33": "Продукция XADO снижает выбросы загрязняющих веществ, повышает эффективность и способствует защите окружающей среды. Мы верим в ответственность перед будущими поколениями.",
       "about_p_34": "XADO ISRAEL предоставляет профессиональные решения для широкого круга клиентов, каждый из которых имеет уникальные потребности:",
-      "about_p_35": "Если вы любите свой автомобиль и хотите поддерживать его в оптимальном состоянии, продукты XADO - идеальный выбор. Наши присадки к моторному маслу для автомобилей в Израиле улучшают производительность, снижают износ и продлевают срок службы автомобиля. Вы получите персональные консультации и полную поддержку.",
-      "about_p_36": "Механики по всему Израилю доверяют продуктам XADO обеспечивать проверенные результаты для своих клиентов. Мы предоставляем профессиональное обучение, техническую поддержку и продукты, которые вы можете рекомендовать с полной уверенностью. Успех ваших клиентов - это наш успех.",
-      "about_p_37": "Для менеджеров автопарков продукты по уходу и улучшению характеристик автомобилей XADO предлагают значительную экономию расходов на техническое обслуживание, сокращение времени простоя и продление срока службы автомобилей. Мы предоставляем индивидуальные решения, анализ затрат и выгод и постоянную поддержку.",
-      "about_p_38": "Внедорожная езда особенно испытывает автомобиль. Продукты XADO обеспечивают максимальную защиту в экстремальных условиях нагрузки, улучшение характеристик на бездорожье и высокую выносливость. Вы можете полагаться на свой автомобиль даже в самых сложных условиях.",
-      "about_p_39": "В XADO ISRAEL мы обязуемся предоставить вам не только отличные продукты, но и полный опыт профессионального обслуживания и постоянной поддержки. Каждый наш клиент - партнер, и мы здесь, чтобы обеспечить вам лучшие результаты.",
-      "about_p_40": "Мы верим в полную прозрачность - каждый продукт поставляется с подробными объяснениями, четкими инструкциями по использованию и доступной поддержкой. Если у вас есть вопросы, проблемы или нужна консультация - мы здесь для вас.",
-      "about_p_41": "Присадки к топливу для экономии расхода, присадки к моторному маслу и другие продукты по уходу XADO - это инвестиция в будущее вашего автомобиля. Мы приглашаем вас присоединиться к тысячам наших довольных клиентов и ощутить разницу XADO ISRAEL.",
+      "about_p_35": "Если вы любите свой автомобиль и хотите поддерживать его в оптимальном состоянии, продукция XADO - идеальный выбор. Наши присадки к моторному маслу для автомобилей в Израиле улучшают характеристики, снижают износ и продлевают срок службы автомобиля. Вы получите персональные консультации и полную поддержку.",
+      "about_p_36": "Механики по всему Израилю доверяют продукции XADO в предоставлении проверенных результатов своим клиентам. Мы предоставляем профессиональное обучение, техническую поддержку и продукты, которые вы можете рекомендовать с полной уверенностью. Успех ваших клиентов - это наш успех.",
+      "about_p_37": "Для менеджеров автопарков продукция XADO для ухода и улучшения характеристик автомобилей предлагает значительную экономию расходов на обслуживание, сокращение времени простоя и продление срока службы автомобилей. Мы предоставляем индивидуальные решения, анализ затрат и выгод и постоянную поддержку.",
+      "about_p_38": "Внедорожное вождение особенно испытывает автомобиль. Продукция XADO обеспечивает максимальную защиту в экстремальных условиях нагрузки, улучшение характеристик на бездорожье и высокую выносливость. Вы можете полагаться на свой автомобиль даже в самых сложных условиях.",
+      "about_p_39": "В XADO ISRAEL мы обязуемся предоставить вам не только отличные продукты, но и полный опыт профессионального сервиса и постоянной поддержки. Каждый наш клиент - это партнер, и мы здесь, чтобы обеспечить вам наилучшие результаты.",
+      "about_p_40": "Мы верим в полную прозрачность - каждый продукт поставляется с подробными объяснениями, четкими инструкциями по использованию и доступной поддержкой. Если у вас есть вопросы, проблемы или потребность в консультации - мы здесь для вас.",
+      "about_p_41": "Присадки к топливу для экономии расхода, присадки к моторному маслу и другие продукты для ухода XADO - это инвестиция в будущее вашего автомобиля. Мы приглашаем вас присоединиться к тысячам наших довольных клиентов и ощутить разницу XADO ISRAEL.",
       "about_p_42": "Наша команда будет рада ответить на любые вопросы, предоставить профессиональные консультации и помочь вам выбрать наиболее подходящие продукты для ваших потребностей. Свяжитесь с нами сегодня.",
       "about_p_43": "© 2026 XADO ISRAEL. Все права защищены.",
-      "about_p_44": "Создано с помощью&nbsp;Zappy",
-      "home_h3_10": "Экологически чистый",
-      "home_h3_11": "Подходит для всех типов автомобилей",
-      "home_h3_12": "Мгновенное улучшение производительности",
-      "home_h3_13": "Автолюбители",
-      "home_h3_14": "Профессиональные механики",
-      "home_h3_15": "Менеджеры автопарков",
-      "home_h3_16": "Водители внедорожников",
+      "about_p_44": "Создано с помощью Zappy",
+      "home_h3_10": "Мгновенное улучшение производительности",
+      "home_h3_11": "Автолюбители",
+      "home_h3_12": "Профессиональные механики",
+      "home_h3_13": "Менеджеры автопарков",
+      "home_h3_14": "Водители внедорожников",
       "login_h1_1": "Вход для клиентов",
       "login_h2_2": "Ваша корзина",
       "terms_h1_1": "Условия использования",
@@ -5572,30 +6173,30 @@ html[dir="rtl"] body {
       "terms_h2_7": "6. Ограничение ответственности",
       "terms_h2_8": "7. Авторские права и интеллектуальная собственность",
       "terms_h2_9": "8. Конфиденциальность",
-      "terms_p_15": "XADO ISRAEL предоставляет автомобильные присадки через сайт. Услуги подчиняются условиям, изложенным в данном документе, и могут изменяться время от времени.",
+      "terms_p_15": "XADO ISRAEL предоставляет автомобильные присадки через сайт. Услуги регулируются условиями, изложенными в данном документе, и могут изменяться время от времени.",
       "terms_p_16": "Использование сайта обусловлено соблюдением следующих условий:",
       "terms_p_17": "В случае если услуги включают оплату:",
-      "terms_p_18": "Услуги предоставляются \"как есть\" без гарантий любого рода. Компания не несет ответственности за косвенный, последующий или особый ущерб, возникающий в результате использования сайта, за исключением случаев, когда закон предусматривает иное.",
-      "terms_p_19": "Все содержимое сайта, включая тексты, изображения, дизайн и код, защищено авторскими правами, принадлежащими XADO ISRAEL. Запрещается копировать, распространять или использовать в коммерческих целях содержимое без письменного разрешения.",
-      "terms_p_20": "Сбор и использование личной информации подчиняются нашей политике конфиденциальности. Использование сайта означает согласие с политикой конфиденциальности, как указано отдельно.",
+      "terms_p_18": "Услуги предоставляются \"как есть\" без каких-либо гарантий. Компания не несет ответственности за косвенный, последующий или особый ущерб, возникший в результате использования сайта, за исключением случаев, когда закон предусматривает иное.",
+      "terms_p_19": "Все содержимое сайта, включая тексты, изображения, дизайн и код, защищено авторскими правами, принадлежащими XADO ISRAEL. Запрещается копировать, распространять или использовать содержимое в коммерческих целях без письменного разрешения.",
+      "terms_p_20": "Сбор и использование личной информации регулируются нашей политикой конфиденциальности. Использование сайта означает согласие с политикой конфиденциальности, как указано отдельно.",
       "terms_p_21": "Компания вправе изменить данные условия использования в любое время. Существенные изменения будут опубликованы на сайте с предварительным уведомлением за 30 дней. Продолжение использования после изменения означает согласие с новыми условиями.",
       "terms_p_22": "Компания вправе прекратить или ограничить обслуживание в любое время, включая случаи нарушения условий использования. В случае прекращения обслуживания сохраняются положения соответствующих разделов.",
-      "terms_p_23": "Данные условия использования подчиняются законам государства Израиль. Любой спор будет рассматриваться в компетентных судах Израиля, с предпочтением арбитража или медиации по возможности.",
+      "terms_p_23": "Данные условия использования регулируются законами государства Израиль. Любой спор будет рассматриваться в компетентных судах Израиля, с предпочтением арбитража или медиации по возможности.",
       "terms_p_24": "По вопросам или разъяснениям относительно условий использования:",
       "terms_p_25": "© 2026 XADO ISRAEL. Все права защищены.",
-      "terms_p_26": "Создано с помощью&nbsp;Zappy",
-      "about_h3_10": "Лидеры в области продуктов по уходу и улучшению характеристик автомобилей в Израиле",
+      "terms_p_26": "Создано с помощью Zappy",
+      "about_h3_10": "Лидеры в области продуктов для ухода и улучшения характеристик автомобилей в Израиле",
       "about_h3_11": "Что такое ревитализанты?",
       "about_h3_12": "Научно доказанные преимущества",
       "about_h3_13": "Качество без компромиссов",
-      "about_h3_14": "Персональное и профессиональное обслуживание",
+      "about_h3_14": "Персональный и профессиональный сервис",
       "about_h3_15": "Инновации и технологии",
       "about_h3_16": "Экологическая ответственность",
       "about_h3_17": "Автолюбители",
       "about_h3_18": "Профессиональные механики",
       "about_h3_19": "Менеджеры автопарков",
       "about_h3_20": "Водители внедорожников",
-      "about_li_52": "Снижение трения: Металло-керамический слой снижает коэффициент трения до 70%, что повышает эффективность и уменьшает износ.",
+      "about_li_52": "Снижение трения: металло-керамический слой снижает коэффициент трения до 70%, что повышает эффективность и снижает износ.",
       "about_li_53": "Восстановление поверхностей: Процесс восстанавливает существующие повреждения и возвращает двигателю первоначальную компрессию и производительность.",
       "about_li_54": "Долгосрочная защита: Слой остается на поверхностях даже после замены масла, обеспечивая постоянную защиту.",
       "about_li_55": "Экономия топлива: Снижение трения приводит к повышению эффективности и экономии расхода топлива до 15%.",
@@ -5603,7 +6204,7 @@ html[dir="rtl"] body {
       "account_p_8": "Необходимо войти в систему для просмотра аккаунта",
       "account_p_9": "Добро пожаловать,",
       "cart_alt_29": "XADO ISRAEL",
-      "cart_link_8": "Оформить заказ",
+      "cart_link_8": "Перейти к оплате",
       "cart_link_9": "Политика конфиденциальности",
       "cart_nav_15": "Продукция",
       "cart_nav_16": "Вся продукция",
@@ -5620,52 +6221,52 @@ html[dir="rtl"] body {
       "cart_span_5": "₪0",
       "cart_span_6": "Итого:",
       "cart_span_7": "₪0",
-      "home_alt_54": "XADO ISRAEL",
-      "home_alt_55": "XADO ISRAEL - профессиональные продукты для ухода и улучшения характеристик автомобиля",
-      "home_alt_56": "Автолюбители - XADO ISRAEL",
-      "home_alt_57": "Профессиональные механики - XADO",
-      "home_alt_58": "Управляющие автопарками - XADO ISRAEL",
-      "home_alt_59": "Водители внедорожников - XADO",
-      "home_alt_60": "Технология ревитализантов - XADO ISRAEL",
-      "home_nav_40": "Продукты",
-      "home_nav_41": "Все продукты",
-      "home_nav_42": "Продукты",
-      "home_nav_43": "О нас",
-      "home_nav_44": "Корзина",
-      "home_nav_45": "Перейти к оплате",
-      "home_nav_46": "Вход",
-      "home_nav_47": "Мой аккаунт",
-      "home_nav_48": "Заказ получен!",
-      "home_nav_49": "Детали продукта",
-      "home_nav_50": "Связаться с нами",
-      "home_nav_51": "Все товары",
+      "home_alt_50": "XADO ISRAEL",
+      "home_alt_51": "XADO ISRAEL - профессиональные продукты для ухода и улучшения характеристик автомобиля",
+      "home_alt_52": "Автолюбители - XADO ISRAEL",
+      "home_alt_53": "Профессиональные механики - XADO",
+      "home_alt_54": "Управляющие автопарками - XADO ISRAEL",
+      "home_alt_55": "Водители внедорожников - XADO",
+      "home_alt_56": "Технология ревитализантов - XADO ISRAEL",
+      "home_nav_36": "Продукты",
+      "home_nav_37": "Все продукты",
+      "home_nav_38": "Продукты",
+      "home_nav_39": "О нас",
+      "home_nav_40": "Корзина",
+      "home_nav_41": "Перейти к оплате",
+      "home_nav_42": "Вход",
+      "home_nav_43": "Мой аккаунт",
+      "home_nav_44": "Заказ получен!",
+      "home_nav_45": "Детали продукта",
+      "home_nav_46": "Связаться с нами",
+      "home_nav_47": "Все продукты",
       "terms_h2_10": "9. Изменение условий использования",
       "terms_h2_11": "10. Прекращение обслуживания",
       "terms_h2_12": "11. Применимое право и разрешение споров",
       "terms_h2_13": "12. Общие положения",
       "terms_h2_14": "13. Контактная информация",
       "terms_li_33": "\"Компания\" - XADO ISRAEL",
-      "terms_li_34": "\"Пользователь\" - любой, кто просматривает или использует сайт",
+      "terms_li_34": "\"Пользователь\" - любой, кто посещает или использует сайт",
       "terms_li_35": "\"Услуги\" - автомобильные присадки, предоставляемые через сайт",
       "terms_li_36": "Использование сайта только в законных целях",
       "terms_li_37": "Не препятствовать работе сайта или другим пользователям",
       "terms_li_38": "Не загружать оскорбительный, незаконный или вредоносный контент",
       "terms_li_39": "Соблюдение авторских прав и интеллектуальной собственности",
-      "terms_li_40": "Не выполнять действия, которые могут нанести ущерб безопасности сайта",
+      "terms_li_40": "Не выполнять действия, которые могут нарушить безопасность сайта",
       "terms_li_41": "Предоставление правильной и точной информации при регистрации или заказе",
       "terms_li_42": "Сохранение конфиденциальности данных доступа к аккаунту",
       "terms_li_43": "Немедленное уведомление о любом несанкционированном использовании аккаунта",
       "terms_li_44": "Обновление личной информации при необходимости",
       "terms_li_45": "Платежи осуществляются через безопасные и зашифрованные системы",
-      "terms_li_46": "Цены включают НДС согласно требованиям закона",
+      "terms_li_46": "Цены включают НДС в соответствии с требованиями закона",
       "terms_li_47": "Право отмены сделки действует в соответствии с законом о защите прав потребителей",
-      "terms_li_48": "Возвраты будут произведены в течение 14 рабочих дней с момента подтверждения отмены",
+      "terms_li_48": "Возврат средств будет произведен в течение 14 рабочих дней с момента подтверждения отмены",
       "terms_li_49": "Если часть условий будет признана недействительной, остальные условия остаются в силе",
       "terms_li_50": "Неприменение права не считается отказом от него",
       "terms_li_51": "Условия использования составляют полное соглашение между сторонами",
       "terms_li_52": "Компания: XADO ISRAEL",
-      "terms_li_53": "Email: info@company.com",
-      "terms_li_54": "Телефон: 03-1234567",
+      "terms_li_53": "Email: done2000@gmail.com",
+      "terms_li_54": "Телефон: 0544415969",
       "terms_li_55": "Адрес: адрес компании, Израиль",
       "about_alt_71": "XADO ISRAEL",
       "about_alt_72": "Технология ревитализантов XADO",
@@ -5675,7 +6276,7 @@ html[dir="rtl"] body {
       "about_nav_59": "Продукция",
       "about_nav_60": "О нас",
       "about_nav_61": "Корзина",
-      "about_nav_62": "Оформить заказ",
+      "about_nav_62": "Перейти к оплате",
       "about_nav_63": "Вход",
       "about_nav_64": "Мой аккаунт",
       "about_nav_65": "Заказ принят!",
@@ -5691,25 +6292,23 @@ html[dir="rtl"] body {
       "account_h3_7": "Добавить адрес",
       "account_p_10": "Нет сохраненных адресов",
       "account_p_11": "Загрузка деталей заказа...",
-      "account_p_12": "Пока нет заказов",
+      "account_p_12": "Заказов пока нет",
       "account_p_13": "© 2026 XADO ISRAEL. Все права защищены.",
-      "account_p_14": "Создано с помощью&nbsp;Zappy",
+      "account_p_14": "Создано с помощью Zappy",
       "cart_link_10": "Доступность",
       "cart_link_11": "Условия использования",
       "cart_link_12": "Политика возврата",
       "cart_link_13": "Zappy",
-      "cart_link_14": "Оформить заказ",
+      "cart_link_14": "Перейти к оплате",
       "checkout_p_8": "© 2026 XADO ISRAEL. Все права защищены.",
-      "checkout_p_9": "Создано с помощью&nbsp;Zappy",
-      "home_link_32": "Zappy",
-      "home_link_33": "Посмотреть все продукты →",
-      "home_link_34": "Связаться с нами",
-      "home_link_35": "Политика конфиденциальности",
-      "home_link_36": "Доступность",
-      "home_link_37": "Условия использования",
-      "home_link_38": "Политика возврата",
-      "home_link_39": "Zappy",
-      "home_span_31": "Улучшите производительность автомобиля с XADO",
+      "checkout_p_9": "Создано с помощью Zappy",
+      "home_link_29": "Zappy",
+      "home_link_30": "Связаться с нами",
+      "home_link_31": "Политика конфиденциальности",
+      "home_link_32": "Доступность",
+      "home_link_33": "Условия использования",
+      "home_link_34": "Политика возврата",
+      "home_link_35": "Zappy",
       "login_alt_33": "XADO ISRAEL",
       "login_btn_15": "Отправить код",
       "login_btn_16": "Подтвердить",
@@ -5722,10 +6321,10 @@ html[dir="rtl"] body {
       "login_nav_22": "Перейти к оплате",
       "login_nav_23": "Вход",
       "login_nav_24": "Мой аккаунт",
-      "login_nav_25": "Заказ получен!",
-      "login_nav_26": "Детали продукта",
+      "login_nav_25": "Заказ принят!",
+      "login_nav_26": "Детали товара",
       "login_nav_27": "Связаться с нами",
-      "login_nav_28": "Все продукты",
+      "login_nav_28": "Все товары",
       "login_span_7": "Итого:",
       "login_span_8": "₪0",
       "privacy_h1_1": "Политика конфиденциальности",
@@ -5737,7 +6336,7 @@ html[dir="rtl"] body {
       "privacy_h2_7": "6. Безопасность информации",
       "privacy_h2_8": "7. Изменения в политике",
       "privacy_h2_9": "8. Обратная связь",
-      "privacy_p_10": "XADO ISRAEL&nbsp; от имени Лулог ООО рег. номер 515167609 (далее «Компания», «мы», «наши») обязуется защищать вашу конфиденциальность.\n\n\n\nОбъясняет, как мы собираем, используем и защищаем вашу информацию при использовании сайта www.company.com («Сервис»).",
+      "privacy_p_10": "XADO ISRAEL через Лулог ООО рег. номер 515167609 (далее «Компания», «мы», «наш») обязуется защищать вашу конфиденциальность. Данная политика объясняет, как мы собираем, используем и защищаем вашу информацию при использовании сайта www.company.com («Сервис»).",
       "privacy_p_11": "Мы можем собирать следующие типы информации:",
       "privacy_p_12": "Мы используем собранную информацию для следующих целей:",
       "privacy_p_13": "Мы не будем продавать, сдавать в аренду или передавать вашу личную информацию третьим лицам, за исключением следующих случаев:",
@@ -5746,18 +6345,18 @@ html[dir="rtl"] body {
       "privacy_p_16": "Мы принимаем разумные меры безопасности для защиты вашей информации, включая шифрование, брандмауэры и ограниченный контроль доступа. Однако ни один метод передачи или хранения не является на 100% безопасным.",
       "privacy_p_17": "Мы можем время от времени обновлять данную политику конфиденциальности. Существенные изменения будут опубликованы на сайте с предварительным уведомлением за 30 дней.",
       "privacy_p_18": "По вопросам или запросам относительно данной политики конфиденциальности вы можете обратиться к нам:",
-      "privacy_p_19": "Регистратор баз данных: с жалобами можно обращаться к Регистратору баз данных в Министерстве юстиции",
+      "privacy_p_19": "Реестр баз данных: с жалобами можно обращаться к регистратору баз данных в Министерстве юстиции",
       "privacy_p_20": "© 2026 XADO ISRAEL. Все права защищены.",
-      "privacy_p_21": "Создано с помощью&nbsp;Zappy",
+      "privacy_p_21": "Создано с помощью Zappy",
       "products_p_3": "© 2026 XADO ISRAEL. Все права защищены.",
-      "products_p_4": "Создано с помощью&nbsp;Zappy",
+      "products_p_4": "Создано с помощью Zappy",
       "terms_alt_70": "XADO ISRAEL",
       "terms_nav_56": "Продукция",
       "terms_nav_57": "Вся продукция",
       "terms_nav_58": "Продукция",
       "terms_nav_59": "О нас",
       "terms_nav_60": "Корзина",
-      "terms_nav_61": "Перейти к оплате",
+      "terms_nav_61": "Оформить заказ",
       "terms_nav_62": "Вход",
       "terms_nav_63": "Мой аккаунт",
       "terms_nav_64": "Заказ принят!",
@@ -5783,10 +6382,10 @@ html[dir="rtl"] body {
       "checkout_h2_5": "Итоги заказа",
       "checkout_h2_6": "Оплата",
       "checkout_h2_7": "Ваша корзина",
-      "home_title_61": "Вход",
-      "home_title_62": "Корзина",
-      "home_title_63": "Поиск",
-      "home_title_64": "Поиск",
+      "home_title_57": "Вход",
+      "home_title_58": "Корзина",
+      "home_title_59": "Поиск",
+      "home_title_60": "Поиск",
       "login_link_10": "Доступность",
       "login_link_11": "Условия использования",
       "login_link_12": "Политика возврата",
@@ -5798,34 +6397,34 @@ html[dir="rtl"] body {
       "privacy_li_31": "Предоставление запрашиваемых услуг",
       "privacy_li_32": "Улучшение сервиса и пользовательского опыта",
       "privacy_li_33": "Связь с вами по поводу наших услуг",
-      "privacy_li_34": "Соблюдение правовых требований",
+      "privacy_li_34": "Соблюдение законодательных требований",
       "privacy_li_35": "С вашего явного согласия",
-      "privacy_li_36": "Когда требуется по закону",
-      "privacy_li_37": "Для защиты наших прав или безопасности наших пользователей",
-      "privacy_li_38": "С поставщиками услуг, помогающими в работе сервиса (под соглашениями о конфиденциальности)",
-      "privacy_li_39": "Право на ознакомление с личной информацией, хранящейся о вас",
-      "privacy_li_40": "Право на исправление неверной или неточной информации",
-      "privacy_li_41": "Право на удаление личной информации при определенных обстоятельствах",
-      "privacy_li_42": "Право возражать против обработки информации в маркетинговых целях",
-      "privacy_li_43": "Право подать жалобу регистратору баз данных",
+      "privacy_li_36": "Когда это требуется по закону",
+      "privacy_li_37": "для защиты наших прав или безопасности наших пользователей",
+      "privacy_li_38": "с поставщиками услуг, которые помогают в работе сервиса (под соглашениями о конфиденциальности)",
+      "privacy_li_39": "право на просмотр личной информации, хранящейся о вас",
+      "privacy_li_40": "право на исправление неверной или неточной информации",
+      "privacy_li_41": "право на удаление личной информации при определенных обстоятельствах",
+      "privacy_li_42": "право возражать против обработки информации в маркетинговых целях",
+      "privacy_li_43": "право подать жалобу регистратору баз данных",
       "privacy_li_44": "Компания: XADO ISRAEL",
-      "privacy_li_45": "Электронная почта: info@company.com",
-      "privacy_li_46": "Телефон: 03-1234567",
+      "privacy_li_45": "Email: done2000@gmail.com",
+      "privacy_li_46": "Телефон: 0544415969",
       "privacy_li_47": "Адрес: адрес компании, Израиль",
-      "products_h1_1": "Наша продукция",
+      "products_h1_1": "Наши товары",
       "products_h2_2": "Ваша корзина",
-      "terms_link_27": "info@company.com",
+      "terms_link_27": "done2000@gmail.com",
       "terms_link_28": "Политика конфиденциальности",
       "terms_link_29": "Доступность",
       "terms_link_30": "Условия использования",
       "terms_link_31": "Политика возвратов",
       "terms_link_32": "Zappy",
-      "thank_you_p_2": "Happily created by&nbsp;Zappy",
+      "thank_you_p_2": "С радостью создано Zappy",
       "thank_you_p_3": "Ваше сообщение успешно получено системой",
       "thank_you_p_4": "Номер обращения для отслеживания",
       "thank_you_p_5": "Команда XADO Израиль получила ваше обращение. Мы рассматриваем вопрос и свяжемся с вами в ближайшее время с полным ответом.",
       "thank_you_p_6": "© 2026 XADO ISRAEL. Все права защищены.",
-      "thank_you_p_7": "Создано с помощью&nbsp;Zappy",
+      "thank_you_p_7": "Создано с помощью Zappy",
       "about_title_74": "Вход",
       "about_title_75": "Корзина",
       "about_title_76": "Поиск",
@@ -5857,18 +6456,18 @@ html[dir="rtl"] body {
       "login_title_37": "Поиск",
       "login_title_38": "Поиск",
       "privacy_alt_62": "XADO ISRAEL",
-      "privacy_nav_48": "Товары",
-      "privacy_nav_49": "Все товары",
-      "privacy_nav_50": "Товары",
+      "privacy_nav_48": "Продукты",
+      "privacy_nav_49": "Все продукты",
+      "privacy_nav_50": "Продукты",
       "privacy_nav_51": "О нас",
       "privacy_nav_52": "Корзина",
       "privacy_nav_53": "Перейти к оплате",
       "privacy_nav_54": "Вход",
       "privacy_nav_55": "Мой аккаунт",
-      "privacy_nav_56": "Заказ получен!",
-      "privacy_nav_57": "Детали товара",
+      "privacy_nav_56": "Заказ принят!",
+      "privacy_nav_57": "Детали продукта",
       "privacy_nav_58": "Связаться с нами",
-      "privacy_nav_59": "Все товары",
+      "privacy_nav_59": "Все продукты",
       "terms_title_71": "Поиск",
       "terms_title_72": "Вход",
       "terms_title_73": "Корзина",
@@ -5889,54 +6488,54 @@ html[dir="rtl"] body {
       "account_span_18": "Итого:",
       "account_span_19": "₪0",
       "cart_page_title": "Корзина - XADO ISRAEL",
-      "checkout_alt_53": "XADO ISRAEL",
-      "checkout_btn_26": "Выйти",
-      "checkout_btn_27": "У меня есть код купона",
-      "checkout_btn_28": "Применить",
-      "checkout_btn_29": "Удалить",
-      "checkout_btn_30": "Оформить заказ",
-      "checkout_nav_31": "Товары",
-      "checkout_nav_32": "Все товары",
-      "checkout_nav_33": "Товары",
-      "checkout_nav_34": "О нас",
-      "checkout_nav_35": "Корзина",
-      "checkout_nav_36": "Перейти к оплате",
-      "checkout_nav_37": "Вход",
-      "checkout_nav_38": "Мой аккаунт",
-      "checkout_nav_39": "Заказ принят!",
-      "checkout_nav_40": "Детали товара",
-      "checkout_nav_41": "Связаться с нами",
-      "checkout_nav_42": "Все товары",
+      "checkout_alt_59": "XADO ISRAEL",
+      "checkout_btn_30": "Выйти",
+      "checkout_btn_31": "У меня есть код купона",
+      "checkout_btn_32": "Применить",
+      "checkout_btn_33": "Удалить",
+      "checkout_btn_34": "Оформить заказ",
+      "checkout_nav_37": "Товары",
+      "checkout_nav_38": "Все товары",
+      "checkout_nav_39": "Товары",
+      "checkout_nav_40": "О нас",
+      "checkout_nav_41": "Корзина",
+      "checkout_nav_42": "Перейти к оплате",
+      "checkout_nav_43": "Вход",
+      "checkout_nav_44": "Мой аккаунт",
+      "checkout_nav_45": "Заказ принят!",
+      "checkout_nav_46": "Детали товара",
+      "checkout_nav_47": "Связаться с нами",
+      "checkout_nav_48": "Все товары",
       "contact_us_h1_1": "с XADO ISRAEL",
       "contact_us_h2_2": "Отправьте нам сообщение",
       "contact_us_h2_3": "Зачем обращаться к нам?",
       "contact_us_h2_4": "Часто задаваемые вопросы",
       "contact_us_h2_5": "Готовы улучшить свой автомобиль?",
       "contact_us_h3_6": "Мы будем рады помочь вам с любым вопросом, профессиональной консультацией или заказом продукции",
-      "contact_us_h3_7": "Профессиональная консультация",
+      "contact_us_h3_7": "Профессиональные консультации",
       "contact_us_h3_8": "Быстрый ответ",
       "contact_us_h3_9": "Постоянная поддержка",
-      "contact_us_p_15": "Happily created by&nbsp;Zappy",
+      "contact_us_p_15": "Happily created by Zappy",
       "contact_us_p_16": "Заполните данные, и мы свяжемся с вами как можно скорее с профессиональной и персонализированной консультацией.",
       "contact_us_p_17": "Наша команда состоит из экспертов в области автомобильных присадок к моторному маслу в Израиле и продуктов для ухода и улучшения характеристик автомобиля. Мы предоставим вам профессиональную и точную консультацию для ваших потребностей.",
-      "contact_us_p_18": "Мы привержены быстрому и эффективному ответу. Телефонные обращения обрабатываются немедленно, а на электронные письма отвечаем в течение 24 часов.",
+      "contact_us_p_18": "Мы стремимся к быстрому и эффективному ответу. Телефонные обращения обрабатываются немедленно, а на электронные письма отвечаем в течение 24 часов.",
       "contact_us_p_19": "Даже после покупки мы здесь для вас. Техническая поддержка, консультации по использованию продуктов и ответы на любые вопросы.",
-      "contact_us_p_20": "Мы верим в полную прозрачность и честное отношение. Вы получите точную информацию, четкие объяснения и справедливые цены.",
+      "contact_us_p_20": "Мы верим в полную прозрачность и честное отношение. Вы получите точную информацию, понятные объяснения и справедливые цены.",
       "contact_us_p_21": "Лучший способ - обратиться к нам с данными автомобиля (модель, год, тип двигателя). Наша команда предоставит вам профессиональную и точную рекомендацию по наиболее подходящим продуктам.",
       "contact_us_p_22": "Продукты XADO начинают работать немедленно, но полные результаты видны после 500-1500 км пробега, в зависимости от состояния двигателя и типа продукта.",
       "contact_us_p_23": "Да, продукты XADO подходят для всех типов автомобилей - бензиновых, дизельных, легковых, коммерческих и внедорожников. Они прошли тщательные испытания и одобрены для использования.",
       "contact_us_p_24": "Можно заказать продукты по телефону, через WhatsApp или с помощью формы обратной связи на сайте. Мы предоставим вам информацию о ценах, наличии и вариантах доставки.",
       "contact_us_p_25": "Команда XADO ISRAEL здесь, чтобы помочь вам выбрать наиболее подходящие продукты и ответить на любые вопросы. Не стесняйтесь обращаться к нам!",
       "contact_us_p_26": "© 2026 XADO ISRAEL. Все права защищены.",
-      "contact_us_p_27": "Создано с помощью&nbsp;Zappy",
+      "contact_us_p_27": "Создано с помощью Zappy",
       "home_page_title": "Улучшите характеристики вашего автомобиля с продуктами XADO — XADO ISRAEL",
-      "privacy_link_22": "info@company.com",
+      "privacy_link_22": "done2000@gmail.com",
       "privacy_link_23": "Политика конфиденциальности",
       "privacy_link_24": "Доступность",
       "privacy_link_25": "Условия использования",
       "privacy_link_26": "Политика возврата",
       "privacy_link_27": "Zappy",
-      "products_alt_30": "XADO ISRAEL",
+      "products_alt_31": "XADO ISRAEL",
       "products_btn_13": "Все",
       "products_btn_14": "Рекомендуемые",
       "products_btn_15": "Новинки",
@@ -5944,17 +6543,18 @@ html[dir="rtl"] body {
       "products_link_7": "Политика конфиденциальности",
       "products_link_8": "Доступность",
       "products_link_9": "Условия использования",
-      "products_nav_17": "Продукция",
-      "products_nav_18": "Вся продукция",
-      "products_nav_19": "Товары",
+      "products_nav_17": "Продукты",
+      "products_nav_18": "Все продукты",
+      "products_nav_19": "Продукты",
       "products_nav_20": "О нас",
       "products_nav_21": "Корзина",
-      "products_nav_22": "Оформить заказ",
+      "products_nav_22": "Перейти к оплате",
       "products_nav_23": "Вход",
       "products_nav_24": "Мой аккаунт",
       "products_nav_25": "Заказ принят!",
-      "products_nav_26": "Детали товара",
+      "products_nav_26": "Детали продукта",
       "products_nav_27": "Связаться с нами",
+      "products_nav_28": "Все продукты",
       "products_span_5": "Итого:",
       "products_span_6": "₪0",
       "about_page_title": "Наша история и технология XADO — XADO ISRAEL",
@@ -5971,25 +6571,29 @@ html[dir="rtl"] body {
       "account_title_67": "Корзина",
       "account_title_68": "Поиск",
       "account_title_69": "Поиск",
-      "checkout_link_19": "Войти здесь",
-      "checkout_link_20": "Политика конфиденциальности",
-      "checkout_link_21": "Доступность",
-      "checkout_link_22": "Условия использования",
-      "checkout_link_23": "Политика возврата",
-      "checkout_link_24": "Zappy",
-      "checkout_link_25": "Перейти к оплате",
+      "checkout_link_22": "Войти здесь",
+      "checkout_link_23": "Условия использования",
+      "checkout_link_24": "Политика конфиденциальности",
+      "checkout_link_25": "Доступность",
+      "checkout_link_26": "Условия использования",
+      "checkout_link_27": "Политика возврата",
+      "checkout_link_28": "Zappy",
+      "checkout_link_29": "Перейти к оплате",
       "checkout_span_10": "У вас уже есть аккаунт?",
-      "checkout_span_11": "Вошли как:",
-      "checkout_span_12": "₪0",
+      "checkout_span_11": "Вы вошли как:",
+      "checkout_span_12": "Сохранить адрес для следующего раза",
       "checkout_span_13": "₪0",
       "checkout_span_14": "₪0",
-      "checkout_span_15": "-₪0",
-      "checkout_span_16": "₪0",
-      "checkout_span_17": "Итого:",
-      "checkout_span_18": "₪0",
+      "checkout_span_15": "₪0",
+      "checkout_span_16": "-₪0",
+      "checkout_span_17": "₪0",
+      "checkout_span_18": "Я согласен/согласна с условиями использования",
+      "checkout_span_19": "Я согласен/согласна с",
+      "checkout_span_20": "Итого:",
+      "checkout_span_21": "₪0",
       "contact_us_h3_10": "Надежность и прозрачность",
       "contact_us_h3_11": "Как узнать, какой продукт подходит для моего автомобиля?",
-      "contact_us_h3_12": "Сколько времени нужно, чтобы увидеть результаты?",
+      "contact_us_h3_12": "Сколько времени требуется, чтобы увидеть результаты?",
       "contact_us_h3_13": "Безопасны ли продукты для всех типов автомобилей?",
       "contact_us_h3_14": "Как можно заказать продукцию?",
       "legal_terms_h1_1": "Условия использования",
@@ -6001,15 +6605,15 @@ html[dir="rtl"] body {
       "legal_terms_h2_7": "6. Ограничение ответственности",
       "legal_terms_h2_8": "7. Авторские права и интеллектуальная собственность",
       "legal_terms_h2_9": "8. Конфиденциальность",
-      "legal_terms_p_15": "[business_name] предоставляет общие услуги через сайт. Услуги подчиняются условиям, изложенным в данном документе, и могут изменяться время от времени.",
+      "legal_terms_p_15": "XADO ISRAEL предоставляет общие услуги через сайт. Услуги подчиняются условиям, изложенным в данном документе, и могут изменяться время от времени.",
       "legal_terms_p_16": "Использование сайта обусловлено соблюдением следующих условий:",
       "legal_terms_p_17": "В случае если услуги включают оплату:",
-      "legal_terms_p_18": "Услуги предоставляются \"как есть\" без каких-либо гарантий. Компания не несет ответственности за косвенные, последующие или специальные ущербы, возникающие в результате использования сайта, за исключением случаев, когда закон предусматривает иное.",
-      "legal_terms_p_19": "Все содержимое сайта, включая тексты, изображения, дизайн и код, защищено авторскими правами, принадлежащими [business_name]. Запрещается копировать, распространять или использовать в коммерческих целях содержимое без письменного разрешения.",
+      "legal_terms_p_18": "Услуги предоставляются \"как есть\" без гарантий любого рода. Компания не несет ответственности за косвенные, последующие или особые ущербы, возникающие в результате использования сайта, за исключением случаев, когда закон предусматривает иное.",
+      "legal_terms_p_19": "Все содержимое сайта, включая тексты, изображения, дизайн и код, защищены авторскими правами, принадлежащими XADO ISRAEL. Запрещается копировать, распространять или использовать в коммерческих целях содержимое без письменного разрешения.",
       "legal_terms_p_20": "Сбор и использование личной информации подчиняются нашей политике конфиденциальности. Использование сайта означает согласие с политикой конфиденциальности, как указано отдельно.",
       "legal_terms_p_21": "Компания вправе изменить данные условия использования в любое время. Существенные изменения будут опубликованы на сайте с предварительным уведомлением за 30 дней. Продолжение использования после изменения означает согласие с новыми условиями.",
-      "legal_terms_p_22": "Компания вправе прекратить или ограничить услуги в любое время, включая случаи нарушения условий использования. В случае прекращения услуг сохраняются положения соответствующих разделов.",
-      "legal_terms_p_23": "Данные условия использования подчиняются законам государства Израиль. Любые споры будут рассматриваться в компетентных судах Израиля, с предпочтением арбитража или медиации по возможности.",
+      "legal_terms_p_22": "Компания вправе прекратить или ограничить услугу в любое время, включая случаи нарушения условий использования. В случае прекращения услуги сохраняются положения соответствующих разделов.",
+      "legal_terms_p_23": "Данные условия использования подчиняются законам государства Израиль. Любой спор будет рассматриваться в компетентных судах Израиля, с предпочтением арбитража или медиации по возможности.",
       "legal_terms_p_24": "По вопросам или разъяснениям относительно условий использования:",
       "login_page_title": "Вход - XADO ISRAEL",
       "privacy_title_63": "Поиск",
@@ -6024,25 +6628,27 @@ html[dir="rtl"] body {
       "thank_you_alt_30": "XADO ISRAEL",
       "thank_you_link_8": "Zappy",
       "thank_you_link_9": "Вернуться на главную",
-      "thank_you_nav_16": "Продукция",
-      "thank_you_nav_17": "Вся продукция",
-      "thank_you_nav_18": "Продукция",
+      "thank_you_nav_16": "Товары",
+      "thank_you_nav_17": "Все товары",
+      "thank_you_nav_18": "Товары",
       "thank_you_nav_19": "О нас",
       "thank_you_nav_20": "Корзина",
       "thank_you_nav_21": "Перейти к оплате",
       "thank_you_nav_22": "Вход",
       "thank_you_nav_23": "Мой аккаунт",
-      "thank_you_nav_24": "Заказ принят!",
-      "thank_you_nav_25": "Детали продукта",
+      "thank_you_nav_24": "Заказ получен!",
+      "thank_you_nav_25": "Детали товара",
       "thank_you_nav_26": "Связаться с нами",
-      "thank_you_nav_27": "Вся продукция",
-      "accessibility_p_9": "XADO ISRAEL обязуется сделать свои услуги доступными для широкой публики. Мы работаем над внедрением рекомендаций израильского стандарта (ТИ 5568), основанного на рекомендациях WCAG 2.1 уровня AA.",
-      "checkout_title_54": "Поиск",
-      "checkout_title_55": "Вход",
-      "checkout_title_56": "Корзина",
-      "checkout_title_57": "Поиск",
-      "checkout_title_58": "Поиск",
-      "checkout_title_59": "Закрыть",
+      "thank_you_nav_27": "Все товары",
+      "accessibility_p_9": "XADO ISRAEL стремится сделать свои услуги доступными для всей общественности. Мы работаем над внедрением рекомендаций израильского стандарта (ТИ 5568), основанного на рекомендациях WCAG 2.1 уровня AA.",
+      "checkout_label_35": "Сохранить адрес для следующего раза",
+      "checkout_label_36": "Я согласен/согласна с условиями использования",
+      "checkout_title_60": "Поиск",
+      "checkout_title_61": "Вход",
+      "checkout_title_62": "Корзина",
+      "checkout_title_63": "Поиск",
+      "checkout_title_64": "Поиск",
+      "checkout_title_65": "Закрыть",
       "contact_us_alt_60": "XADO ISRAEL",
       "contact_us_btn_35": "Отправить сообщение",
       "contact_us_nav_42": "Продукты",
@@ -6053,54 +6659,54 @@ html[dir="rtl"] body {
       "contact_us_nav_47": "Перейти к оплате",
       "contact_us_nav_48": "Вход",
       "contact_us_nav_49": "Мой аккаунт",
-      "contact_us_nav_50": "Заказ получен!",
+      "contact_us_nav_50": "Заказ принят!",
       "contact_us_nav_51": "Детали продукта",
       "contact_us_nav_52": "Связаться с нами",
       "contact_us_nav_53": "Все продукты",
       "legal_terms_h2_10": "9. Изменение условий использования",
-      "legal_terms_h2_11": "10. Прекращение услуг",
+      "legal_terms_h2_11": "10. Прекращение услуги",
       "legal_terms_h2_12": "11. Применимое право и разрешение споров",
       "legal_terms_h2_13": "12. Общие положения",
       "legal_terms_h2_14": "13. Контактная информация",
-      "legal_terms_li_28": "\"Компания\" - [business_name]",
-      "legal_terms_li_29": "\"Пользователь\" - любой, кто посещает или использует сайт",
-      "legal_terms_li_30": "\"Услуги\" - общие услуги, предоставляемые через сайт",
-      "legal_terms_li_31": "Использование сайта только в законных целях",
-      "legal_terms_li_32": "Не мешать работе сайта или другим пользователям",
-      "legal_terms_li_33": "Не размещать оскорбительный, незаконный или вредоносный контент",
-      "legal_terms_li_34": "Соблюдение авторских прав и интеллектуальной собственности",
-      "legal_terms_li_35": "Не совершать действия, которые могут нарушить безопасность сайта",
-      "legal_terms_li_36": "Предоставление правильной и точной информации при регистрации или заказе",
-      "legal_terms_li_37": "Сохранение конфиденциальности данных доступа к аккаунту",
-      "legal_terms_li_38": "Немедленное уведомление о любом несанкционированном использовании аккаунта",
-      "legal_terms_li_39": "Обновление личной информации при необходимости",
-      "legal_terms_li_40": "Платежи осуществляются через безопасные и зашифрованные системы",
-      "legal_terms_li_41": "Цены включают НДС согласно требованиям закона",
-      "legal_terms_li_42": "Право отмены сделки действует в соответствии с законом о защите прав потребителей",
-      "legal_terms_li_43": "Возврат средств будет произведен в течение 14 рабочих дней с момента подтверждения отмены",
-      "legal_terms_li_44": "Если часть условий будет признана недействительной, остальные условия остаются в силе",
-      "legal_terms_li_45": "Неприменение права не считается отказом от него",
-      "legal_terms_li_46": "Условия использования составляют полное соглашение между сторонами",
-      "legal_terms_li_47": "Компания: [business_name]",
-      "legal_terms_li_48": "Email: [business_email]",
-      "legal_terms_li_49": "Телефон: [business_phone]",
-      "legal_terms_li_50": "Адрес: [business_address]",
+      "legal_terms_li_27": "\"Компания\" - XADO ISRAEL",
+      "legal_terms_li_28": "\"Пользователь\" - любой, кто посещает или использует сайт",
+      "legal_terms_li_29": "\"Услуги\" - общие услуги, предоставляемые через сайт",
+      "legal_terms_li_30": "Использование сайта только в законных целях",
+      "legal_terms_li_31": "Не препятствовать работе сайта или другим пользователям",
+      "legal_terms_li_32": "Не загружать оскорбительный, незаконный или вредоносный контент",
+      "legal_terms_li_33": "Соблюдение авторских прав и интеллектуальной собственности",
+      "legal_terms_li_34": "Не совершать действия, которые могут нарушить безопасность сайта",
+      "legal_terms_li_35": "Предоставление правильной и точной информации при регистрации или заказе",
+      "legal_terms_li_36": "Сохранение конфиденциальности данных доступа к аккаунту",
+      "legal_terms_li_37": "Немедленное уведомление о любом несанкционированном использовании аккаунта",
+      "legal_terms_li_38": "Обновление личной информации при необходимости",
+      "legal_terms_li_39": "Платежи осуществляются через безопасные и зашифрованные системы",
+      "legal_terms_li_40": "Цены включают НДС согласно требованиям закона",
+      "legal_terms_li_41": "Право отмены сделки действует в соответствии с законом о защите прав потребителей",
+      "legal_terms_li_42": "Возвраты будут осуществлены в течение 14 рабочих дней с момента подтверждения отмены",
+      "legal_terms_li_43": "Если часть условий будет признана недействительной, остальные условия остаются в силе",
+      "legal_terms_li_44": "Неприменение права не считается отказом от него",
+      "legal_terms_li_45": "Условия использования составляют полное соглашение между сторонами",
+      "legal_terms_li_46": "Компания: XADO ISRAEL",
+      "legal_terms_li_47": "Email: done2000@gmail.com",
+      "legal_terms_li_48": "Телефон: 03-1234567",
+      "legal_terms_li_49": "Адрес: адрес компании, Israel",
       "order_success_p_4": "Спасибо за заказ",
       "order_success_p_5": "Номер заказа",
       "order_success_p_6": "Загрузка деталей заказа...",
       "order_success_p_7": "Подтверждение заказа отправлено на ваш email",
-      "order_success_p_8": "Ваш заказ обрабатывается. Мы уведомим вас, когда посылка будет отправлена.",
+      "order_success_p_8": "Ваш заказ обрабатывается. Мы уведомим вас, когда отправка будет в пути.",
       "order_success_p_9": "© 2026 XADO ISRAEL. Все права защищены.",
       "product__slug_p_3": "Загрузка товаров...",
       "product__slug_p_4": "© 2026 XADO ISRAEL. Все права защищены.",
-      "product__slug_p_5": "Создано с помощью&nbsp;Zappy",
-      "products_title_31": "Поиск",
-      "products_title_32": "Вход",
-      "products_title_33": "Корзина",
-      "products_title_34": "Поиск",
+      "product__slug_p_5": "Создано с помощью Zappy",
+      "products_title_32": "Поиск",
+      "products_title_33": "Вход",
+      "products_title_34": "Корзина",
       "products_title_35": "Поиск",
-      "return_policy_p_7": "Последнее обновление: 29.1.2026",
-      "return_policy_p_8": "XADO ISRAEL стремится к удовлетворенности своих клиентов. Данная политика описывает ваши права на возврат товаров в соответствии с законом о защите прав потребителей.",
+      "products_title_36": "Поиск",
+      "return_policy_p_7": "Последнее обновление: 4.2.2026",
+      "return_policy_p_8": "XADO ISRAEL стремится к удовлетворению потребностей своих клиентов. Данная политика определяет ваши права на возврат товаров в соответствии с законом о защите прав потребителей.",
       "return_policy_p_9": "В соответствии с законом о защите прав потребителей, у вас есть право отменить сделку в течение 14 дней с момента получения товара.",
       "thank_you_link_10": "Новое обращение",
       "thank_you_link_11": "Политика конфиденциальности",
@@ -6108,7 +6714,7 @@ html[dir="rtl"] body {
       "thank_you_link_13": "Условия использования",
       "thank_you_link_14": "Политика возврата",
       "thank_you_link_15": "Zappy",
-      "accessibility_h1_1": "Декларация доступности",
+      "accessibility_h1_1": "Заявление о доступности",
       "accessibility_h2_2": "1. Политика доступности",
       "accessibility_h2_3": "2. Меры обеспечения доступности на сайте",
       "accessibility_h2_4": "3. Поддерживаемые вспомогательные технологии",
@@ -6118,16 +6724,16 @@ html[dir="rtl"] body {
       "accessibility_h3_8": "Соответствие стандарту WCAG 2.1",
       "accessibility_p_10": "Мы верим в равенство прав и в право каждого человека получать информацию и услуги самостоятельно и на равных условиях. Этот сайт был спроектирован и построен с особым акцентом на доступность для людей с ограниченными возможностями.",
       "accessibility_p_11": "Сайт соответствует уровню AA стандарта WCAG 2.1, который включает:",
-      "accessibility_p_12": "Сайт был протестирован с помощью:",
+      "accessibility_p_12": "Сайт проверен с помощью:",
       "accessibility_p_13": "Мы постоянно работаем над улучшением доступности сайта и обновляем его в соответствии с технологическими разработками и отзывами пользователей.",
       "accessibility_p_14": "Если вы столкнулись с проблемой доступности на сайте или нуждаетесь в помощи, пожалуйста, свяжитесь с нами:",
       "accessibility_p_15": "Время ответа: мы отвечаем на обращения по вопросам доступности в течение 3 рабочих дней и работаем над решением в течение 10 рабочих дней.",
       "accessibility_p_16": "Жалобы: можно подать жалобу в Министерство юстиции - Комиссариат по равенству прав людей с ограниченными возможностями",
       "accessibility_p_17": "© 2026 XADO ISRAEL. Все права защищены.",
-      "accessibility_p_18": "Создано с помощью&nbsp;Zappy",
+      "accessibility_p_18": "Создано с помощью Zappy",
       "account_page_title": "Мой аккаунт - XADO ISRAEL",
       "category__slug_p_2": "© 2026 XADO ISRAEL. Все права защищены.",
-      "category__slug_p_3": "Создано с помощью&nbsp;Zappy",
+      "category__slug_p_3": "Создано с помощью Zappy",
       "contact_us_link_28": "Zappy",
       "contact_us_link_29": "Задать вопрос",
       "contact_us_link_30": "Политика конфиденциальности",
@@ -6143,8 +6749,8 @@ html[dir="rtl"] body {
       "legal_privacy_h2_6": "5. Файлы cookie",
       "legal_privacy_h2_7": "6. Безопасность информации",
       "legal_privacy_h2_8": "7. Изменения в политике",
-      "legal_privacy_h2_9": "8. Обратная связь",
-      "legal_privacy_p_10": "[business_name] (\"Компания\", \"мы\", \"наш\") обязуется защищать вашу конфиденциальность. Данная политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу информацию при использовании сайта www.company.com (\"Сервис\").",
+      "legal_privacy_h2_9": "8. Связь с нами",
+      "legal_privacy_p_10": "XADO ISRAEL (\"Компания\", \"мы\", \"наш\") обязуется защищать вашу конфиденциальность. Данная политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу информацию при использовании сайта www.company.com (\"Сервис\").",
       "legal_privacy_p_11": "Мы можем собирать следующие типы информации:",
       "legal_privacy_p_12": "Мы используем собранную информацию для следующих целей:",
       "legal_privacy_p_13": "Мы не будем продавать, сдавать в аренду или передавать вашу личную информацию третьим лицам, за исключением следующих случаев:",
@@ -6157,7 +6763,7 @@ html[dir="rtl"] body {
       "order_success_h1_1": "Заказ принят!",
       "order_success_h2_2": "Детали заказа",
       "order_success_h2_3": "Ваша корзина",
-      "order_success_p_10": "Создано с помощью&nbsp;Zappy",
+      "order_success_p_10": "Создано с помощью Zappy",
       "privacy_page_title": "Политика конфиденциальности",
       "product__slug_h2_1": "Похожие товары",
       "product__slug_h2_2": "Ваша корзина",
@@ -6167,13 +6773,13 @@ html[dir="rtl"] body {
       "return_policy_h2_4": "3. Дефектный товар",
       "return_policy_h2_5": "4. Связаться с нами",
       "return_policy_h2_6": "Ваша корзина",
-      "return_policy_p_10": "В случае дефектного товара или товара, отличающегося от описанного, вы имеете право на полный возврат без комиссии за отмену, включая возврат стоимости доставки.",
-      "return_policy_p_11": "Для осуществления возврата или по вопросам:",
-      "return_policy_p_12": "Email: info@company.com",
-      "return_policy_p_13": "Телефон: 03-1234567",
-      "return_policy_p_14": "Адрес: адрес компании, Израиль",
+      "return_policy_p_10": "В случае дефектного товара или товара, отличающегося от описанного, вы имеете право на полный возврат средств без комиссии за отмену, включая возврат стоимости доставки.",
+      "return_policy_p_11": "Для оформления возврата или по вопросам:",
+      "return_policy_p_12": "Email: done2000@gmail.com",
+      "return_policy_p_13": "Телефон: 0544415969",
+      "return_policy_p_14": "Адрес: Духифат 5, Нешер",
       "return_policy_p_15": "© 2026 XADO ISRAEL. Все права защищены.",
-      "return_policy_p_16": "Создано с помощью&nbsp;Zappy",
+      "return_policy_p_16": "Создано с помощью Zappy",
       "thank_you_title_31": "Вход",
       "thank_you_title_32": "Корзина",
       "thank_you_title_33": "Поиск",
@@ -6202,8 +6808,8 @@ html[dir="rtl"] body {
       "accessibility_li_46": "Проверка цветовой контрастности",
       "accessibility_li_47": "Тестирование с пользователями с ограниченными возможностями",
       "accessibility_li_48": "Компания: XADO ISRAEL",
-      "accessibility_li_49": "Email: info@company.com",
-      "accessibility_li_50": "Телефон: 03-1234567",
+      "accessibility_li_49": "Email: done2000@gmail.com",
+      "accessibility_li_50": "Телефон: 0544415969",
       "cart_placeholder_27": "Поиск товаров...",
       "cart_placeholder_28": "Поиск товаров...",
       "category__slug_h2_1": "Ваша корзина",
@@ -6218,35 +6824,34 @@ html[dir="rtl"] body {
       "contact_us_title_62": "Корзина",
       "contact_us_title_63": "Поиск",
       "contact_us_title_64": "Поиск",
-      "home_placeholder_52": "Поиск товаров...",
-      "home_placeholder_53": "Поиск товаров...",
-      "legal_privacy_li_23": "Личная информация: имя, адрес электронной почты, номер телефона и адрес",
-      "legal_privacy_li_24": "Техническая информация: IP-адрес, тип браузера, операционная система и данные об использовании сайта",
-      "legal_privacy_li_25": "Файлы cookie: информация, сохраняемая на вашем компьютере для улучшения пользовательского опыта",
-      "legal_privacy_li_26": "Предоставление запрашиваемых услуг",
-      "legal_privacy_li_27": "Улучшение сервиса и пользовательского опыта",
-      "legal_privacy_li_28": "Связь с вами по поводу наших услуг",
-      "legal_privacy_li_29": "Соблюдение законодательных требований",
-      "legal_privacy_li_30": "С вашего явного согласия",
-      "legal_privacy_li_31": "Когда это требуется по закону",
-      "legal_privacy_li_32": "Для защиты наших прав или безопасности наших пользователей",
-      "legal_privacy_li_33": "С поставщиками услуг, которые помогают в работе сервиса (под соглашениями о конфиденциальности)",
-      "legal_privacy_li_34": "Право на просмотр личной информации, хранящейся о вас",
-      "legal_privacy_li_35": "Право на исправление неверной или неточной информации",
-      "legal_privacy_li_36": "Право на удаление личной информации при определенных обстоятельствах",
-      "legal_privacy_li_37": "Право возражать против обработки информации в маркетинговых целях",
-      "legal_privacy_li_38": "Право подать жалобу регистратору баз данных",
-      "legal_privacy_li_39": "Компания: [business_name]",
-      "legal_privacy_li_40": "Email: [business_email]",
-      "legal_privacy_li_41": "Телефон: [business_phone]",
-      "legal_privacy_li_42": "Адрес: [business_address]",
-      "legal_terms_link_25": "[business_email]",
-      "legal_terms_link_26": "[business_phone]",
-      "legal_terms_link_27": "← Вернуться на сайт",
-      "products_page_title": "Товары - XADO ISRAEL",
-      "return_policy_li_26": "Для пожилых граждан, новых репатриантов и людей с ограниченными возможностями - период отмены составляет 4 месяца",
+      "home_placeholder_48": "Поиск продуктов...",
+      "home_placeholder_49": "Поиск продуктов...",
+      "legal_privacy_li_22": "Личная информация: имя, адрес электронной почты, номер телефона и адрес",
+      "legal_privacy_li_23": "Техническая информация: IP-адрес, тип браузера, операционная система и данные об использовании сайта",
+      "legal_privacy_li_24": "Файлы cookie: информация, сохраняемая на вашем компьютере для улучшения пользовательского опыта",
+      "legal_privacy_li_25": "Предоставление запрашиваемых услуг",
+      "legal_privacy_li_26": "Улучшение сервиса и пользовательского опыта",
+      "legal_privacy_li_27": "Связь с вами по поводу наших услуг",
+      "legal_privacy_li_28": "Соблюдение законодательных требований",
+      "legal_privacy_li_29": "С вашего явного согласия",
+      "legal_privacy_li_30": "когда это требуется по закону",
+      "legal_privacy_li_31": "для защиты наших прав или безопасности наших пользователей",
+      "legal_privacy_li_32": "с поставщиками услуг, которые помогают в работе сервиса (под соглашениями о конфиденциальности)",
+      "legal_privacy_li_33": "право на просмотр личной информации, хранящейся о вас",
+      "legal_privacy_li_34": "право на исправление неверной или неточной информации",
+      "legal_privacy_li_35": "право на удаление личной информации при определенных обстоятельствах",
+      "legal_privacy_li_36": "право возражать против обработки информации в маркетинговых целях",
+      "legal_privacy_li_37": "право подать жалобу регистратору баз данных",
+      "legal_privacy_li_38": "Компания: XADO ISRAEL",
+      "legal_privacy_li_39": "Email: done2000@gmail.com",
+      "legal_privacy_li_40": "Телефон: 03-1234567",
+      "legal_privacy_li_41": "Адрес: адрес компании, Israel",
+      "legal_terms_link_25": "done2000@gmail.com",
+      "legal_terms_link_26": "← Вернуться на сайт",
+      "products_page_title": "Продукты - XADO ISRAEL",
+      "return_policy_li_26": "Для пожилых граждан, новых репатриантов и людей с ограниченными возможностями - срок отмены составляет 4 месяца",
       "return_policy_li_27": "Товар необходимо вернуть в оригинальной упаковке",
-      "return_policy_li_28": "Денежный возврат будет произведен в течение 14 дней с момента уведомления об отмене",
+      "return_policy_li_28": "Возврат денежных средств будет произведен в течение 14 дней с момента уведомления об отмене",
       "return_policy_li_29": "Испорченные продукты питания",
       "return_policy_li_30": "Товары, изготовленные специально по заказу",
       "return_policy_li_31": "Вскрытые программы и диски",
@@ -6254,7 +6859,7 @@ html[dir="rtl"] body {
       "about_placeholder_69": "Поиск продукции...",
       "about_placeholder_70": "Поиск продукции...",
       "accessibility_alt_65": "XADO ISRAEL",
-      "accessibility_nav_51": "Продукция",
+      "accessibility_nav_51": "Товары",
       "accessibility_nav_52": "Все товары",
       "accessibility_nav_53": "Товары",
       "accessibility_nav_54": "О нас",
@@ -6266,8 +6871,8 @@ html[dir="rtl"] body {
       "accessibility_nav_60": "Детали товара",
       "accessibility_nav_61": "Связаться с нами",
       "accessibility_nav_62": "Все товары",
-      "login_placeholder_29": "Поиск продуктов...",
-      "login_placeholder_30": "Поиск продуктов...",
+      "login_placeholder_29": "Поиск товаров...",
+      "login_placeholder_30": "Поиск товаров...",
       "login_placeholder_31": "Адрес электронной почты",
       "login_placeholder_32": "Код подтверждения",
       "order_success_alt_34": "XADO ISRAEL",
@@ -6295,9 +6900,9 @@ html[dir="rtl"] body {
       "product__slug_nav_20": "Вход",
       "product__slug_nav_21": "Мой аккаунт",
       "product__slug_nav_22": "Заказ принят!",
-      "product__slug_nav_23": "Детали продукта",
+      "product__slug_nav_23": "Детали товара",
       "product__slug_nav_24": "Связаться с нами",
-      "product__slug_nav_25": "Все продукты",
+      "product__slug_nav_25": "Все товары",
       "product__slug_span_6": "Итого:",
       "product__slug_span_7": "₪0",
       "return_policy_alt_47": "XADO ISRAEL",
@@ -6309,14 +6914,14 @@ html[dir="rtl"] body {
       "return_policy_nav_38": "Перейти к оплате",
       "return_policy_nav_39": "Вход",
       "return_policy_nav_40": "Мой аккаунт",
-      "return_policy_nav_41": "Заказ принят!",
+      "return_policy_nav_41": "Заказ получен!",
       "return_policy_nav_42": "Детали товара",
       "return_policy_nav_43": "Связаться с нами",
       "return_policy_nav_44": "Все товары",
       "terms_placeholder_68": "Поиск продукции...",
       "terms_placeholder_69": "Поиск продукции...",
       "thank_you_page_title": "Большое спасибо - XADO ISRAEL",
-      "accessibility_link_19": "info@company.com",
+      "accessibility_link_19": "done2000@gmail.com",
       "accessibility_link_20": "Политика конфиденциальности",
       "accessibility_link_21": "Доступность",
       "accessibility_link_22": "Условия использования",
@@ -6331,25 +6936,24 @@ html[dir="rtl"] body {
       "category__slug_link_7": "Доступность",
       "category__slug_link_8": "Условия использования",
       "category__slug_link_9": "Политика возврата",
-      "category__slug_nav_16": "Товары",
-      "category__slug_nav_17": "Все товары",
-      "category__slug_nav_18": "Товары",
+      "category__slug_nav_16": "Продукты",
+      "category__slug_nav_17": "Все продукты",
+      "category__slug_nav_18": "Продукты",
       "category__slug_nav_19": "О нас",
       "category__slug_nav_20": "Корзина",
       "category__slug_nav_21": "Перейти к оплате",
       "category__slug_nav_22": "Вход",
       "category__slug_nav_23": "Мой аккаунт",
       "category__slug_nav_24": "Заказ принят!",
-      "category__slug_nav_25": "Детали товара",
+      "category__slug_nav_25": "Детали продукта",
       "category__slug_nav_26": "Связаться с нами",
-      "category__slug_nav_27": "Все товары",
+      "category__slug_nav_27": "Все продукты",
       "category__slug_span_4": "Итого:",
       "category__slug_span_5": "₪0",
       "contact_us_page_title": "Связаться с нами",
-      "home_meta_description": "Откройте для себя ведущие продукты XADO для улучшения характеристик, экономии топлива и профессионального ухода за автомобилем. Качественные решения для механиков, автолюбителей и управляющих автопарками.",
-      "legal_privacy_link_20": "[business_email]",
-      "legal_privacy_link_21": "[business_phone]",
-      "legal_privacy_link_22": "← Вернуться на сайт",
+      "home_meta_description": "Откройте для себя ведущие продукты XADO для улучшения производительности, экономии топлива и профессионального ухода за автомобилем. Качественные решения для механиков, автолюбителей и управляющих автопарками.",
+      "legal_privacy_link_20": "done2000@gmail.com",
+      "legal_privacy_link_21": "← Вернуться на сайт",
       "order_success_link_13": "Продолжить покупки",
       "order_success_link_14": "Политика конфиденциальности",
       "order_success_link_15": "Доступность",
@@ -6363,7 +6967,7 @@ html[dir="rtl"] body {
       "product__slug_link_11": "Политика возврата",
       "product__slug_link_12": "Zappy",
       "product__slug_link_13": "Перейти к оплате",
-      "return_policy_link_19": "info@company.com",
+      "return_policy_link_19": "done2000@gmail.com",
       "return_policy_link_20": "Политика конфиденциальности",
       "return_policy_link_21": "Доступность",
       "return_policy_link_22": "Условия использования",
@@ -6375,7 +6979,7 @@ html[dir="rtl"] body {
       "about_meta_description": "Узнайте о XADO ISRAEL, лидере в области передовых автомобильных присадок. Откройте для себя уникальную технологию, наши ценности и приверженность превосходному сервису.",
       "accessibility_title_66": "Поиск",
       "accessibility_title_67": "Вход",
-      "accessibility_title_68": "Корзина",
+      "accessibility_title_68": "Корзина покупок",
       "accessibility_title_69": "Поиск",
       "accessibility_title_70": "Поиск",
       "account_placeholder_56": "Поиск товаров...",
@@ -6388,14 +6992,14 @@ html[dir="rtl"] body {
       "account_placeholder_63": "Почтовый индекс",
       "category__slug_link_10": "Zappy",
       "category__slug_link_11": "Перейти к оплате",
-      "legal_terms_page_title": "Условия использования - [business_name]",
+      "legal_terms_page_title": "Условия использования - XADO ISRAEL",
       "order_success_title_35": "Поиск",
       "order_success_title_36": "Вход",
       "order_success_title_37": "Корзина",
       "order_success_title_38": "Поиск",
       "order_success_title_39": "Поиск",
-      "privacy_placeholder_60": "Поиск товаров...",
-      "privacy_placeholder_61": "Поиск товаров...",
+      "privacy_placeholder_60": "Поиск продуктов...",
+      "privacy_placeholder_61": "Поиск продуктов...",
       "product__slug_title_29": "Поиск",
       "product__slug_title_30": "Вход",
       "product__slug_title_31": "Корзина",
@@ -6412,23 +7016,23 @@ html[dir="rtl"] body {
       "category__slug_title_33": "Корзина",
       "category__slug_title_34": "Поиск",
       "category__slug_title_35": "Поиск",
-      "checkout_placeholder_43": "Поиск товаров...",
-      "checkout_placeholder_44": "Поиск товаров...",
-      "checkout_placeholder_45": "Полное имя",
-      "checkout_placeholder_46": "Email",
-      "checkout_placeholder_47": "Телефон",
-      "checkout_placeholder_48": "Улица и номер дома",
-      "checkout_placeholder_49": "Квартира, этаж, подъезд",
-      "checkout_placeholder_50": "Город",
-      "checkout_placeholder_51": "Почтовый индекс",
-      "checkout_placeholder_52": "Введите код купона",
-      "legal_accessibility_p_9": "[business_name] стремится сделать свои услуги доступными для всех. Мы работаем над внедрением рекомендаций израильского стандарта (ТИ 5568), основанного на рекомендациях WCAG 2.1 уровня AA.",
-      "products_placeholder_28": "Поиск товаров...",
-      "products_placeholder_29": "Поиск товаров...",
+      "checkout_placeholder_49": "Поиск товаров...",
+      "checkout_placeholder_50": "Поиск товаров...",
+      "checkout_placeholder_51": "Полное имя",
+      "checkout_placeholder_52": "Email",
+      "checkout_placeholder_53": "Телефон",
+      "checkout_placeholder_54": "Улица и номер дома",
+      "checkout_placeholder_55": "Квартира, этаж, подъезд",
+      "checkout_placeholder_56": "Город",
+      "checkout_placeholder_57": "Почтовый индекс",
+      "checkout_placeholder_58": "Введите код купона",
+      "legal_accessibility_p_9": "XADO ISRAEL стремится сделать свои услуги доступными для всех. Мы работаем над внедрением рекомендаций израильского стандарта (ТИ 5568), основанного на рекомендациях WCAG 2.1 уровня AA.",
+      "products_placeholder_29": "Поиск продуктов...",
+      "products_placeholder_30": "Поиск продуктов...",
       "accessibility_page_title": "Декларация доступности",
       "legal_accessibility_h1_1": "Заявление о доступности",
       "legal_accessibility_h2_2": "1. Политика доступности",
-      "legal_accessibility_h2_3": "2. Меры по обеспечению доступности на сайте",
+      "legal_accessibility_h2_3": "2. Меры по обеспечению доступности сайта",
       "legal_accessibility_h2_4": "3. Поддерживаемые вспомогательные технологии",
       "legal_accessibility_h2_5": "4. Проверки доступности",
       "legal_accessibility_h2_6": "5. Постоянные улучшения",
@@ -6436,15 +7040,15 @@ html[dir="rtl"] body {
       "legal_accessibility_h3_8": "Соответствие стандарту WCAG 2.1",
       "legal_accessibility_p_10": "Мы верим в равенство прав и в право каждого человека получать информацию и услуги самостоятельно и на равных условиях. Этот сайт был разработан и создан с особым акцентом на доступность для людей с ограниченными возможностями.",
       "legal_accessibility_p_11": "Сайт соответствует уровню AA стандарта WCAG 2.1, который включает:",
-      "legal_accessibility_p_12": "Сайт проверяется с помощью:",
+      "legal_accessibility_p_12": "Сайт проверен с помощью:",
       "legal_accessibility_p_13": "Мы постоянно работаем над улучшением доступности сайта и обновляем его в соответствии с технологическими разработками и отзывами пользователей.",
       "legal_accessibility_p_14": "Если вы столкнулись с проблемой доступности на сайте или нуждаетесь в помощи, пожалуйста, свяжитесь с нами:",
-      "legal_accessibility_p_15": "Время ответа: Мы отвечаем на обращения по вопросам доступности в течение 3 рабочих дней и работаем над решением в течение 10 рабочих дней.",
-      "legal_accessibility_p_16": "Жалобы: Можно подать жалобу в Министерство юстиции - Комиссариат по равенству прав людей с ограниченными возможностями",
-      "legal_privacy_page_title": "Политика конфиденциальности - [business_name]",
+      "legal_accessibility_p_15": "Время ответа: мы отвечаем на обращения по вопросам доступности в течение 3 рабочих дней и работаем над решением в течение 10 рабочих дней.",
+      "legal_accessibility_p_16": "Жалобы: можно подать жалобу в Министерство юстиции - Комиссариат по равенству прав людей с ограниченными возможностями",
+      "legal_privacy_page_title": "Политика конфиденциальности - XADO ISRAEL",
       "order_success_page_title": "Заказ принят! - XADO ISRAEL",
       "privacy_meta_description": "Наша политика конфиденциальности - как мы собираем, используем и защищаем вашу информацию",
-      "product__slug_page_title": "Детали продукта - XADO ISRAEL",
+      "product__slug_page_title": "Детали товара - XADO ISRAEL",
       "return_policy_page_title": "Политика возврата - XADO ISRAEL",
       "thank_you_placeholder_28": "Поиск товаров...",
       "thank_you_placeholder_29": "Поиск товаров...",
@@ -6455,49 +7059,48 @@ html[dir="rtl"] body {
       "contact_us_placeholder_57": "example@email.com",
       "contact_us_placeholder_58": "05X-XXXXXXX",
       "contact_us_placeholder_59": "Расскажите нам, как мы можем вам помочь...",
-      "legal_accessibility_li_20": "Поддержка навигации с помощью клавиатуры",
-      "legal_accessibility_li_21": "Поддержка программ чтения с экрана",
-      "legal_accessibility_li_22": "Подходящая контрастность цветов",
-      "legal_accessibility_li_23": "Гибкие размеры шрифтов с возможностью увеличения",
-      "legal_accessibility_li_24": "Подробные описания изображений (Alt text)",
-      "legal_accessibility_li_25": "Иерархически структурированные заголовки",
-      "legal_accessibility_li_26": "Описательные и понятные ссылки",
-      "legal_accessibility_li_27": "Поддержка масштабирования до 200% без потери содержимого",
-      "legal_accessibility_li_28": "Воспринимаемый (Perceivable): Информация представлена способами, которые пользователи могут воспринять",
-      "legal_accessibility_li_29": "Управляемый (Operable): Компоненты интерфейса поддаются управлению",
-      "legal_accessibility_li_30": "Понятный (Understandable): Информация и пользовательский интерфейс понятны",
-      "legal_accessibility_li_31": "Надежный (Robust): Контент может быть интерпретирован различными технологиями",
-      "legal_accessibility_li_32": "NVDA (Windows)",
-      "legal_accessibility_li_33": "JAWS (Windows)",
-      "legal_accessibility_li_34": "VoiceOver (Mac/iOS)",
-      "legal_accessibility_li_35": "TalkBack (Android)",
-      "legal_accessibility_li_36": "Dragon NaturallySpeaking",
-      "legal_accessibility_li_37": "Switch navigation",
-      "legal_accessibility_li_38": "Автоматические инструменты проверки доступности",
-      "legal_accessibility_li_39": "Ручное тестирование с программами чтения с экрана",
-      "legal_accessibility_li_40": "Навигация только с помощью клавиатуры",
-      "legal_accessibility_li_41": "Проверка контрастности цветов",
-      "legal_accessibility_li_42": "Тестирование с пользователями с ограниченными возможностями",
-      "legal_accessibility_li_43": "Компания: [business_name]",
-      "legal_accessibility_li_44": "Электронная почта: [business_email]",
-      "legal_accessibility_li_45": "Телефон: [business_phone]",
-      "thank_you_meta_description": "Спасибо за обращение к XADO Израиль. Ваше обращение успешно получено, и мы свяжемся с вами в ближайшее время.",
-      "contact_us_meta_description": "Свяжитесь с XADO ISRAEL для профессиональной консультации, заказа продуктов и технической поддержки. Мы здесь, чтобы помочь вам выбрать лучшие решения для вашего автомобиля.",
-      "legal_accessibility_link_17": "[business_email]",
-      "legal_accessibility_link_18": "[business_phone]",
-      "legal_accessibility_link_19": "← Вернуться на сайт",
+      "legal_accessibility_li_19": "поддержка навигации с помощью клавиатуры",
+      "legal_accessibility_li_20": "поддержка программ чтения с экрана",
+      "legal_accessibility_li_21": "подходящий цветовой контраст",
+      "legal_accessibility_li_22": "гибкие размеры шрифтов с возможностью увеличения",
+      "legal_accessibility_li_23": "подробные описания изображений (Alt text)",
+      "legal_accessibility_li_24": "иерархически структурированные заголовки",
+      "legal_accessibility_li_25": "описательные и понятные ссылки",
+      "legal_accessibility_li_26": "поддержка масштабирования до 200% без потери содержимого",
+      "legal_accessibility_li_27": "воспринимаемый (Perceivable): информация представлена способами, которые пользователи могут воспринять",
+      "legal_accessibility_li_28": "управляемый (Operable): компоненты интерфейса можно использовать",
+      "legal_accessibility_li_29": "понятный (Understandable): информация и пользовательский интерфейс понятны",
+      "legal_accessibility_li_30": "надежный (Robust): содержимое может быть интерпретировано различными технологиями",
+      "legal_accessibility_li_31": "NVDA (Windows)",
+      "legal_accessibility_li_32": "JAWS (Windows)",
+      "legal_accessibility_li_33": "VoiceOver (Mac/iOS)",
+      "legal_accessibility_li_34": "TalkBack (Android)",
+      "legal_accessibility_li_35": "Dragon NaturallySpeaking",
+      "legal_accessibility_li_36": "Switch navigation",
+      "legal_accessibility_li_37": "автоматические инструменты проверки доступности",
+      "legal_accessibility_li_38": "Ручное тестирование с программами чтения с экрана",
+      "legal_accessibility_li_39": "Навигация только с помощью клавиатуры",
+      "legal_accessibility_li_40": "Проверка контрастности цветов",
+      "legal_accessibility_li_41": "Тестирование с пользователями с ограниченными возможностями",
+      "legal_accessibility_li_42": "Компания: XADO ISRAEL",
+      "legal_accessibility_li_43": "Email: done2000@gmail.com",
+      "legal_accessibility_li_44": "Телефон: 03-1234567",
+      "thank_you_meta_description": "Спасибо за обращение в XADO Израиль. Ваше обращение успешно получено, и мы свяжемся с вами в ближайшее время.",
+      "contact_us_meta_description": "Свяжитесь с XADO ISRAEL для профессиональных консультаций, заказа продуктов и технической поддержки. Мы здесь, чтобы помочь вам выбрать лучшие решения для вашего автомобиля.",
+      "legal_accessibility_link_17": "done2000@gmail.com",
+      "legal_accessibility_link_18": "← Вернуться на сайт",
       "accessibility_placeholder_63": "Поиск товаров...",
       "accessibility_placeholder_64": "Поиск товаров...",
       "order_success_placeholder_32": "Поиск товаров...",
       "order_success_placeholder_33": "Поиск товаров...",
-      "product__slug_placeholder_26": "Поиск продуктов...",
-      "product__slug_placeholder_27": "Поиск продуктов...",
+      "product__slug_placeholder_26": "Поиск товаров...",
+      "product__slug_placeholder_27": "Поиск товаров...",
       "return_policy_placeholder_45": "Поиск товаров...",
       "return_policy_placeholder_46": "Поиск товаров...",
-      "category__slug_placeholder_28": "Поиск товаров...",
-      "category__slug_placeholder_29": "Поиск товаров...",
+      "category__slug_placeholder_28": "Поиск продуктов...",
+      "category__slug_placeholder_29": "Поиск продуктов...",
       "accessibility_meta_description": "Наша декларация доступности - наша приверженность цифровой доступности",
-      "legal_accessibility_page_title": "Заявление о доступности - [business_name]"
+      "legal_accessibility_page_title": "Заявление о доступности - XADO ISRAEL"
     }
   }
 };
