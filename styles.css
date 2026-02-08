@@ -5707,6 +5707,30 @@ html[dir="rtl"] body {
 }
 
 
+/* ========== HERO ZOOM WRAPPER MOBILE FIX ========== */
+/* Fix hero image being cut out on mobile due to zoom wrapper fixed pixel dimensions */
+@media (max-width: 768px) {
+  .hero [data-zappy-zoom-wrapper="true"] {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    min-height: 0 !important;
+  }
+  .hero [data-zappy-zoom-wrapper="true"] img.hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
 
 /* ========== RTL MOBILE NAVBAR FIX (zappy-rtl-mobile-fix) ========== */
 /* High-specificity rules to ensure RTL positioning wins over any [lang="en"] conflicts */
