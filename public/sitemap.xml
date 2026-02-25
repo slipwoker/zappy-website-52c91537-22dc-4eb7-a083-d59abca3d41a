@@ -2,91 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xadoisrael.com</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/category/:slug</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/about</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/cart</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/checkout</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/login</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/account</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/order-success</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/product/:slug</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/contact-us</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/thank-you</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/products</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/privacy</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/terms</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/accessibility</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
