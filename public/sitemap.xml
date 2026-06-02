@@ -2,92 +2,212 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://xadoisrael.com</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/category/:slug</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/about</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/cart</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/checkout</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/login</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/account</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/order-success</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/product/:slug</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/contact-us</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/thank-you</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/products</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/privacy</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/terms</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://xadoisrael.com/accessibility</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/atomic-metal-conditioner-lmgbr-hgh-kvch-lmshayt-dyzl-uxspdn</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/atomic-metal-conditioner-lmshayvt-dyzl-am-tybt-hylvkym-avtvmtyt-m763kh</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/atomic-metal-conditioner-ltybt-hylvkym-ydnyt-lmshayt-dyzl-s4li4i</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/xtreme-economy-lmshayt-dyzl-tvsp-lchyskvn-bdlk-u9p8hd</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/xtreme-complex-mnkh-markt-dlk-mvrkb-sbl9id</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/revitalizant-ex120-ltybt-hylvkym-avtvmtyt-ujcru3</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/revitalizant-ex120-ltybvt-hylvkym-ydnyvt-3s1ed2</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/revitalizant-ex120-lmarkt-dlk-ixv3ks</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/verylube-hgnh-mpny-mmyr-ktlyty-lmnva-bnzyn-s7spb4</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/verylube-mnkh-markt-dlk-lmnvay-dyzl-cj7jgp</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/multi-cleaner-ltypvl-bmzrk-gz-vshstvmym-85yb8d</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/multi-cleaner-lmarkt-dlk-bmnvay-dyzl-px1hxa</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/vitaflush-lshtyph-vnykvy-markt-hshmn-shl-hmnva-kgm5mg</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/1-stage-revitalizant-lkl-svgy-hmnvaym-hhybrydyym-xno051</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/verylube-turbo-metal-conditioner-goaix4</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/revitalizant-ex120-lmnvay-dyzl-8xkflb</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/revitalizant-ex120-lmnvay-bnzyn-vgz-npt-nvzly-lpg-engines-cql8wl</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/atomex-totalflush-nykvy-markt-shmn-3k7x1f</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/atomic-metal-conditioner-lmnvay-rkby-shtch-vmshayvt-klvt-kraoj1</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xadoisrael.com/product/atomex-stop-leak-engine-tvsp-lmnyat-nzylvt-shmn-mnva-bsb5mi</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

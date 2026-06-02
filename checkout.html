@@ -223,6 +223,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="תשלום">
     <meta name="twitter:description" content="תשלום">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://xadoisrael.com#organization","name":"XADO ISRAEL","url":"https://xadoisrael.com","address":{"@type":"PostalAddress","streetAddress":"דוכיפת 5, נשר"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"done2000@gmail.com","telephone":"0544415969"}]},{"@type":"WebSite","@id":"https://xadoisrael.com#website","url":"https://xadoisrael.com","name":"XADO ISRAEL","publisher":{"@id":"https://xadoisrael.com#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://xadoisrael.com"},{"@type":"ListItem","position":2,"name":"Checkout","item":"https://xadoisrael.com/checkout"}]}]}</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicons -->
@@ -443,7 +444,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -720,7 +721,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -742,7 +743,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -832,8 +833,8 @@ html[dir="rtl"] body {
             }
             
             /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu &gt; li &gt; .menu-group-title,
-            #navMenu &gt; li &gt; .menu-group-title {
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -847,13 +848,13 @@ html[dir="rtl"] body {
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &gt; li &gt; .menu-group-title:hover,
-            #navMenu &gt; li &gt; .menu-group-title:hover {
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
             }
             
             /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover &gt; .sub-menu {
+            li:has(.menu-group-title):hover > .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -862,7 +863,7 @@ html[dir="rtl"] body {
             
             /* Hide menu items marked as hidden (overrides hover states) */
             .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover &gt; .sub-menu .zappy-hidden-menu-item {
+            li:has(.menu-group-title):hover > .sub-menu .zappy-hidden-menu-item {
               display: none !important;
               opacity: 0 !important;
               visibility: hidden !important;
@@ -915,9 +916,9 @@ html[dir="rtl"] body {
             }
             
             /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover &gt; .sub-menu,
-            nav li:hover &gt; .sub-menu,
-            .navbar li:hover &gt; .sub-menu {
+            .nav-menu li:hover > .sub-menu,
+            nav li:hover > .sub-menu,
+            .navbar li:hover > .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -955,8 +956,8 @@ html[dir="rtl"] body {
             }
             
             /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu &gt; li &gt; .menu-group-title,
-            #navMenu &gt; li &gt; .menu-group-title {
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -970,8 +971,8 @@ html[dir="rtl"] body {
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &gt; li &gt; .menu-group-title:hover,
-            #navMenu &gt; li &gt; .menu-group-title:hover {
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
               background-color: transparent !important;
             }
@@ -1012,18 +1013,18 @@ html[dir="rtl"] body {
               }
               
               /* Disable hover behavior on mobile */
-              .nav-menu li:hover &gt; .sub-menu,
-              nav li:hover &gt; .sub-menu,
-              .navbar li:hover &gt; .sub-menu {
+              .nav-menu li:hover > .sub-menu,
+              nav li:hover > .sub-menu,
+              .navbar li:hover > .sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
               }
               
               /* Enable visibility for expanded submenus */
-              .nav-menu li &gt; .sub-menu.mobile-expanded,
-              nav li &gt; .sub-menu.mobile-expanded,
-              .navbar li &gt; .sub-menu.mobile-expanded {
+              .nav-menu li > .sub-menu.mobile-expanded,
+              nav li > .sub-menu.mobile-expanded,
+              .navbar li > .sub-menu.mobile-expanded {
                 opacity: 1 !important;
                 visibility: visible !important;
                 pointer-events: auto !important;
@@ -1049,23 +1050,23 @@ html[dir="rtl"] body {
               }
               
               /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) &gt; a,
-              nav li:has(.sub-menu) &gt; a,
-              .navbar li:has(.sub-menu) &gt; a,
-              .nav-menu &gt; li &gt; .menu-group-title,
-              #navMenu &gt; li &gt; .menu-group-title {
+              .nav-menu li:has(.sub-menu) > a,
+              nav li:has(.sub-menu) > a,
+              .navbar li:has(.sub-menu) > a,
+              .nav-menu > li > .menu-group-title,
+              #navMenu > li > .menu-group-title {
                 flex: 1 !important;
               }
               
               /* HIDE EXISTING CHEVRONS/ARROWS from cloned sites to prevent duplicates */
-              .nav-menu li:has(.sub-menu) &gt; a .fa-chevron-down,
-              .nav-menu li:has(.sub-menu) &gt; a .fa-angle-down,
-              .nav-menu li:has(.sub-menu) &gt; a [class*="chevron"],
-              .nav-menu li:has(.sub-menu) &gt; a [class*="arrow"],
-              nav li:has(.sub-menu) &gt; a [class*="chevron"],
-              nav li:has(.sub-menu) &gt; a [class*="arrow"],
-              #navMenu li:has(.sub-menu) &gt; a [class*="chevron"],
-              #navMenu li:has(.sub-menu) &gt; a [class*="arrow"] {
+              .nav-menu li:has(.sub-menu) > a .fa-chevron-down,
+              .nav-menu li:has(.sub-menu) > a .fa-angle-down,
+              .nav-menu li:has(.sub-menu) > a [class*="chevron"],
+              .nav-menu li:has(.sub-menu) > a [class*="arrow"],
+              nav li:has(.sub-menu) > a [class*="chevron"],
+              nav li:has(.sub-menu) > a [class*="arrow"],
+              #navMenu li:has(.sub-menu) > a [class*="chevron"],
+              #navMenu li:has(.sub-menu) > a [class*="arrow"] {
                 display: none !important;
                 visibility: hidden !important;
               }
@@ -1103,9 +1104,9 @@ html[dir="rtl"] body {
               }
               
               /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) &gt; .sub-menu,
-              nav li:has(.sub-menu) &gt; .sub-menu,
-              .navbar li:has(.sub-menu) &gt; .sub-menu {
+              .nav-menu li:has(.sub-menu) > .sub-menu,
+              nav li:has(.sub-menu) > .sub-menu,
+              .navbar li:has(.sub-menu) > .sub-menu {
                 flex-basis: 100% !important;
                 width: 100% !important;
               }
@@ -1125,10 +1126,10 @@ html[dir="rtl"] body {
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth &gt; 768) {
+                if (window.innerWidth > 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&gt; btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&gt; {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu => {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -1151,7 +1152,7 @@ html[dir="rtl"] body {
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope &gt; a') || li.querySelector(':scope &gt; .menu-group-title');
+                  const parentLink = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -1211,7 +1212,7 @@ html[dir="rtl"] body {
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' &amp;&amp; mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -1445,7 +1446,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -1722,7 +1723,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -1744,7 +1745,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -2025,7 +2026,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -2302,7 +2303,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -2324,7 +2325,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -2605,7 +2606,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -2882,7 +2883,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -2904,7 +2905,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -3185,7 +3186,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -3462,7 +3463,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -3484,7 +3485,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -3765,7 +3766,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -4042,7 +4043,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -4064,7 +4065,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -4345,7 +4346,7 @@ div.lang-switcher-dropdown,
 .lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
 .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
 .navbar .nav-cta-container .lang-switcher-dropdown[style],
-div.lang-switcher &gt; div.lang-switcher-dropdown[style] {
+div.lang-switcher > div.lang-switcher-dropdown[style] {
   position: absolute !important;
   top: 100% !important;
   /* Default LTR: align to left */
@@ -4629,7 +4630,7 @@ html[dir="rtl"] body {
   
   /* Hide CTA button inside container on mobile */
   .nav-cta-container .nav-cta-btn,
-  .nav-cta-container &gt; a:not(.lang-option):not(.lang-switcher-current) {
+  .nav-cta-container > a:not(.lang-option):not(.lang-switcher-current) {
     display: none !important;
   }
   
@@ -4651,7 +4652,7 @@ html[dir="rtl"] body {
   .navbar .nav-cta-container .lang-switcher .lang-switcher-dropdown,
   .nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
   .lang-switcher .lang-switcher-dropdown[style*="position"],
-  div.lang-switcher &gt; div.lang-switcher-dropdown[style],
+  div.lang-switcher > div.lang-switcher-dropdown[style],
   [class*="lang-switcher"] .lang-switcher-dropdown[style] {
     position: absolute !important;
     top: 100% !important;
@@ -5893,37 +5894,38 @@ html[dir="rtl"] body {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/styles.css">
 
-    <style id="mobile-lang-menu-deployed-css">
-    @media (max-width: 768px) {
-      .lang-switcher,
-      .nav-cta-container .lang-switcher,
-      .nav-container .lang-switcher,
-      .navbar .lang-switcher,
-      .navbar .nav-cta-container .lang-switcher,
-      .nav-icons-left .lang-switcher,
-      .nav-ecommerce-icons .lang-switcher { display: none !important; }
-      .mobile-lang-menu { width: 100%; border-top: 1px solid rgba(128,128,128,0.2); padding: 8px 0 0 0; margin-top: 8px; }
-      .mobile-lang-toggle { display: flex !important; align-items: center; justify-content: space-between; width: 100%; padding: 12px 16px; background: none; border: none; cursor: pointer; font-size: 15px; color: inherit; font-family: inherit; }
-      .mobile-lang-toggle::after { content: ''; display: inline-block; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform 0.3s ease; margin-left: 8px; }
-      .mobile-lang-toggle.expanded::after { transform: rotate(-135deg); }
-      .mobile-lang-options { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-      .mobile-lang-options.expanded { max-height: 300px; }
-      .mobile-lang-option { display: flex !important; align-items: center; gap: 10px; padding: 10px 24px; text-decoration: none; color: inherit; font-size: 14px; font-family: inherit; }
-      .mobile-lang-option:hover { background: rgba(128,128,128,0.1); }
-      .mobile-lang-option.active { font-weight: 600; opacity: 0.7; pointer-events: none; }
-      .mobile-lang-option img { width: 20px; height: 20px; border-radius: 50%; }
-    }
-    @media (min-width: 769px) {
-      .mobile-lang-menu { display: none !important; }
-    }
-    </style>
-
     <style id="zappy-widget-visibility">
-      #mic-access-tool-general-button, .mic-access-tool-general-button,
-      #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
-      ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
-      #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"], ._access-menu {
-        display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+      html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+      html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+      html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
+      html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="ltr"] ._access-icon,
+      html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
+      html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
+      @media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+      @media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+      @media (max-width: 768px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
+        #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"], ._access-menu {
+          display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+        }
+      }
+      @media (min-width: 769px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
+        #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"], ._access-menu {
+          display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+        }
       }
     </style>
 </head>
@@ -5933,9 +5935,7 @@ html[dir="rtl"] body {
     window.ZAPPY_WEBSITE_ID = "52c91537-22dc-4eb7-a083-d59abca3d41a";
     // Preview pages are served by the Zappy server itself (localhost in dev), so use that base.
     // Deployed sites are static and must call the public Zappy API (never localhost).
-    window.ZAPPY_API_BASE = (window.location.pathname.includes('/preview'))
-      ? "https://api.zappy5.com"
-      : "https://api.zappy5.com";
+    window.ZAPPY_API_BASE = "https://api.zappy5.com";
   </script>
   
     <div class="mobile-search-panel" id="mobile-search-panel">
@@ -5980,10 +5980,13 @@ html[dir="rtl"] body {
         </svg>
       </a>
       <ul class="sub-menu" id="zappy-nav-category-links">
-        <li><a href="/products">כל המוצרים</a></li>
+        <li><a href="/products" data-i18n="ecom_products">מוצרים</a></li>
         <!-- Categories will be loaded dynamically -->
       </ul>
     </li>
+  
+
+    
   <li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/category/:slug">מוצרים</a></li><li><a href="/about">אודות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/cart">עגלת קניות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/checkout">המשך לתשלום</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/login">התחברות</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/account">החשבון שלי</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/order-success">ההזמנה התקבלה!</a></li><li style="display: none !important;" class="zappy-hidden-menu-item"><a href="/product/:slug">פרטי המוצר</a></li><li><a href="/contact-us">צור קשר</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><a href="/login" class="login-link nav-login" title="התחברות"><svg class="login-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a><a href="#cart" class="cart-link nav-cart" id="cart-drawer-toggle" title="עגלת קניות"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count">0</span></a><div class="nav-search-box">
     <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
     <button class="nav-search-btn" id="nav-search-btn" title="חיפוש">
@@ -6030,15 +6033,15 @@ html[dir="rtl"] body {
                 </div>
                 <div class="checkout-accordion-body">
                   <div class="checkout-login-prompt" id="checkout-login-prompt">
-                    <span>כבר יש לך חשבון?</span>&nbsp;<a href="/login" class="checkout-login-link" id="checkout-login-link">התחבר כאן</a>
+                    <span id="checkout-already-have-account">כבר יש לך חשבון?</span>&nbsp;<a href="/login" class="checkout-login-link" id="checkout-login-link">התחבר כאן</a>
                   </div>
                   <div class="checkout-logged-in" id="checkout-logged-in" style="display: none;">
                     <div class="checkout-logged-in-text">
-                      <span>מחובר כ:</span>
+                      <span id="checkout-logged-in-label" data-i18n="ecom_loggedInAs">מחובר כ:</span>
                       <strong id="checkout-logged-in-name"></strong>
                       <span id="checkout-logged-in-email"></span>
                     </div>
-                    <button type="button" class="checkout-logout-btn" id="checkout-logout-btn">התנתק</button>
+                    <button type="button" class="checkout-logout-btn" id="checkout-logout-btn" data-i18n="ecom_logout">התנתק</button>
                   </div>
                   <div class="checkout-form-fields">
                     <div class="input-wrapper">
@@ -6181,12 +6184,12 @@ html[dir="rtl"] body {
                 <div class="coupon-error" id="coupon-error" style="display: none;"></div>
               </div>
               <div class="order-totals">
-                <div class="order-totals-row"><span>סכום ביניים</span><span id="subtotal">₪0</span></div>
-                <div class="order-totals-row vat-row" id="vat-row"><span>כולל מע"מ</span><span id="vat-amount">₪0</span></div>
-                <div class="order-totals-row"><span>משלוח</span><span id="shipping-cost">₪0</span></div>
-                <div class="order-totals-row discount-row" id="discount-row" style="display: none;"><span>הנחה</span><span id="discount" class="discount-value">-₪0</span></div>
+                <div class="order-totals-row"><span data-ecom-label="subtotal">סכום ביניים:</span><span id="subtotal">₪0</span></div>
+                <div class="order-totals-row vat-row" id="vat-row"><span data-ecom-label="vatIncluded">כולל מע"מ:</span><span id="vat-amount">₪0</span></div>
+                <div class="order-totals-row" id="shipping-row"><span data-ecom-label="shipping">משלוח:</span><span id="shipping-cost">₪0</span></div>
+                <div class="order-totals-row discount-row" id="discount-row" style="display: none;"><span data-ecom-label="discount">הנחה:</span><span id="discount" class="discount-value">₪0</span></div>
                 <div class="checkout-order-divider"></div>
-                <div class="order-totals-row total"><span>סה"כ לתשלום</span><span id="order-total">₪0</span></div>
+                <div class="order-totals-row total"><span data-ecom-label="totalToPay">סה"כ לתשלום:</span><span id="order-total">₪0</span></div>
               </div>
               <div class="terms-checkbox-wrapper">
                 <label class="terms-checkbox-label">
@@ -6195,11 +6198,14 @@ html[dir="rtl"] body {
                 </label>
                 <span class="field-error" id="terms-checkbox-error"></span>
               </div>
-              <button class="btn btn-primary checkout-place-order-btn" id="place-order-btn" disabled>בצע הזמנה</button>
+              <button class="btn btn-primary checkout-place-order-btn" id="place-order-btn" data-i18n="ecom_placeOrder" disabled>בצע הזמנה</button>
               <div id="greeninvoice-iframe-container" style="display: none;">
                 <div class="greeninvoice-iframe-wrapper">
                   <iframe id="greeninvoice-iframe" frameborder="0" allowpaymentrequest="true"></iframe>
                 </div>
+              </div>
+              <div id="grow-sdk-container" style="display: none;">
+                <div class="grow-sdk-wrapper"></div>
               </div>
             </div>
           </div>
@@ -6239,7 +6245,7 @@ html[dir="rtl"] body {
     </footer>
   
 <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
-<aside class="cart-drawer rtl" id="cart-drawer" dir="rtl">
+<aside class="cart-drawer" id="cart-drawer">
   <div class="cart-drawer-header">
     <h2>עגלת הקניות שלך</h2>
     <button type="button" class="cart-drawer-close" id="cart-drawer-close" aria-label="סגור">
@@ -6257,6 +6263,14 @@ html[dir="rtl"] body {
     <a href="/checkout" class="cart-drawer-checkout">המשך לתשלום</a>
   </div>
 </aside>
+  
+<div class="zappy-qv-overlay" id="zappy-qv-overlay" hidden></div>
+<div class="zappy-qv-modal" id="zappy-qv-modal" role="dialog" aria-modal="true" aria-label="תצוגה מהירה" hidden>
+  <button type="button" class="zappy-qv-close" id="zappy-qv-close" aria-label="סגור">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="zappy-qv-content" id="zappy-qv-content"></div>
+</div>
   <script>
   <!-- Search handling for e-commerce pages -->
   (function() {
@@ -6274,8 +6288,24 @@ html[dir="rtl"] body {
         url.searchParams.set('search', query);
         window.location.href = url.toString();
       } else {
-        // In deployed mode, navigate to products with search
-        window.location.href = '/products?search=' + encodeURIComponent(query);
+        // In deployed mode, navigate to the catalog in the ACTIVE language.
+        // Static catalog pages (/products) are served as per-language files
+        // (/en/products), while the courses catalog (/courses) is language-
+        // switched via ?lang. Derive the active language from the current URL
+        // (path prefix on static pages, ?lang on courses pages) so search keeps
+        // the language instead of dropping back to the site default. NOTE: the
+        // \ in the regex is intentional — this block lives in a template
+        // literal that bakes the page, so a bare \/ would be dropped.
+        var base = '/products';
+        var activeLang = (function() {
+          try { var q = new URLSearchParams(window.location.search).get('lang'); if (q) return q.toLowerCase(); } catch (e) {}
+          var m = (window.location.pathname || '').match(/^\/([a-z]{2})(?:\/|$)/i);
+          return m ? m[1].toLowerCase() : '';
+        })();
+        var dest = base === '/courses'
+          ? base + '?search=' + encodeURIComponent(query) + (activeLang ? '&lang=' + encodeURIComponent(activeLang) : '')
+          : (activeLang ? '/' + activeLang : '') + base + '?search=' + encodeURIComponent(query);
+        window.location.href = dest;
       }
     }
     
@@ -6336,6 +6366,7 @@ html[dir="rtl"] body {
     }
   })();
   </script>
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
     <script src="/script.js"></script>
 
@@ -6387,76 +6418,6 @@ html[dir="rtl"] body {
           observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
         });
       }, 500);
-    })();
-    </script>
-
-    <script id="zappy-mobile-lang-menu-script">
-    (function() {
-      function initMobileLangMenu() {
-        if (window.innerWidth > 768) {
-          var existingMenu = document.querySelector('.mobile-lang-menu');
-          if (existingMenu) existingMenu.remove();
-          return;
-        }
-        if (document.querySelector('.mobile-lang-menu')) return;
-        var switcher = document.querySelector('.lang-switcher');
-        if (!switcher) return;
-        var dropdown = switcher.querySelector('.lang-switcher-dropdown');
-        if (!dropdown) return;
-        var options = dropdown.querySelectorAll('.lang-option');
-        if (options.length === 0) return;
-        var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu') || document.querySelector('nav ul');
-        if (!navMenu) return;
-        var currentLang = document.documentElement.lang || 'en';
-        var langConfigs = {
-          he: {name:'עברית',flag:'https://api.iconify.design/circle-flags/il.svg'},
-          en: {name:'English',flag:'https://api.iconify.design/circle-flags/us.svg'},
-          ar: {name:'العربية',flag:'https://api.iconify.design/circle-flags/sa.svg'},
-          fr: {name:'Français',flag:'https://api.iconify.design/circle-flags/fr.svg'},
-          es: {name:'Español',flag:'https://api.iconify.design/circle-flags/es.svg'},
-          de: {name:'Deutsch',flag:'https://api.iconify.design/circle-flags/de.svg'},
-          ru: {name:'Русский',flag:'https://api.iconify.design/circle-flags/ru.svg'},
-          zh: {name:'中文',flag:'https://api.iconify.design/circle-flags/cn.svg'},
-          ja: {name:'日本語',flag:'https://api.iconify.design/circle-flags/jp.svg'},
-          pt: {name:'Português',flag:'https://api.iconify.design/circle-flags/br.svg'},
-          it: {name:'Italiano',flag:'https://api.iconify.design/circle-flags/it.svg'},
-          ko: {name:'한국어',flag:'https://api.iconify.design/circle-flags/kr.svg'}
-        };
-        var container = document.createElement('div');
-        container.className = 'mobile-lang-menu';
-        var currentConfig = langConfigs[currentLang] || {name:currentLang,flag:''};
-        var toggleBtn = document.createElement('button');
-        toggleBtn.className = 'mobile-lang-toggle';
-        toggleBtn.type = 'button';
-        var currentFlagHtml = currentConfig.flag ? '<img src="' + currentConfig.flag + '" width="20" height="20" alt="" style="border-radius:50%;margin-right:8px;margin-left:8px;">' : '';
-        toggleBtn.innerHTML = currentFlagHtml + currentConfig.name;
-        container.appendChild(toggleBtn);
-        var optionsDiv = document.createElement('div');
-        optionsDiv.className = 'mobile-lang-options';
-        var currentLink = document.createElement('a');
-        currentLink.className = 'mobile-lang-option active';
-        currentLink.href = '#';
-        currentLink.innerHTML = currentFlagHtml + currentConfig.name;
-        optionsDiv.appendChild(currentLink);
-        options.forEach(function(opt) {
-          var link = document.createElement('a');
-          link.className = 'mobile-lang-option';
-          link.href = opt.getAttribute('href');
-          link.innerHTML = opt.innerHTML;
-          optionsDiv.appendChild(link);
-        });
-        container.appendChild(optionsDiv);
-        navMenu.appendChild(container);
-        toggleBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          toggleBtn.classList.toggle('expanded');
-          optionsDiv.classList.toggle('expanded');
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileLangMenu); }
-      else { initMobileLangMenu(); }
-      window.addEventListener('resize', function() { clearTimeout(window._mlrt); window._mlrt = setTimeout(initMobileLangMenu, 250); });
     })();
     </script>
 </body>

@@ -1,4 +1,6 @@
-# Business — Generative Engine Optimization Map
+# XADO ISRAEL — Generative Engine Optimization Map
+
+> A תוספי רכב business.
 
 ---
 
@@ -68,12 +70,192 @@ Information about WCAG compliance and accessibility features.
 
 ---
 
-# Business Context (for LLM understanding)
+## Products
 
-## About Business
+**Total active products: 20**
+
+### ATOMIC METAL CONDITIONER למגבר הגה כוח למשאית דיזל
+https://xadoisrael.com/product/atomic-metal-conditioner-lmgbr-hgh-kvch-lmshayt-dyzl-uxspdn
+- Price: 145.00 ILS (sale, was 199.00 ILS)
+- Availability: In stock
+- Category: תוספים למערכות הידראוליוט
+- Description: התרכובת מיועדת לחידוש - תיקון, שיקום, הגנה מפני שחיקה והארכת חיי השירות של מגבר הגה כוח וחלקי ציוד הידראולי אחרים, שיפור תכונות הסיכה של הנוזל ההידראולי. נוסחה דו-רכיבית מיוחדת של התרכובת מאפשרת להשיג את האפקט של שיקום בו זמנית של חלקים שחוקים, הגנה עליהם מפני שחיקה ושיפור תכונות הסיכה של הנוזל ההידראולי משקם את משטחי הפעולה של החלקים ומפצה על הבלאי הנוכחי שלהם מפחית את כוח ההיגוי מבטל את יללת המשאבה הנגרמת מבלאי מגדיל את קיבולת השאיבה מפחית את הרעש והוויברציות של משאבת המערכת ההידראולית משפר את…
+- Image: https://xadoisrael.com/assets/product-1769758559484-bkafov.webp
+
+### ATOMIC METAL CONDITIONER למשאיות דיזל עם תיבת הילוכים אוטומטית
+https://xadoisrael.com/product/atomic-metal-conditioner-lmshayvt-dyzl-am-tybt-hylvkym-avtvmtyt-m763kh
+- Price: 150.00 ILS (sale, was 189.00 ILS)
+- Availability: Out of stock
+- Category: תוספים לתיבת הילוכים
+- Description: מיועד לתיקון, שיקום והגנה נגד לבוש של תיבות הילוכים אוטומטיות תוסף שמן רב תכליתי. מרכך מתכת אטומי לתיבות הילוכים אוטומטיות. מכיל Revitalizant®. התרכובת מיועדת לשיקום, תיקון והגנה מפני שחיקה של כל סוגי תיבות ההילוכים האוטומטיות. במהלך הטיפול, Revitalizant® יוצר ציפוי קרמי-מתכתי על פני השטח של חלקי המתכת החיכוך של תיבת ההילוכים האוטומטית (גלגלי שיניים, מיסבים, מפזרים), ובכך משנה את משטחי ההפעלה ומפצה על הבלאי המתמשך של החלקים. כתוצאה מכך, הגיאומטריה של החלקים משוחזרת. מרכך המתכת מחזק את שכבת הסיכה…
+- Image: https://xadoisrael.com/assets/product-1769588664456-4ywdln.webp
+
+### ATOMIC METAL CONDITIONER לתיבת הילוכים ידנית למשאית דיזל
+https://xadoisrael.com/product/atomic-metal-conditioner-ltybt-hylvkym-ydnyt-lmshayt-dyzl-s4li4i
+- Price: 150.00 ILS (sale, was 189.00 ILS)
+- Availability: In stock
+- Category: תוספים לתיבת הילוכים
+- Description: המוצר מיועד לשיקום, תיקון והגנה מפני בלאי של מכלולי תיבות הילוכים מכניות הוא יוצר ציפוי קרמי-מתכתי על פני השטח של גלגלי שיניים, צירים, מיסבים, מסנכרונים וכו'. כתוצאה מכך, משוחזרת הגיאומטריה של החלקים. המוצר מיושם באופן אוניברסלי לטיפול בתיבות הילוכים מכניות, רובוטיות וסדרתיות, כולל תיבות הילוכים Direct Shift, תיבות העברה וסרנים (דיפרנציאלים). הודות לנוסחה הדו-רכיבית, מרכך המתכת האטומי Maximum Transmission for Diesel Truck מספק רמה נוספת של הגנה מפני בלאי. יש לו פוטנציאל מורחב לשיקום משטחים שחוקי…
+- Image: https://xadoisrael.com/assets/product-1769588164155-1qadni.webp
+
+### XTREME ECONOMY  למשאית דיזל, תוסף לחיסכון בדלק
+https://xadoisrael.com/product/xtreme-economy-lmshayt-dyzl-tvsp-lchyskvn-bdlk-u9p8hd
+- Price: 169.00 ILS (sale, was 230.00 ILS)
+- Availability: Out of stock
+- Category: תוספים למערכת דלק
+- Description: תוסף מיוחד לחסכון מקסימלי בדלק עבור רכבי שטח, משאיות וטנדרים תוסף מיוחד להשגת צריכת דלק מרבית מפחית אובדן חיכוך מיידי בקבוצת הצילינדר-בוכנה במהלך פעולת המנוע מספק אפקט עמיד הודות להצטברות של משפרי חיכוך צריכת דלק נוספת מושגת הודות להשפעת תוספי הדטרגנטים לניקוי החרירים. משפר את תכונות הסיכה של דלק הסולר ומספק הגנה על ציוד הדלק על ידי יישום דלק דל גופרית. מנקה את שסתום ה-EGR. רכיבים: תוספים דטרגנטים-מפזרים. אריזה: פחית 500 מ"ל מק"ט XA 40278_1 הוראות שימוש: יש להכניס את התוסף למיכל הדלק לפני התדלוק…
+- Image: https://xadoisrael.com/assets/product-1769588003912-mm7kn9.webp
+
+### XTREME COMPLEX מנקה מערכת דלק מורכב
+https://xadoisrael.com/product/xtreme-complex-mnkh-markt-dlk-mvrkb-sbl9id
+- Price: 169.00 ILS (sale, was 230.00 ILS)
+- Availability: In stock
+- Category: תוספים למערכת דלק
+- Description: ניקוי יסודי של מערכת הדלק של רכבי שטח, משאיות וטנדרים מנקה פיה, צינורות דלק, בוכנות ותא בעירה ממשקעים, מונע היווצרותם נוספת; משפר את שריפת הדלק ומפחית את צריכתו; מסיר לחות ממערכת הדלק; מבטל בעיות של כוכב קר; מפחית את תכולת הרכיבים המזיקים בגזי הפליטה. הוראות שימוש: הכנס את חומר הניקוי למיכל הדלק לפני התדלוק. מינון: 500 מ"ל של חומר ניקוי לכל 500 ליטר (כ-130 גלונים) של דלק; ליטר אחד של חומר ניקוי לכל 1000 ליטר (כ-260 גלונים) של דלק. הערה: לתוצאות טובות יותר, השתמשו במוצר הניקוי עם כל תדלוק.
+- Image: https://xadoisrael.com/assets/product-1769587835671-ogobyv.webp
+
+### REVITALIZANT EX120 לתיבת הילוכים אוטומטית
+https://xadoisrael.com/product/revitalizant-ex120-ltybt-hylvkym-avtvmtyt-ujcru3
+- Price: 180.00 ILS
+- Availability: Out of stock
+- Category: תוספים לתיבת הילוכים
+- Description: Extreme Action 120% משחזר, מתקן ומגן על מתכת תיבת ההילוכים של רכב. הוא מתחיל במילוי שריטות או משטחים שחוקים בתיבת ההילוכים (גלגלי שיניים, מיסבים, בלוקי חלוקה, מצמדים וכו'), משחזר גיאומטריה ומחזיר את הבלאי. לאחר מכן, EX120 מצפה את המשטחים המטופלים בשכבה מווסתת עצמית של מתכת קרמית כדי להגן על תיבת ההילוכים מפני בלאי עתידי. EX120 עובד בכל סוגי תיבות ההילוכים האוטומטיות, כולל טיפטרוניק, סטפטרוניק, CVT וכו'. החלק הטוב ביותר ב-EX120 הוא שטיפול אחד מחזיק מעמד 62,000 מייל! עם ריכוז גבוה ב-20% של חומר פע…
+- Image: https://xadoisrael.com/assets/product-1769587096550-gwmcdd.webp
+
+### REVITALIZANT EX120 לתיבות הילוכים ידניות
+https://xadoisrael.com/product/revitalizant-ex120-ltybvt-hylvkym-ydnyvt-3s1ed2
+- Price: 180.00 ILS
+- Availability: Out of stock
+- Category: תוספים לתיבת הילוכים
+- Description: Extreme Action 120% משקם, מתקן ומגן על מתכת שחוקה בתיבות הילוכים ידניות. הוא מתחיל במילוי שריטות או משטחים שחוקים במתכת (גלגלי שיניים, מיסבים, בלוקי חלוקה, מצמדים וכו'), שחזור גיאומטריה והיפוך בלאי. לאחר מכן, EX120 מצפה את המשטחים המטופלים בשכבה של מתכת קרמית כדי להגן על המתכת המטופלת מפני בלאי עתידי. ניתן ליישם את EX120 באופן אוניברסלי על תיבות הילוכים ידניות ורובוטיות, תיבות הילוכים סדרתיות, כולל מסוג Direct Shift, תיבות העברה ודיפרנציאלים. החלק הטוב ביותר ב-EX120 הוא שטיפול אחד מחזיק מעמד ל-6…
+- Image: https://xadoisrael.com/assets/product-1769586832027-kecj8g.webp
+
+### REVITALIZANT EX120 למערכת דלק
+https://xadoisrael.com/product/revitalizant-ex120-lmarkt-dlk-ixv3ks
+- Price: 179.98 ILS
+- Availability: In stock
+- Category:   תוספים למנוע 
+- Description: המוצר נועד להגן מפני בלאי ולספק תיקון משקם לכל סוגי ציוד הדלק של מנועי בנזין ודיזל. בשל ריכוז החומר הפעיל הגבוה ב-20%*, הוא מציע פוטנציאל שיקום חזק למשטחים שחוקים והגנה מפני בלאי. *בהשוואה לג'ל-חידוש של XADO לציוד דלק. במהלך הטיפול במשאבות דלק, המוצר יוצר ציפוי מתכת-קרמי על פני חלקי המתכת החיכוך. כתוצאה מכך, הגיאומטריה של כל החלקים משוחזרת. המוצר חידוש אוניברסלי לכל סוגי מערכות הדלק, כולל K-\KE-\L-Jetronic, Common Rail, Pumpe Düse וכו'. המינון תלוי בקיבולת מערכת השמן. משקם גיאומטריה ומגן על חלקי…
+- Image: https://xadoisrael.com/assets/product-1769586160160-03gci1h.webp
+
+### VERYLUBE הגנה מפני ממיר קטליטי למנוע בנזין
+https://xadoisrael.com/product/verylube-hgnh-mpny-mmyr-ktlyty-lmnva-bnzyn-s7spb4
+- Price: 99.00 ILS
+- Availability: In stock
+- Category: תוספים למערכת דלק
+- Description: מונע חנק של ממיר הזרז עקב משקעים שנוצרו לאחר שימוש בדלק באיכות ירודה. מבטיח בעירה מלאה יותר של הדלק, מגביר את דירוג האוקטן שלו ומשפר את קיבולת המנוע. תורם לניקוי ממיר הזרז/מסנן החלקיקים ממשקעים שנוצרו קודם לכן. מאפשר להימנע מתיקונים יקרים במקרה של תקלה בממיר הזרז/מסנן החלקיקים. מספק ניקוי מורכב של מערכת הדלק ותא הבעירה מכל סוגי הזיהומים והמשקעים. מכיל רק תרכובות אורגניות (לא מתכתיות), מבטיח הגנה על חלקי מערכת הפליטה מפני שריפה. יישום 1. יש להכניס את תוכן הבקבוק דרך צוואר מיכל הדלק לפני התדלוק בי…
+- Image: https://xadoisrael.com/assets/product-1769585749990-nj4zzp.webp
+
+### VERYLUBE מנקה מערכת דלק למנועי דיזל
+https://xadoisrael.com/product/verylube-mnkh-markt-dlk-lmnvay-dyzl-cj7jgp
+- Price: 99.00 ILS
+- Availability: In stock
+- Category: תוספים למערכת דלק
+- Description: ניכוי יסודי כללי למערכת דלק למנועי דיזל יתרונות מאפשר הימנעות מתיקונים יקרים במקרה של תקלה בממיר הזרז/מסנן החלקיקים. מספק ניקוי מורכב של מערכת הדלק ותא הבעירה מכל סוגי הזיהום והמשקעים. מכיל רק תרכובות אורגניות (לא מתכתיות), מבטיח הגנה על חלקי מערכת הפליטה מפני שריפה. תורם לניקוי ממיר הזרז/מסנן החלקיקים ממשקעים שנוצרו קודם לכן. יישום החדירו את תוכן הבקבוק דרך צוואר מיכל הדלק לפני המילוי ביחס של בקבוק אחד (250 מ"ל) ל-40-60 ליטר דלק. סעו ברכב כרגיל.ה
+- Image: https://xadoisrael.com/assets/product-1769585364759-p5uxk.webp
+
+### MULTI CLEANER לטיפול במזרק גז ושסתומים
+https://xadoisrael.com/product/multi-cleaner-ltypvl-bmzrk-gz-vshstvmym-85yb8d
+- Price: 79.00 ILS (sale, was 99.00 ILS)
+- Availability: Out of stock
+- Category: תוספים למערכת דלק
+- Description: ניקוי אפקטיבי בעל ביצועים גבוהים עד לרמת הטוהר הטכני למערכות דלק במנועי בנזין מנקה מערכת דלק בעל ביצועים גבוהים למנועי בנזין. מנקה את מערכת הדלק עד לרמת טוהר טכנית. מציע אלטרנטיבה מושלמת לניקוי מזרקים על בסיס שולחני. משפר את ביצועי משאבת הדלק. מגן באופן אמין על מערכת הדלק. במהלך תפעול רגיל של הרכב ונהיגה על בנזין רגיל, נוצרים באופן בלתי נמנע משקעים במערכת הדלק. משקעים אלה מפחיתים את עוצמת המנוע, מגבירים את צריכת הדלק ואת רעילות גזי הפליטה, מגבירים את הסיכון לפיצוץ וגורמים לרעידות. פתרון: ניקוי ק…
+- Image: https://xadoisrael.com/assets/product-1769584294529-nx0ta.webp
+
+### MULTI CLEANER למערכת דלק במנועי דיזל 
+https://xadoisrael.com/product/multi-cleaner-lmarkt-dlk-bmnvay-dyzl-px1hxa
+- Price: 79.00 ILS (sale, was 99.00 ILS)
+- Availability: Out of stock
+- Category: תוספים למערכת דלק
+- Description: ניכוי אפקטיבי למערכת דלק במנועי דיזל ניקוי אפקטיבי בעל ביצועים גבוהים עד לרמת הטוהר הטכני למערכות דלק במנועי דיזל מנקה מערכת דלק בעל ביצועים גבוהים למנועי דיזל. מנקה את מערכת הדלק עד לרמת טוהר טכני. מציע אלטרנטיבה מושלמת לניקוי מזרקים על בסיס שולחני. משפר את ביצועי משאבת הדלק. מגן באופן אמין על מערכת הדלק. במהלך תפעול רגיל של הרכב ונהיגה על סולר סטנדרטי, נוצרים באופן בלתי נמנע משקעים במערכת הדלק. משקעים אלה מפחיתים את עוצמת המנוע, מגבירים את צריכת הדלק ואת רעילות גזי הפליטה, מגבירים את הסיכון לפ…
+- Image: https://xadoisrael.com/assets/product-1769584119388-0ui9bp.webp
+
+### VitaFlush לשטיפה וניקוי מערכת השמן של המנוע 
+https://xadoisrael.com/product/vitaflush-lshtyph-vnykvy-markt-hshmn-shl-hmnva-kgm5mg
+- Price: 79.00 ILS
+- Availability: Out of stock
+- Category:   תוספים למנוע 
+- Description: פריט זה הוא חלק מקטגוריית המבצעים המיוחדת שלנו, המציעה חיסכון משמעותי של 50% מהמחיר המקורי. שימו לב שמוצר זה נמכר כפי שהוא ואינו ניתן להחזרה או להחזר כספי. ייתכן שהוא מגיע עם נזקים קלים, חסר אריזה מקורית, או במצבים ייחודיים אחרים. למרות גורמים אלה, הפריט נשאר פונקציונלי ומציג הזדמנות חשובה לקונים בעלי ערך רב. על ידי רכישת מוצר זה, הנכם מאשרים ומסכימים לתנאים אלה. מנקה VitaFlush נועד לנקות את מערכת השמן של מנועי הדלק והדיזל מכל הסוגים (כולל מנועי טורבו) ויחידות תיבת ההילוכים. מנקה לחלוטין את כל ה…
+- Image: https://xadoisrael.com/assets/product-1769583866531-o07iqr.webp
+
+### 1 STAGE revitalizant לכל סוגי המנועים ההיברידיים
+https://xadoisrael.com/product/1-stage-revitalizant-lkl-svgy-hmnvaym-hhybrydyym-xno051
+- Price: 169.00 ILS (sale, was 180.00 ILS)
+- Availability: In stock
+- Category:   תוספים למנוע 
+- Description: גלו את XADO 1 Stage Revitalizant, הפתרון המתקדם לשיקום והגנה על מנוע היברידי. הוא מבוסס על טכנולוגיית REVITALIZANT מהדור השלישי, נלחם בבלאי הנגרם מפעולת "התנעה-עצירה", מפחית את צריכת הדלק, משחזר את הדחיסה ומאריך את חיי המנוע פי 2-3. מתאים לכל כלי הרכב ההיברידיים, הוא יוצר שכבת קרמיקה-מתכת עמידה המשפרת את ההספק, מפחיתה רעש ומגנה על המנוע מפני התנעות קרות והתחממות יתר. קל לשימוש ותואם לכל שמני המנוע. השג ביצועים ואמינות אופטימליים עבור המכונית ההיברידית שלך בצעד אחד פשוט. משקם משטחי חיכוך, מגן ומח…
+- Image: https://xadoisrael.com/assets/product-1769583706664-ebqluu.webp
+
+### VERYLUBE TURBO metal conditioner
+https://xadoisrael.com/product/verylube-turbo-metal-conditioner-goaix4
+- Price: 79.00 ILS
+- Availability: Out of stock
+- Category:   תוספים למנוע 
+- Description: מוצר רב-רכיבי מרוכז וסינטטי לחלוטין, המורכב על בסיס התגליות האחרונות בטריבולוגיה ובכימיה. נוסח במיוחד למנועי בעירה פנימית. הוא משמש להגנה מורכבת על חלקי חיכוך של מנועי בנזין ודיזל, כולל מנועי טורבו. מגביר את עוצמת המנוע מגביר את הדחיסה מפחית רעש ורעידות מפחית את צריכת השמן משפר את המאפיינים הדינמיים של הרכב מפחית את צריכת הדלק משפר את תכונות שמן המנוע מגן על חלקי המנוע מפני בלאי מקל על התנעה קרה מפחית פליטות מזיקות יישום מזוג את המרכך למנוע המחומם דרך צוואר מילוי השמן הנח למנוע לפעול בסרק במשך 3…
+- Image: https://xadoisrael.com/assets/product-1769583540271-4vh3bh.webp
+
+### REVITALIZANT EX120 למנועי דיזל
+https://xadoisrael.com/product/revitalizant-ex120-lmnvay-dyzl-8xkflb
+- Price: 144.00 ILS (sale, was 179.99 ILS)
+- Availability: In stock
+- Category: תוספים למערכת דלק
+- Description: Extreme Action 120% (EX120) Revitalizant משחזר, מתקן ומגן על מתכת המנוע בכל סוגי מנועי הדיזל, כולל מנועי טורבו ודיזל בעלי ביצועים גבוהים. Extreme Action 120% מתקן שריטות ובלאי הנגרמים מחום וחיכוך גבוהים, ולאחר מכן יוצר שכבה מגנה ומווסתת את עצמה של מתכת-קרמית על חלקים שטופלו כדי להגן על מתכת המנוע מפני בלאי עתידי. בדיקות בלתי תלויות מראות כי Revitalizant מגביר את דחיסת המנוע, מגדיל את כוחות הסוס, מפחית פליטות ומשפר את צריכת הדלק! EX120 מסייע למנועים לפעול בצורה חלקה יותר ולהחזיק מעמד זמן רב יותר.…
+- Image: https://xadoisrael.com/assets/product-1769583402882-p8pl3m.webp
+
+### REVITALIZANT EX120 למנועי בנזין וגז נפט נוזלי LPG engines
+https://xadoisrael.com/product/revitalizant-ex120-lmnvay-bnzyn-vgz-npt-nvzly-lpg-engines-cql8wl
+- Price: 144.00 ILS (sale, was 180.00 ILS)
+- Availability: Out of stock
+- Category:   תוספים למנוע 
+- Description: אקסטרים אקשן 120% (EX120) משקם, מתקן ומגן על מתכת המנוע בכל סוגי כלי הרכב המונעים בבנזין ובגז טבעי, כולל מנועי טורבו ומגדשי-על. אקשן 120% מתקן שריטות ובלאי הנגרמים מחום וחיכוך גבוהים, ולאחר מכן יוצר שכבה מגנה ומווסתת את עצמה של מתכת-קרמית על חלקים שטופלו כדי להגן על מתכת המנוע מפני בלאי עתידי. בדיקות בלתי תלויות מראות ש-Revitalizant מגביר את דחיסת המנוע, מגדיל את כוחות הסוס, מפחית פליטות ומשפר את צריכת הדלק! EX120 מסייע למנועים לפעול בצורה חלקה יותר ולהחזיק מעמד זמן רב יותר. EX120 תואם לכל סוגי …
+- Image: https://xadoisrael.com/assets/product-1769583241165-874ua9.webp
+
+### Atomex TotalFlush ניכוי מערכת שמן
+https://xadoisrael.com/product/atomex-totalflush-nykvy-markt-shmn-3k7x1f
+- Price: 99.00 ILS
+- Availability: In stock
+- Category:   תוספים למנוע 
+- Description: מנקה מערכת שמן מנוע עם אפקט אנטי-פחמן על טבעות בוכנה. מכיל חומר חידוש. מנקה את מערכת שמן המנוע לרמת טוהר טכנית. מסיר פחמן ומשקם את הניידות של טבעות בוכנה תקועות. אוניברסלי לכל סוגי המנועים, כולל מנועים עם מגדשי טורבו. השימוש במערכת חידוש מספק יצירת עתודה להגנה על המנוע. החלפת שמן ללא שטיפה מקדימה של מערכת השמן גורמת להחמרה בתכונות הדטרגנטים וההגנה של שמן המנוע החדש, לקיצור חיי השירות שלו. פתרון: שטיפה של מערכת השמן לפני החלפת השמן. שימוש בשמן באיכות נמוכה, הפעלת המנוע בתנאים קשים (נסיעות קצרות י…
+- Image: https://xadoisrael.com/assets/product-1769582753575-43xk2.webp
+
+### ATOMIC METAL CONDITIONER למנועי רכבי שטח ומשאיות קלות
+https://xadoisrael.com/product/atomic-metal-conditioner-lmnvay-rkby-shtch-vmshayvt-klvt-kraoj1
+- Price: 269.00 ILS
+- Availability: Out of stock
+- Description: XADO 1 Stage Maximum SUV תוכנן במיוחד עבור מנועי רכבי שטח ומשאיות קלות המכילים בין 5 ל-10 ליטר שמן מנוע. באמצעות אותה טכנולוגיית Revitalizant® מוכחת הנמצאת במוצרי הדגל של XADO, נוסחה זו מספקת שכבת קרמיקה-מתכת מגנה בתוך המנוע, משקמת משטחים שחוקים, מפחיתה חיכוך ומספקת את העמידות הנוספת לה זקוקים מנועים גדולים יותר. מדוע REVITALIZANT חשוב כלי רכב גדולים או כבדים יותר בדרך כלל עובדים תחת עומסים גבוהים יותר, במיוחד רכבי שטח ומשאיות קלות המשמשים לגרירה או לשטח. Revitalizant מכוון לאזורי החיכוך בעלי הל…
+- Image: https://xadoisrael.com/assets/product-1769582623819-i3kbxa.webp
+
+### ATOMEX® Stop Leak Engine - תוסף למניעת נזילות שמן מנוע
+https://xadoisrael.com/product/atomex-stop-leak-engine-tvsp-lmnyat-nzylvt-shmn-mnva-bsb5mi
+- Price: 99.00 ILS
+- Availability: In stock
+- Category:   תוספים למנוע 
+- Description: תוסף שמן למנוע STOP-LEAK המוצר מכיל רכיבים מיוחדים המשקמים את גמישות חומרי האיטום וכתוצאה מכך מסירים דליפות שמן. משקם את הגמישות ויכולת המתיחה של אטמי גומי ואטימות מונע דליפות שמן מהמנוע ומונע את הופעתן בעתיד משפר את המגע בין אטם למתכת מבטל את הצורך בתיקונים יקרים תואם לשמני מנוע מכל הסוגים יישום יש להכניס את המוצר לשמן מנוע חם. אפקט האיטום מתרחש לאחר 190-300 מייל של נסיעה. יישום אוניברסלי לכל סוגי המנועים (רכבים ומתקנים נייחים, סירות מנוע, אופנועים וכו'). בטוח למנועי טורבו. הערה כאמצעי מניעה (ל…
+- Image: https://xadoisrael.com/assets/product-1769518870846-gfvtrpn.webp
+
 ---
 
-# Additional Resources
+# Business Context (for LLM understanding)
 
-- **Sitemap**: https://xadoisrael.com/sitemap.xml
-- **Robots.txt**: https://xadoisrael.com/robots.txt
+## About XADO ISRAEL
+XADO ISRAEL is a business in the תוספי רכב industry.
+
+## Target Audience
+- חובבי רכב
+- מכונאים מקצועיים
+- מנהלי צי רכבים
+- נהגי שטח
+- נהגי רכב חסכוני
+
+## Industry
+תוספי רכב
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://xadoisrael.com/sitemap.xml
+- Robots: https://xadoisrael.com/robots.txt
+- Flattened page text (for LLMs): https://xadoisrael.com/llms-full.txt
+- Products (JSON): https://xadoisrael.com/products.json
+- Products (Google Merchant RSS): https://xadoisrael.com/product-feed.xml
