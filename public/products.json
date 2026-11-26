@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "generated_at": "2026-11-26T09:14:47.648Z",
+  "generated_at": "2026-11-26T09:15:27.556Z",
   "base_url": "https://xadoisrael.com",
   "currency": "ILS",
   "count": 20,
@@ -115,30 +115,30 @@
     },
     {
       "id": "751a8c04-b293-4416-9651-bdada540d3a5",
-      "slug": "xtreme-complex-mnkh-markt-dlk-mvrkb-sbl9id",
+      "slug": "xtreme-complex-mnkh-markt-dlk-mvrkb-z24q64",
       "name": "XTREME COMPLEX מנקה מערכת דלק מורכב",
       "name_translations": {
         "he": "XTREME COMPLEX מנקה מערכת דלק מורכב",
         "ru": "XTREME COMPLEX комплексный очиститель топливной системы"
       },
-      "description": "<p>ניקוי יסודי של מערכת הדלק של רכבי שטח, משאיות וטנדרים</p><p><br></p><ul><li>מנקה פיה, צינורות דלק, בוכנות ותא בעירה ממשקעים, מונע היווצרותם נוספת;</li><li>משפר את שריפת הדלק ומפחית את צריכתו;</li><li>מסיר לחות ממערכת הדלק;</li><li>מבטל בעיות של כוכב קר;</li><li>מפחית את תכולת הרכיבים המזיקים בגזי הפליטה.</li></ul><p><br></p><p><strong>הוראות שימוש:</strong></p><p><br></p><p>הכנס את חומר הניקוי למיכל הדלק לפני התדלוק.</p><p><br></p><p><strong>מינון:</strong></p><p><br></p><p>500 מ\"ל של חומר ניקוי לכל 500 ליטר (כ-130 גלונים) של דלק; ליטר אחד של חומר ניקוי לכל 1000 ליטר (כ-260 גלונים) של דלק.</p><p><br></p><p><strong>הערה:</strong></p><p><br></p><p>לתוצאות טובות יותר, השתמשו במוצר הניקוי עם כל תדלוק.</p>",
+      "description": "<p>ניקוי יסודי של מערכת הדלק של רכבי שטח, משאיות וטנדרים</p><p></p><ul><li>מנקה פיה, צינורות דלק, בוכנות ותא בעירה ממשקעים, מונע היווצרותם נוספת;</li><li>משפר את שריפת הדלק ומפחית את צריכתו;</li><li>מסיר לחות ממערכת הדלק;</li><li>מבטל בעיות של כוכב קר;</li><li>מפחית את תכולת הרכיבים המזיקים בגזי הפליטה.</li></ul><p></p><p><strong>הוראות שימוש:</strong></p><p></p><p>הכנס את חומר הניקוי למיכל הדלק לפני התדלוק.</p><p></p><p><strong>מינון:</strong></p><p></p><p>500 מ&quot;ל של חומר ניקוי לכל 500 ליטר (כ-130 גלונים) של דלק; ליטר אחד של חומר ניקוי לכל 1000 ליטר (כ-260 גלונים) של דלק.</p><p></p><p><strong>הערה:</strong></p><p></p><p>לתוצאות טובות יותר, השתמשו במוצר הניקוי עם כל תדלוק.</p>",
       "short_description": null,
       "sku": null,
       "brand": null,
-      "price": 169,
+      "price": 230,
       "base_price": 230,
-      "sale_price": 169,
+      "sale_price": null,
       "currency": "ILS",
       "images": [
         "https://xadoisrael.com/assets/product-1769587835671-ogobyv.webp"
       ],
       "in_stock": true,
       "stock_status": "in_stock",
-      "url": "https://xadoisrael.com/product/xtreme-complex-mnkh-markt-dlk-mvrkb-sbl9id",
+      "url": "https://xadoisrael.com/product/xtreme-complex-mnkh-markt-dlk-mvrkb-z24q64",
       "categories": [
         "תוספים למערכת דלק"
       ],
-      "updated_at": "2026-02-07T16:04:41.157Z"
+      "updated_at": "2026-11-26T09:14:53.528Z"
     },
     {
       "id": "8a45d3f5-722a-4c50-a1f4-853af874068f",
